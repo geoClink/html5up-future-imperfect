@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Contact - George Clinkscales</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">George Clinkscales</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="about.html" class="button">About</a></li>
+								<li><a href="case-studies.html" class="button">Case Studies</a></li>
+								<li><a href="contact.html" class="button">Contact</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="contact.html">
+											<h3>Contact</h3>
+											<p>Get in touch with me</p>
+										</a>
+									</li>
+									<li>
+										<a href="about.html">
+											<h3>About</h3>
+											<p>Learn more about me</p>
+										</a>
+									</li>
+									<li>
+										<a href="case-studies.html">
+											<h3>Case Studies</h3>
+											<p>View my work</p>
+										</a>
+									</li>
+									<li>
+										<a href="index.html">
+											<h3>Home</h3>
+											<p>Back to main page</p>
+										</a>
+									</li>
+								</ul>
+							</section>
+
+						<!-- Actions -->
+							<section>
+								<ul class="actions stacked">
+									<li><a href="index.html" class="button large fit">Home</a></li>
+								</ul>
+							</section>
+
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Contact Section -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2>Contact Me</h2>
+										<p>Let's get in touch</p>
+									</div>
+								</header>
+
+								<section>
+									<h3>Get in Touch</h3>
+									<p>I'd love to hear from you. Feel free to reach out through any of the methods below or use the contact form.</p>
+
+									<form id="contactForm" method="post" action="#">
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-xsmall">
+												<input type="text" name="name" id="name" placeholder="Your Name" />
+											</div>
+											<div class="col-6 col-12-xsmall">
+												<input type="email" name="email" id="email" placeholder="Your Email" />
+											</div>
+											<div class="col-12">
+												<input type="text" name="subject" id="subject" placeholder="Subject" />
+											</div>
+											<div class="col-12">
+												<textarea name="message" id="message" placeholder="Your Message" rows="6"></textarea>
+											</div>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" value="Send Message" /></li>
+													<li><input type="reset" value="Clear" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</section>
+
+								<script>
+									(function () {
+										const form = document.getElementById('contactForm');
+										if (!form) return;
+										form.addEventListener('submit', function (e) {
+											e.preventDefault();
+
+											const name = (document.getElementById('name') || {}).value || '';
+											const email = (document.getElementById('email') || {}).value || '';
+											const subject = (document.getElementById('subject') || {}).value || 'Contact from website';
+											const message = (document.getElementById('message') || {}).value || '';
+
+											// Basic validation
+											if (!email || !message) {
+												alert('Please provide at least your email and a message.');
+												return;
+											}
+
+											// Recipient address (replace if you prefer a different one)
+											const recipient = 'gclinkscales25@msu.idserve.net';
+
+											// Build mailto link
+											const bodyLines = [];
+											if (name) bodyLines.push('Name: ' + name);
+											bodyLines.push('Email: ' + email);
+											if (subject) bodyLines.push('Subject: ' + subject);
+											bodyLines.push('');
+											bodyLines.push(message);
+											const body = encodeURIComponent(bodyLines.join('\n'));
+											const mailto = `mailto:${encodeURIComponent(recipient)}?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+											// Open user's mail client
+											window.location.href = mailto;
+										});
+									})();
+								</script>
+
+								<section>
+									<h3>Connect With Me</h3>
+									<ul class="icons">
+										<li><a href="https://github.com/geoClink" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+										<li><a href="https://www.linkedin.com/in/george-clinkscales/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="mailto:gclinkscales25@msu.idserve.net" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+									</ul>
+								</section>
+							</article>
+
+					</div>
+
+				<!-- Sidebar -->
+					<section id="sidebar">
+
+						<!-- Intro -->
+							<section id="intro">
+								<a href="index.html" class="logo"><img src="images/logo.jpg" alt="" /></a>
+								<header>
+									<h2>George Clinkscales</h2>
+									<p>Building accessible digital experiences</p>
+								</header>
+							</section>
+
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<section id="footer">
+				<ul class="icons">
+					<li><a href="https://github.com/geoClink" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="https://www.linkedin.com/in/george-clinkscales/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="mailto:gclinkscales25@msu.idserve.net" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<p class="copyright">&copy; George Clinkscales. Design: <a href="http://html5up.net">HTML5 UP</a>.</p>
+			</section>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

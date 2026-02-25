@@ -1,0 +1,862 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>George Clinkscales</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			.testimonials-section {
+				margin: 4em 0;
+				padding: 4em 2em;
+				background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+				border-radius: 12px;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+			}
+			.testimonials-section h2 {
+				text-align: center;
+				margin-bottom: 0.5em;
+				font-size: 2em;
+				color: #222;
+			}
+			.testimonials-section > p {
+				text-align: center;
+				color: #666;
+				margin-bottom: 2.5em;
+				font-size: 1.05em;
+			}
+			.testimonials-slider {
+				position: relative;
+				max-width: 850px;
+				margin: 0 auto;
+				padding: 0 60px;
+			}
+			.testimonials-container {
+				overflow: hidden;
+				position: relative;
+				min-height: 280px;
+			}
+			.testimonial-slide {
+				display: none;
+				opacity: 0;
+				transition: opacity 0.6s ease-in-out;
+				position: absolute;
+				width: 100%;
+				top: 0;
+				left: 0;
+			}
+			.testimonial-slide.active {
+				display: block;
+				opacity: 1;
+				position: relative;
+			}
+			@keyframes slideIn {
+				from { opacity: 0; transform: translateY(10px); }
+				to { opacity: 1; transform: translateY(0); }
+			}
+			.testimonial-slide.active {
+				animation: slideIn 0.6s ease-out;
+			}
+			.testimonial-card {
+				background: white;
+				padding: 2.5em;
+				border-radius: 8px;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+				border-top: 4px solid var(--accent-start);
+			}
+			.testimonial-quote {
+				position: relative;
+				margin-bottom: 1.5em;
+			}
+			.testimonial-quote::before {
+				content: '"';
+				font-size: 4em;
+				opacity: 0.1;
+				position: absolute;
+				top: -20px;
+				left: -15px;
+				font-family: Georgia, serif;
+			}
+			.testimonial-text {
+				font-size: 1.05em;
+				line-height: 1.6;
+				color: #333;
+				font-style: italic;
+				margin: 0;
+				padding-left: 1em;
+			}
+			/* testimonial-rating removed by request */
+			.testimonial-author {
+				display: flex;
+				align-items: center;
+				gap: 1em;
+			}
+			/* avatar removed — keep class in case of future use */
+			.testimonial-avatar { display:none; }
+			.testimonial-info {
+				flex: 1;
+			}
+			.testimonial-name {
+				font-weight: bold;
+				color: #222;
+				margin: 0;
+				font-size: 1em;
+			}
+			.testimonial-title {
+				color: #666;
+				font-size: 0.85em;
+				margin: 0;
+				font-style: normal;
+			}
+			.testimonial-nav {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				background: white;
+				color: var(--accent-start);
+				border: 2px solid var(--accent-start);
+				padding: 10px 14px;
+				font-size: 18px;
+				cursor: pointer;
+				border-radius: 50%;
+				transition: all 0.3s ease;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 44px;
+				height: 44px;
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			}
+			.testimonial-nav:hover {
+				background: var(--accent-start);
+				color: white;
+				box-shadow: 0 4px 8px rgba(96,68,63,0.25);
+			}
+			.testimonial-nav.prev {
+				left: 0;
+			}
+			.testimonial-nav.next {
+				right: 0;
+			}
+			.testimonial-indicators {
+				display: flex;
+				justify-content: center;
+				gap: 0.6em;
+				margin-top: 2em;
+			}
+			.indicator-dot {
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: #ddd;
+				cursor: pointer;
+				transition: all 0.3s ease;
+			}
+			.indicator-dot.active {
+				background: var(--accent-start);
+				transform: scale(1.2);
+			}
+			.indicator-dot:hover {
+				background: #999;
+			}
+			@media (max-width: 768px) {
+				.testimonials-section {
+					padding: 2.5em 1.5em;
+					margin: 2em 0;
+				}
+				.testimonials-section h2 {
+					font-size: 1.6em;
+				}
+				.testimonials-slider {
+					padding: 0 50px;
+				}
+				.testimonial-card {
+					padding: 1.8em;
+				}
+				.testimonial-nav {
+					width: 40px;
+					height: 40px;
+					font-size: 16px;
+					padding: 8px 12px;
+				}
+				.testimonial-text {
+					font-size: 0.95em;
+				}
+			}
+			@media (max-width: 500px) {
+				.testimonials-slider {
+					padding: 0 45px;
+				}
+				.testimonial-nav {
+					width: 36px;
+					height: 36px;
+					padding: 6px 10px;
+					font-size: 14px;
+				}
+				.testimonial-card {
+					padding: 1.5em;
+				}
+				.testimonial-quote::before {
+					font-size: 3em;
+				}
+			}
+			.intro-section {
+				text-align: center;
+				margin-bottom: 4em;
+				padding: 3em 2em;
+			}
+			.intro-section .logo {
+				margin-bottom: 1.5em;
+				display: inline-block;
+				position: relative;
+				border-bottom: 0; /* remove global link underline */
+				cursor: default; /* don't show pointer to imply clickability */
+			}
+			.intro-section .logo::before {
+				content: '';
+				position: absolute;
+				inset: -8px;
+				z-index: 0;
+				background: var(--accent-gradient);
+				-webkit-clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+				clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+				transform: rotate(90deg);
+				transform-origin: center center;
+				border-radius: 4px;
+			}
+			.intro-section .logo img {
+				width: 150px;
+				height: 150px;
+				display: block;
+				object-fit: cover;
+				position: relative;
+				z-index: 1;
+				-webkit-clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+				clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+				/* Counter-rotate the image so it remains upright while the hexagon orientation changes */
+				transform: rotate(-90deg);
+				transform-origin: center center;
+			}
+			.intro-section h2 {
+				font-size: 3.2em;
+				margin: 0.2em 0 0.25em 0;
+				color: #222;
+			}
+			.intro-section p {
+				font-size: 1.15em;
+				color: #666;
+				margin: 0;
+				font-style: italic;
+			}
+			/* Hero CTA */
+			.intro-section .actions { margin-top: 1.25em; }
+			.intro-section .button.primary {
+				background: var(--accent-start);
+				color: #fff;
+				border: 0;
+				padding: 0.8em 1.2em;
+				border-radius: 8px;
+				font-weight: 700;
+				box-shadow: 0 4px 10px rgba(96,68,63,0.12);
+			}
+			.intro-section .button.primary:hover { opacity: 0.95; }
+			
+			/* Featured projects: grid + larger thumbnails */
+			.featured-projects { margin-top: 2.5em; }
+			.featured-projects .projects {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1.5em;
+				align-items: start;
+			}
+			.featured-projects .project .image img {
+				width: 100%;
+				height: 220px;
+				object-fit: cover;
+				border-radius: 8px;
+			}
+			@media (max-width: 980px) {
+				.featured-projects .projects { grid-template-columns: repeat(2, 1fr); }
+			}
+			@media (max-width: 680px) {
+				.featured-projects .projects { grid-template-columns: 1fr; }
+			}
+			@media (max-width: 768px) {
+				.intro-section {
+					padding: 2em 1em;
+					margin-bottom: 3em;
+				}
+				.intro-section h2 {
+					font-size: 2em;
+				}
+				.intro-section .logo img {
+					width: 120px;
+					height: 120px;
+				}
+			}
+			#footer {
+				text-align: center;
+				padding: 3em 2em;
+				margin-top: 4em;
+				background: #f9f9f9;
+				border-top: 1px solid #e5e5e5;
+			}
+			#footer .icons {
+				margin-bottom: 1.5em;
+			}
+			#footer .copyright {
+				font-size: 0.9em;
+				color: #666;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">George Clinkscales</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="about.html" class="button">About</a></li>
+								<li><a href="case-studies.html" class="button">Case Studies</a></li>
+								<li><a href="contact.html" class="button">Contact</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="#">
+											<h3>Lorem ipsum</h3>
+											<p>Feugiat tempus veroeros dolor</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Dolor sit amet</h3>
+											<p>Sed vitae justo condimentum</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Feugiat veroeros</h3>
+											<p>Phasellus sed ultricies mi congue</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Etiam sed consequat</h3>
+											<p>Porta lectus amet ultricies</p>
+										</a>
+									</li>
+								</ul>
+							</section>
+
+						<!-- Actions -->
+							<section>
+								<ul class="actions stacked">
+									<li><a href="#" class="button large fit">Log In</a></li>
+								</ul>
+							</section>
+
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+					<!-- Intro Section -->
+						<section class="intro-section">
+							<a href="index.html" class="logo"><img src="images/logo.jpg" alt="George Clinkscales" /></a>
+							<header>
+								<h2>George Clinkscales</h2>
+								<p>Building accessible digital experiences</p>
+								
+							</header>
+						</section>
+
+					<!-- Featured Case Studies -->
+						<section class="featured-projects">
+							<h2>Featured Case Studies</h2>
+							<div class="projects">
+								<article class="project">
+									<a href="project1.html" class="image"><img src="images/pic01.jpg" alt="Stamped! project image" /></a>
+									<h3>Stamped! — A City Passport</h3>
+									<p>An all-in-one travel companion that gamifies global exploration. By blending interactive education and curated local insights with essential utility tools like real-time currency conversion, and itineraries curated by on device Apple Intelligence it transforms every journey into an immersive, rewarding adventure.</p>
+									<ul class="actions"><li><a href="project1.html" class="button">View Case Study</a></li></ul>
+								</article>
+								<article class="project">
+									<a href="project2.html" class="image"><img src="images/pic02.jpg" alt="Take Flight project image" /></a>
+									<h3>Take Flight — A Bird's Life</h3>
+									<p>A Belle Isle survival experience made up of four different mini-games built in SpriteKit.</p>
+									<ul class="actions"><li><a href="project2.html" class="button">View Case Study</a></li></ul>
+								</article>
+								<article class="project">
+									<a href="project3.html" class="image"><img src="images/pic03.jpg" alt="Common Sight project image" /></a>
+									<h3>Common Sight</h3>
+									<p>Created a design system and component library for consistent accessibility.</p>
+									<ul class="actions"><li><a href="project3.html" class="button">View Case Study</a></li></ul>
+								</article>
+							</div>
+						</section>
+
+					
+
+								<!-- Testimonials (moved up) -->
+						<section class="testimonials-section">
+							<h2>What Clients Say</h2>
+							<p>Real feedback from team members and clients I've worked with.</p>
+							<div class="testimonials-slider">
+								<div class="testimonials-container">
+									<div class="testimonial-slide active">
+										<div class="testimonial-card">
+							
+											<div class="testimonial-quote">
+												<p class="testimonial-text">George's attention to accessibility and code quality made a significant difference in our project. Highly professional and detail-oriented.</p>
+											</div>
+											<div class="testimonial-author">
+												<div class="testimonial-avatar">JD</div>
+												<div class="testimonial-info">
+													<p class="testimonial-name">Jane Doe</p>
+													<p class="testimonial-title">CEO at Design Co.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="testimonial-slide">
+										<div class="testimonial-card">
+							
+											<div class="testimonial-quote">
+												<p class="testimonial-text">Working with George was a fantastic experience. He delivered on time and exceeded expectations with creative solutions.</p>
+											</div>
+											<div class="testimonial-author">
+												<div class="testimonial-avatar">JS</div>
+												<div class="testimonial-info">
+													<p class="testimonial-name">John Smith</p>
+													<p class="testimonial-title">Product Manager</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="testimonial-slide">
+										<div class="testimonial-card">
+							
+											<div class="testimonial-quote">
+												<p class="testimonial-text">George understands both design and development deeply. His ability to bridge the gap between disciplines is invaluable.</p>
+											</div>
+											<div class="testimonial-author">
+												<div class="testimonial-avatar">SJ</div>
+												<div class="testimonial-info">
+													<p class="testimonial-name">Sarah Johnson</p>
+													<p class="testimonial-title">Creative Director</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<button class="testimonial-nav prev" onclick="moveTestimonial(-1)">&#10094;</button>
+								<button class="testimonial-nav next" onclick="moveTestimonial(1)">&#10095;</button>
+							</div>
+							<div class="testimonial-indicators">
+								<div class="indicator-dot active" onclick="goToTestimonial(0)"></div>
+								<div class="indicator-dot" onclick="goToTestimonial(1)"></div>
+								<div class="indicator-dot" onclick="goToTestimonial(2)"></div>
+							</div>
+						</section>
+
+						
+						<!--
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="#">Elements</a></h2>
+										<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2015-10-18">October 18, 2015</time>
+										<a href="#" class="author"><span class="name">Jane Doe</span><img src="images/avatar.jpg" alt="" /></a>
+									</div>
+								</header>
+
+								<section>
+									<h3>Text</h3>
+									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+									<hr />
+									<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+									<hr />
+									<h2>Heading Level 2</h2>
+									<h3>Heading Level 3</h3>
+									<h4>Heading Level 4</h4>
+									<hr />
+									<h4>Blockquote</h4>
+									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+									<h4>Preformatted</h4>
+									<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+  print 'Iteration ' + i;
+  deck.shuffle();
+  i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+								</section>
+
+								<section>
+									<h3>Lists</h3>
+									<div class="row">
+										<div class="col-6 col-12-medium">
+											<h4>Unordered</h4>
+											<ul>
+												<li>Dolor pulvinar etiam.</li>
+												<li>Sagittis adipiscing.</li>
+												<li>Felis enim feugiat.</li>
+											</ul>
+											<h4>Alternate</h4>
+											<ul class="alt">
+												<li>Dolor pulvinar etiam.</li>
+												<li>Sagittis adipiscing.</li>
+												<li>Felis enim feugiat.</li>
+											</ul>
+										</div>
+										<div class="col-6 col-12-medium">
+											<h4>Ordered</h4>
+											<ol>
+												<li>Dolor pulvinar etiam.</li>
+												<li>Etiam vel felis viverra.</li>
+												<li>Felis enim feugiat.</li>
+												<li>Dolor pulvinar etiam.</li>
+												<li>Etiam vel felis lorem.</li>
+												<li>Felis enim et feugiat.</li>
+											</ol>
+											<h4>Icons</h4>
+											<ul class="icons">
+												<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+												<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+												<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+												<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+											</ul>
+										</div>
+									</div>
+									<h3>Actions</h3>
+									<div class="row">
+										<div class="col-6 col-12-medium">
+											<ul class="actions">
+												<li><a href="#" class="button">Default</a></li>
+												<li><a href="#" class="button">Default</a></li>
+												<li><a href="#" class="button">Default</a></li>
+											</ul>
+											<ul class="actions small">
+												<li><a href="#" class="button small">Small</a></li>
+												<li><a href="#" class="button small">Small</a></li>
+												<li><a href="#" class="button small">Small</a></li>
+											</ul>
+											<ul class="actions stacked">
+												<li><a href="#" class="button">Default</a></li>
+												<li><a href="#" class="button">Default</a></li>
+												<li><a href="#" class="button">Default</a></li>
+											</ul>
+											<ul class="actions stacked">
+												<li><a href="#" class="button small">Small</a></li>
+												<li><a href="#" class="button small">Small</a></li>
+												<li><a href="#" class="button small">Small</a></li>
+											</ul>
+										</div>
+										<div class="col-6 col-12-medium">
+											<ul class="actions stacked">
+												<li><a href="#" class="button fit">Default</a></li>
+												<li><a href="#" class="button fit">Default</a></li>
+											</ul>
+											<ul class="actions stacked">
+												<li><a href="#" class="button small fit">Small</a></li>
+												<li><a href="#" class="button small fit">Small</a></li>
+											</ul>
+										</div>
+									</div>
+								</section>
+
+								<section>
+									<h3>Table</h3>
+									<h4>Default</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<h4>Alternate</h4>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</section>
+
+								<section>
+									<h3>Buttons</h3>
+									<ul class="actions">
+										<li><a href="#" class="button large">Large</a></li>
+										<li><a href="#" class="button">Default</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<ul class="actions fit">
+										<li><a href="#" class="button fit">Fit</a></li>
+										<li><a href="#" class="button fit">Fit</a></li>
+										<li><a href="#" class="button fit">Fit</a></li>
+									</ul>
+									<ul class="actions fit small">
+										<li><a href="#" class="button fit small">Fit + Small</a></li>
+										<li><a href="#" class="button fit small">Fit + Small</a></li>
+										<li><a href="#" class="button fit small">Fit + Small</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+										<li><a href="#" class="button icon solid fa-upload">Icon</a></li>
+										<li><a href="#" class="button icon solid fa-save">Icon</a></li>
+									</ul>
+									<ul class="actions">
+										<li><span class="button disabled">Disabled</span></li>
+										<li><span class="button disabled icon solid fa-download">Disabled</span></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3>Form</h3>
+									<form method="post" action="#">
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-xsmall">
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+											</div>
+											<div class="col-6 col-12-xsmall">
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+											</div>
+											<div class="col-12">
+												<select name="demo-category" id="demo-category">
+													<option value="">- Category -</option>
+													<option value="1">Manufacturing</option>
+													<option value="1">Shipping</option>
+													<option value="1">Administration</option>
+													<option value="1">Human Resources</option>
+												</select>
+											</div>
+											<div class="col-4 col-12-small">
+												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+												<label for="demo-priority-low">Low</label>
+											</div>
+											<div class="col-4 col-12-small">
+												<input type="radio" id="demo-priority-normal" name="demo-priority">
+												<label for="demo-priority-normal">Normal</label>
+											</div>
+											<div class="col-4 col-12-small">
+												<input type="radio" id="demo-priority-high" name="demo-priority">
+												<label for="demo-priority-high">High</label>
+											</div>
+											<div class="col-6 col-12-small">
+												<input type="checkbox" id="demo-copy" name="demo-copy">
+												<label for="demo-copy">Email me a copy</label>
+											</div>
+											<div class="col-6 col-12-small">
+												<input type="checkbox" id="demo-human" name="demo-human" checked>
+												<label for="demo-human">Not a robot</label>
+											</div>
+											<div class="col-12">
+												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+											</div>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" value="Send Message" /></li>
+													<li><input type="reset" value="Reset" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</section>
+
+								<section>
+									<h3>Image</h3>
+									<h4>Fit</h4>
+									<div class="box alt">
+										<div class="row gtr-uniform">
+											<div class="col-12"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic05.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic06.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic06.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic05.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic05.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic06.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
+										</div>
+									</div>
+									<h4>Left &amp; Right</h4>
+									<p><span class="image left"><img src="images/pic07.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+									<p><span class="image right"><img src="images/pic04.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+								</section>
+
+							</article>
+						-->
+
+						
+
+					</div>
+
+			</div>
+
+		<!-- Footer -->
+			<section id="footer">
+				<ul class="icons">
+					<li><a href="https://github.com/geoClink" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="https://www.linkedin.com/in/george-clinkscales/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="mailto:gclinkscales25@msu.idserve.net" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<p class="copyright">&copy; George Clinkscales. Design: <a href="http://html5up.net">HTML5 UP</a>.</p>
+			</section>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+		<script>
+			function updateTestimonialSlide(index) {
+				const slides = document.querySelectorAll('.testimonial-slide');
+				const indicators = document.querySelectorAll('.indicator-dot');
+				
+				// Remove active class from all slides
+				slides.forEach(slide => slide.classList.remove('active'));
+				indicators.forEach(dot => dot.classList.remove('active'));
+				
+				// Wrap index if needed
+				if (index >= slides.length) index = 0;
+				if (index < 0) index = slides.length - 1;
+				
+				// Add active class to current slide and indicator
+				slides[index].classList.add('active');
+				indicators[index].classList.add('active');
+			}
+			
+			function moveTestimonial(direction) {
+				const slides = document.querySelectorAll('.testimonial-slide');
+				let currentIndex = 0;
+				
+				// Find current active slide
+				slides.forEach((slide, index) => {
+					if (slide.classList.contains('active')) {
+						currentIndex = index;
+					}
+				});
+				
+				// Calculate new index
+				currentIndex += direction;
+				updateTestimonialSlide(currentIndex);
+			}
+			
+			function goToTestimonial(index) {
+				updateTestimonialSlide(index);
+			}
+		</script>
+
+	</body>
+</html>
