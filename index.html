@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>George Clinkscales</title>
+		<title>George Clinkscales | Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="George Clinkscales portfolio featuring SwiftUI case studies in travel discovery, game systems, and civic technology." />
@@ -126,8 +126,8 @@
 				top: 50%;
 				transform: translateY(-50%);
 				background: white;
-				color: var(--accent-start) !important;
-				border: 2px solid var(--accent-start);
+				color: #888 !important;
+				border: 2px solid rgba(160, 160, 160, 0.45);
 				padding: 10px 14px;
 				font-size: 18px;
 				cursor: pointer;
@@ -141,17 +141,17 @@
 				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 			}
 			.testimonial-nav:hover {
-				background: var(--accent-start) !important;
+				background: #2ebaae !important;
 				color: #ffffff !important;
-				border-color: var(--accent-start) !important;
-				box-shadow: 0 4px 8px rgba(96,68,63,0.25) !important;
+				border-color: #2ebaae !important;
+				box-shadow: 0 4px 8px rgba(46,186,174,0.35) !important;
 			}
 			.testimonial-nav:focus,
 			.testimonial-nav:active {
 				color: #ffffff !important;
-				background: var(--accent-start) !important;
-				border-color: var(--accent-start) !important;
-				box-shadow: 0 4px 8px rgba(96,68,63,0.25) !important;
+				background: #2ebaae !important;
+				border-color: #2ebaae !important;
+				box-shadow: 0 4px 8px rgba(46,186,174,0.35) !important;
 			}
 			.testimonial-nav.prev {
 				left: 0;
@@ -178,7 +178,7 @@
 				transform: scale(1.2);
 			}
 			.indicator-dot:hover {
-				background: #999;
+				background: var(--accent-start);
 			}
 			@media (max-width: 768px) {
 				.testimonials-section {
@@ -295,7 +295,7 @@
 			.featured-projects { margin-top: 2.5em; }
 			.featured-projects .projects {
 				display: grid;
-				grid-template-columns: repeat(3, 1fr);
+				grid-template-columns: repeat(2, 1fr);
 				gap: 1.5em;
 				align-items: start;
 			}
@@ -303,12 +303,38 @@
 				display: flex;
 				flex-direction: column;
 				height: 100%;
+				background: #fff;
+				border: 1px solid rgba(160, 160, 160, 0.25);
+				border-radius: 8px;
+				padding: 1.3em 1.3em 1.1em;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+				transition: transform 0.2s ease, box-shadow 0.2s ease;
+			}
+			.featured-projects .project:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+			}
+			.featured-projects .project h3 {
+				margin-bottom: 0.7em;
+			}
+			.featured-projects .project p {
+				margin-bottom: 1.1em;
+			}
+			.featured-projects .project.main-project {
+				grid-column: 1 / -1;
+			}
+			.featured-projects .project.main-project h3 {
+				font-size: 1.3em;
 			}
 			.featured-projects .project .image img {
 				width: 100%;
 				height: 220px;
 				object-fit: cover;
 				border-radius: 8px;
+			}
+			.featured-projects .project.main-project .image img,
+			.featured-projects .project.main-project .image.placeholder-gradient {
+				height: 280px;
 			}
 			.featured-projects .project .image {
 				margin-bottom: 1em;
@@ -418,6 +444,10 @@
 			}
 			@media (max-width: 680px) {
 				.featured-projects .projects { grid-template-columns: 1fr; }
+				.featured-projects .project.main-project .image img,
+				.featured-projects .project.main-project .image.placeholder-gradient {
+					height: 220px;
+				}
 			}
 			@media (max-width: 768px) {
 				.intro-section {
@@ -489,11 +519,11 @@
 						<section class="featured-projects">
 							<h2>Featured Case Studies</h2>
 							<div class="projects">
-								<article class="project">
+								<article class="project main-project">
 									<a href="project1.html" class="image placeholder-gradient"></a>
 									<h3>Stamped! — A City Passport</h3>
-									<p>A SwiftUI travel discovery app that turns Global architecture into a collectible city-passport experience with progress tracking and AI-assisted itinerary support.</p>
-									<ul class="actions"><li><a href="project1.html" class="button">View Case Study</a></li></ul>
+									<p>A SwiftUI travel discovery app that turns Detroit architecture into a collectible city-passport experience with progress tracking and AI-assisted itinerary support.</p>
+									<ul class="actions"><li><a href="project1.html" class="button">View Featured Case Study</a></li></ul>
 								</article>
 								<article class="project">
 									<a href="project2.html" class="image"><img src="images/pic02.jpg" alt="Take Flight project image" /></a>
