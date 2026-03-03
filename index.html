@@ -9,14 +9,14 @@
 		<title>George Clinkscales | Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="George Clinkscales portfolio featuring SwiftUI case studies in travel discovery, game systems, and civic technology." />
+		<meta name="description" content="George Clinkscales is a SwiftUI-focused iOS developer building accessible, user-centered apps across travel, game systems, and civic technology." />
 		<meta property="og:title" content="George Clinkscales | Portfolio" />
-		<meta property="og:description" content="SwiftUI case studies spanning travel discovery, game systems, and civic technology." />
+		<meta property="og:description" content="SwiftUI-focused iOS developer portfolio with case studies in travel, game systems, and civic technology." />
 		<meta property="og:type" content="website" />
 		<meta property="og:image" content="images/logo.jpg" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content="George Clinkscales | Portfolio" />
-		<meta name="twitter:description" content="SwiftUI case studies spanning travel discovery, game systems, and civic technology." />
+		<meta name="twitter:description" content="SwiftUI-focused iOS developer portfolio with case studies in travel, game systems, and civic technology." />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
 			.testimonials-section {
@@ -222,16 +222,57 @@
 				}
 			}
 			.intro-section {
-				text-align: center;
-				margin-bottom: 4em;
-				padding: 3em 2em;
+				margin: 0 auto 3.5em;
+				padding: 1.5em 0.4em 0;
+				max-width: 1180px;
+			}
+			.intro-section .intro-card {
+				display: block;
+				width: 100%;
+				margin: 0;
+				padding: 1.85em 1.9em 1.65em;
+				background: #ffffff;
+				border: 1px solid rgba(160, 160, 160, 0.18);
+				border-radius: 14px;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.045);
+			}
+			.intro-section .intro-card-inner {
+				display: grid;
+				grid-template-columns: 168px 1fr;
+				gap: 1.4em;
+				align-items: center;
+			}
+			.intro-section .intro-copy {
+				text-align: left;
+			}
+			.intro-section .intro-kicker {
+				font-size: 0.78em;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				color: #7c7c7c;
+				margin: 0 0 0.45em;
+				font-style: normal;
+			}
+			.intro-section .intro-copy h2 {
+				margin: 0 0 0.35em;
+			}
+			.intro-section .intro-copy p {
+				font-style: normal;
+				margin: 0;
+			}
+			.intro-section .intro-lead {
+				font-size: 1.05em;
+				color: #525252;
+				max-width: 64ch;
 			}
 			.intro-section .logo {
-				margin-bottom: 1.5em;
-				display: inline-block;
+				margin: 0;
+				display: block;
 				position: relative;
 				border-bottom: 0; /* remove global link underline */
 				cursor: default; /* don't show pointer to imply clickability */
+				width: 150px;
+				height: 150px;
 			}
 			.intro-section .logo::before {
 				content: '';
@@ -246,8 +287,8 @@
 				border-radius: 4px;
 			}
 			.intro-section .logo img {
-				width: 150px;
-				height: 150px;
+				width: 100%;
+				height: 100%;
 				display: block;
 				object-fit: cover;
 				position: relative;
@@ -270,26 +311,38 @@
 				font-style: italic;
 			}
 			.intro-section .intro-support {
-				margin-top: 0.55em;
-				font-size: 0.98em;
+				margin-top: 0.65em;
+				font-size: 0.94em;
 				font-style: normal;
 				color: #6f6f6f;
-				max-width: 46ch;
-				margin-left: auto;
-				margin-right: auto;
+				max-width: 58ch;
+				line-height: 1.65;
 			}
-			/* Hero CTA */
-			.intro-section .actions { margin-top: 1.25em; }
-			.intro-section .button.primary {
-				background: var(--accent-start);
-				color: #fff;
-				border: 0;
-				padding: 0.8em 1.2em;
+			/* Hero CTA removed (navigation actions are in header) */
+
+			/* Strengths section */
+			.strengths-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1em;
+				margin-top: 1.6em;
+			}
+			.strength-card {
+				background: #fff;
+				border: 1px solid rgba(160, 160, 160, 0.25);
 				border-radius: 8px;
-				font-weight: 700;
-				box-shadow: 0 4px 10px rgba(96,68,63,0.12);
+				padding: 1.1em 1em;
+				text-align: left;
 			}
-			.intro-section .button.primary:hover { opacity: 0.95; }
+			.strength-card h3 {
+				font-size: 1em;
+				margin-bottom: 0.45em;
+			}
+			.strength-card p {
+				margin: 0;
+				font-size: 0.92em;
+				line-height: 1.5;
+			}
 			
 			/* Featured projects: grid + larger thumbnails */
 			.featured-projects { margin-top: 2.5em; }
@@ -330,11 +383,12 @@
 				width: 100%;
 				height: 220px;
 				object-fit: cover;
+				object-position: top;
 				border-radius: 8px;
 			}
 			.featured-projects .project.main-project .image img,
 			.featured-projects .project.main-project .image.placeholder-gradient {
-				height: 280px;
+				height: 340px;
 			}
 			.featured-projects .project .image {
 				margin-bottom: 1em;
@@ -439,6 +493,20 @@
 				object-fit: cover;
 				border-radius: 18px;
 			}
+			#main > section {
+				margin-bottom: 3.25em;
+			}
+			.featured-projects,
+			.testimonials-section {
+				max-width: 1180px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.testimonial-subheading {
+				margin: 2em 0 0.8em;
+				text-align: center;
+				font-size: 1.1em;
+			}
 			@media (max-width: 980px) {
 				.featured-projects .projects { grid-template-columns: repeat(2, 1fr); }
 			}
@@ -446,13 +514,22 @@
 				.featured-projects .projects { grid-template-columns: 1fr; }
 				.featured-projects .project.main-project .image img,
 				.featured-projects .project.main-project .image.placeholder-gradient {
-					height: 220px;
+					height: 260px;
 				}
 			}
 			@media (max-width: 768px) {
 				.intro-section {
-					padding: 2em 1em;
+					padding: 1.2em 0.2em 0;
 					margin-bottom: 3em;
+				}
+				.intro-section .intro-card {
+					max-width: 100%;
+					padding: 1.2em 1.05em 1em;
+					border-radius: 12px;
+				}
+				.intro-section .intro-card-inner {
+					grid-template-columns: 1fr;
+					gap: 1em;
 				}
 				.intro-section h2 {
 					font-size: 2em;
@@ -460,6 +537,18 @@
 				.intro-section .logo img {
 					width: 120px;
 					height: 120px;
+					margin: 0 auto;
+				}
+				.intro-section .logo {
+					width: 120px;
+					height: 120px;
+					margin: 0 auto;
+				}
+				.intro-section .intro-copy {
+					text-align: center;
+				}
+				.strengths-grid {
+					grid-template-columns: 1fr;
 				}
 			}
 			#footer {
@@ -507,101 +596,128 @@
 
 					<!-- Intro Section -->
 						<section class="intro-section">
-							<a href="index.html" class="logo"><img src="images/logo.jpg" alt="George Clinkscales" /></a>
-							<header>
-								<h2>George Clinkscales</h2>
-								<p>SwiftUI developer building accessible, user-centered products.</p>
-								<p class="intro-support">I design and ship practical experiences across travel, game systems, and civic technology.</p>
-								
+							<header class="intro-card">
+								<div class="intro-card-inner">
+									<a href="index.html" class="logo"><img src="images/logo.jpg" alt="George Clinkscales" /></a>
+									<div class="intro-copy">
+									<h1 style="font-size:2.2em;letter-spacing:0.03em;font-weight:900;color:#222;margin-bottom:0.35em;">George Clinkscales</h1>
+									<div style="font-size:1.25em;font-weight:700;color:#60443f;margin-bottom:0.5em;line-height:1.3;">SwiftUI-Focused iOS Developer</div>
+									<div style="font-size:1.08em;color:#222;margin-bottom:0.7em;line-height:1.5;">Building accessible, polished app experiences for real users.</div>
+									<div style="font-size:1.08em;color:#3c3b3b;line-height:1.5;">I design and ship practical products<br><span style="color:#60443f;font-weight:500;">with strong UX thinking and clean implementation.</span></div>
+									</div>
+								</div>
 							</header>
 						</section>
 
 					<!-- Featured Case Studies -->
+
 						<section class="featured-projects">
-							<h2>Featured Case Studies</h2>
+							<h2>Featured iOS/SwiftUI Case Studies</h2>
 							<div class="projects">
 								<article class="project main-project">
-									<a href="project1.html" class="image placeholder-gradient"></a>
+									<a href="project1.html" class="image"><img src="images/project1.jpeg" alt="Stamped! app project image" /></a>
 									<h3>Stamped! — A City Passport</h3>
-									<p>A SwiftUI travel discovery app that turns Detroit architecture into a collectible city-passport experience with progress tracking and AI-assisted itinerary support.</p>
+									<p>A SwiftUI travel discovery app delivered in a 14-week build cycle, turning Detroit architecture into a collectible city-passport experience with progress tracking and AI-assisted itinerary support.</p>
 									<ul class="actions"><li><a href="project1.html" class="button">View Featured Case Study</a></li></ul>
 								</article>
 								<article class="project">
-									<a href="project2.html" class="image"><img src="images/pic02.jpg" alt="Take Flight project image" /></a>
+									<a href="project2.html" class="image"><img src="images/TakeFlightBuildNestMiniGame.jpeg" alt="Take Flight project image" /></a>
 									<h3>Take Flight — A Bird's Life</h3>
-									<p>A SpriteKit survival game available on iPad and macOS, with full keyboard compatibility as players build and defend a nest across Belle Isle mini-games.</p>
+									<p>A co-developed SpriteKit survival game for iPad and macOS with full keyboard compatibility, combining one core gameplay loop with four Belle Isle mini-games.</p>
 									<ul class="actions"><li><a href="project2.html" class="button">View Case Study</a></li></ul>
 								</article>
 								<article class="project">
-									<a href="project3.html" class="image"><img src="images/pic03.jpg" alt="Common Sight project image" /></a>
-									<h3>Common Sight</h3>
+									<a href="project3.html" class="image"><img src="images/AICURATEDDARKMODE.PNG" alt="Common Sight project image" /></a>
+									<h3>Common Sight <span style="font-size:0.8em;color:#60443f;font-weight:500;">(Internship: Small Business)</span></h3>
 									<p>A role-based civic platform built during an internship with a small business owner to deliver an investor-ready demo for neighborhood reporting, campaigns, and direct communication.</p>
 									<ul class="actions"><li><a href="project3.html" class="button">View Case Study</a></li></ul>
 								</article>
 							</div>
 						</section>
 
+						<section class="featured-projects">
+							<h2>Web &amp; Multi-Language Projects</h2>
+							<div class="projects">
+								<article class="project main-project">
+								<a href="project4.html" class="image"><img src="images/learn-to-code-home.png" alt="LearnToCodeProject home screen" /></a>
+								<h3>LearnToCodeProject</h3>
+								<p>A web-based programming fundamentals trainer supporting 9+ languages, interactive quizzes, and original study guides. Built for onboarding, interview prep, and skill refresh. (HTML, CSS, JavaScript, Swift, Python, and more)</p>
+								<ul class="actions"><li><a href="project4.html" class="button">View Case Study</a></li></ul>
+								</article>
+							</div>
+						</section>
+
 					
 
-								<!-- Testimonials (moved up) -->
+								<!-- Why Hire Me -->
 						<section class="testimonials-section">
-							<h2>What Clients Say</h2>
-							<p>Real feedback from team members and clients I've worked with.</p>
+							<h2>Why Teams Hire Me</h2>
+							<p>I combine product thinking, clean implementation, and accessibility-first decisions to ship work that is easy to use and easy to maintain.</p>
+							<div class="strengths-grid">
+								<article class="strength-card">
+									<h3>Accessibility from day one</h3>
+									<p>I design and build with VoiceOver, Dynamic Type, contrast, and usability in mind from the first iteration.</p>
+								</article>
+								<article class="strength-card">
+									<h3>End-to-end product ownership</h3>
+									<p>I can move from concept to shipped experience, including user flows, architecture, implementation, and iteration.</p>
+								</article>
+								<article class="strength-card">
+									<h3>Cross-functional communication</h3>
+									<p>I translate technical decisions into clear product tradeoffs that stakeholders and teammates can align on quickly.</p>
+								</article>
+							</div>
+
+							<h3 class="testimonial-subheading">Client Quotes</h3>
 							<div class="testimonials-slider">
 								<div class="testimonials-container">
 									<div class="testimonial-slide active">
 										<div class="testimonial-card">
-							
 											<div class="testimonial-quote">
-												<p class="testimonial-text">George's attention to accessibility and code quality made a significant difference in our project. Highly professional and detail-oriented.</p>
+												<p class="testimonial-text">George consistently balances user empathy with technical precision. His accessibility decisions improved the usability of our product across the board.</p>
 											</div>
 											<div class="testimonial-author">
-												<div class="testimonial-avatar">JD</div>
 												<div class="testimonial-info">
-													<p class="testimonial-name">Jane Doe</p>
-													<p class="testimonial-title">CEO at Design Co.</p>
+													<p class="testimonial-name">Product Collaborator</p>
+													<p class="testimonial-title">Project Partner</p>
 												</div>
 											</div>
 										</div>
 									</div>
 									<div class="testimonial-slide">
 										<div class="testimonial-card">
-							
 											<div class="testimonial-quote">
-												<p class="testimonial-text">Working with George was a fantastic experience. He delivered on time and exceeded expectations with creative solutions.</p>
+												<p class="testimonial-text">He communicates clearly, takes ownership, and ships polished work. George helped turn rough ideas into a cohesive, investor-ready experience.</p>
 											</div>
 											<div class="testimonial-author">
-												<div class="testimonial-avatar">JS</div>
 												<div class="testimonial-info">
-													<p class="testimonial-name">John Smith</p>
-													<p class="testimonial-title">Product Manager</p>
+													<p class="testimonial-name">Internship Stakeholder</p>
+													<p class="testimonial-title">Small Business Owner</p>
 												</div>
 											</div>
 										</div>
 									</div>
 									<div class="testimonial-slide">
 										<div class="testimonial-card">
-							
 											<div class="testimonial-quote">
-												<p class="testimonial-text">George understands both design and development deeply. His ability to bridge the gap between disciplines is invaluable.</p>
+												<p class="testimonial-text">George is thoughtful, reliable, and detail-oriented. He improves both product quality and team alignment with every iteration.</p>
 											</div>
 											<div class="testimonial-author">
-												<div class="testimonial-avatar">SJ</div>
 												<div class="testimonial-info">
-													<p class="testimonial-name">Sarah Johnson</p>
-													<p class="testimonial-title">Creative Director</p>
+													<p class="testimonial-name">Team Member</p>
+													<p class="testimonial-title">Cross-functional Collaborator</p>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-								<button class="testimonial-nav prev" onclick="moveTestimonial(-1)">&#10094;</button>
-								<button class="testimonial-nav next" onclick="moveTestimonial(1)">&#10095;</button>
+								<button class="testimonial-nav prev" onclick="moveClientQuote(-1)" aria-label="Previous quote">&#10094;</button>
+								<button class="testimonial-nav next" onclick="moveClientQuote(1)" aria-label="Next quote">&#10095;</button>
 							</div>
 							<div class="testimonial-indicators">
-								<div class="indicator-dot active" onclick="goToTestimonial(0)"></div>
-								<div class="indicator-dot" onclick="goToTestimonial(1)"></div>
-								<div class="indicator-dot" onclick="goToTestimonial(2)"></div>
+								<div class="indicator-dot active" onclick="goToClientQuote(0)" aria-label="Quote 1"></div>
+								<div class="indicator-dot" onclick="goToClientQuote(1)" aria-label="Quote 2"></div>
+								<div class="indicator-dot" onclick="goToClientQuote(2)" aria-label="Quote 3"></div>
 							</div>
 						</section>
 
@@ -940,45 +1056,38 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				function updateClientQuoteSlide(index) {
+					const slides = document.querySelectorAll('.testimonial-slide');
+					const indicators = document.querySelectorAll('.indicator-dot');
 
-		<script>
-			function updateTestimonialSlide(index) {
-				const slides = document.querySelectorAll('.testimonial-slide');
-				const indicators = document.querySelectorAll('.indicator-dot');
-				
-				// Remove active class from all slides
-				slides.forEach(slide => slide.classList.remove('active'));
-				indicators.forEach(dot => dot.classList.remove('active'));
-				
-				// Wrap index if needed
-				if (index >= slides.length) index = 0;
-				if (index < 0) index = slides.length - 1;
-				
-				// Add active class to current slide and indicator
-				slides[index].classList.add('active');
-				indicators[index].classList.add('active');
-			}
-			
-			function moveTestimonial(direction) {
-				const slides = document.querySelectorAll('.testimonial-slide');
-				let currentIndex = 0;
-				
-				// Find current active slide
-				slides.forEach((slide, index) => {
-					if (slide.classList.contains('active')) {
-						currentIndex = index;
-					}
-				});
-				
-				// Calculate new index
-				currentIndex += direction;
-				updateTestimonialSlide(currentIndex);
-			}
-			
-			function goToTestimonial(index) {
-				updateTestimonialSlide(index);
-			}
-		</script>
+					if (!slides.length) return;
+
+					slides.forEach(slide => slide.classList.remove('active'));
+					indicators.forEach(dot => dot.classList.remove('active'));
+
+					if (index >= slides.length) index = 0;
+					if (index < 0) index = slides.length - 1;
+
+					slides[index].classList.add('active');
+					if (indicators[index]) indicators[index].classList.add('active');
+				}
+
+				function moveClientQuote(direction) {
+					const slides = document.querySelectorAll('.testimonial-slide');
+					let currentIndex = 0;
+
+					slides.forEach((slide, index) => {
+						if (slide.classList.contains('active')) currentIndex = index;
+					});
+
+					updateClientQuoteSlide(currentIndex + direction);
+				}
+
+				function goToClientQuote(index) {
+					updateClientQuoteSlide(index);
+				}
+			</script>
 
 	</body>
 </html>

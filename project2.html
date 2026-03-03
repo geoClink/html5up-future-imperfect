@@ -16,6 +16,36 @@
 				height: 240px;
 				object-fit: cover;
 			}
+			.ipad-screen-bezel {
+				display: block;
+				position: relative;
+				margin: 0 0 0.5em;
+				padding: 14px 6px 6px;
+				border-radius: 22px;
+				background: #222;
+				box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+			}
+			.ipad-screen-bezel::before {
+				content: '';
+				position: absolute;
+				top: 4px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 7px;
+				height: 7px;
+				border-radius: 50%;
+				background: radial-gradient(circle at 30% 30%, #3f4f67 0%, #111 70%);
+				box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+				z-index: 3;
+			}
+			.ipad-screen-bezel img {
+				display: block;
+				width: 100%;
+				height: auto;
+				aspect-ratio: 4 / 3;
+				object-fit: cover;
+				border-radius: 15px;
+			}
 			.ipad-video-bezel {
 				display: block;
 				position: relative;
@@ -98,8 +128,8 @@
 									</video>
 								</div>
 
-								<h3>Overview</h3>
-								<p>Take Flight is an iOS survival game where the player controls a bird navigating Belle Isle. The core loop blends exploration and resource management with mini-game challenges: gather food, avoid predators, build a nest, feed the baby, and ultimately escape the island.</p>
+								<h3>Problem</h3>
+								<p>Many game prototypes have fun mechanics but weak continuity between interactions. This project focused on creating a connected survival loop where each mini-game affects player state and long-term progression.</p>
 
 								<h3>Project Snapshot</h3>
 								<ul class="alt">
@@ -108,12 +138,12 @@
 									<li><strong>Focus:</strong> Multi-mode gameplay loop, persistence, controller/input support</li>
 									<li><strong>Input:</strong> Full keyboard compatibility, plus touch and motion where applicable</li>
 									<li><strong>Team:</strong> Small collaboration</li>
-									<li><strong>Duration:</strong> Jan 12, 2026 - Feb 20, 2026</li>
+									<li><strong>Timeline:</strong> Jan 12, 2026 - Feb 20, 2026</li>
 								</ul>
 
 
 								<h3>Role</h3>
-								<p>Gameplay engineer and designer — built SwiftUI + SpriteKit architecture, implemented scene systems, tuned mini-game mechanics, and integrated persistence/achievements.</p>
+								<p>Gameplay engineer and designer responsible for SwiftUI + SpriteKit architecture, scene systems, mini-game mechanics, and persistence/Game Center integration.</p>
 
 								<h3>My Contributions</h3>
 								<ul>
@@ -124,16 +154,10 @@
 									<li>Designed onboarding/instruction gating so tutorial prompts appear contextually without interrupting flow</li>
 								</ul>
 
-								<h3>Timeline</h3>
-								<p>Jan 12, 2026 - Feb 20, 2026</p>
+								<h3>Constraints</h3>
+								<p>Ship five distinct mini-games in a short development window while maintaining input consistency, understandable controls, and smooth transitions across iPad and macOS.</p>
 
-								<h3>Problem</h3>
-								<p>Many prototype games have isolated mechanics but weak continuity. The goal here was to create a connected progression model where each challenge meaningfully impacts player state and long-term success.</p>
-
-								<h3>Challenge</h3>
-								<p>Design five distinct mini-games with different interaction patterns while keeping controls understandable, transitions smooth, and player feedback consistent across the full experience.</p>
-
-								<h3>Approach</h3>
+								<h3>Key Decisions</h3>
 								<ul>
 									<li>Built a root SwiftUI coordinator (`menu` / `game`) for clean state transitions and replayability</li>
 									<li>Used SwiftData models (`GameState`, `GameSettings`) to persist progress, inventory, and player state</li>
@@ -241,10 +265,10 @@
 								<p><strong>Key screens:</strong> Nest-building, predator, feed, and island-escape mini-game moments from the shipped build.</p>
 								<div class="box alt">
 									<div class="row gtr-uniform">
-										<div class="col-6 media-grid-item"><span class="image fit"><img src="images/TakeFlightBuildNestMiniGame.jpeg" alt="Take Flight build-nest mini-game screen" /></span><p class="media-caption">Build Nest mini-game where players assemble materials under pressure to unlock core progression.</p></div>
-										<div class="col-6 media-grid-item"><span class="image fit"><img src="images/TakeFlightPredatorMiniGame.jpeg" alt="Take Flight predator mini-game screen" /></span><p class="media-caption">Predator mini-game where players react quickly to evade threats and preserve survival state.</p></div>
-										<div class="col-6 media-grid-item"><span class="image fit"><img src="images/TakeFlightFeedUserMiniGame.jpeg" alt="Take Flight feed mini-game screen" /></span><p class="media-caption">Feed mini-game focused on timing and resource collection to maintain hunger and progression.</p></div>
-										<div class="col-6 media-grid-item"><span class="image fit"><img src="images/TakeFlightLeaveIslandMiniGame.png" alt="Take Flight leave-island mini-game screen" /></span><p class="media-caption">Leave Island mini-game sequence where players complete the final escape challenge.</p></div>
+										<div class="col-6 media-grid-item"><span class="ipad-screen-bezel"><img src="images/TakeFlightBuildNestMiniGame.jpeg" alt="Take Flight build-nest mini-game screen" /></span><p class="media-caption">Build Nest mini-game where players assemble materials under pressure to unlock core progression.</p></div>
+										<div class="col-6 media-grid-item"><span class="ipad-screen-bezel"><img src="images/TakeFlightPredatorMiniGame.jpeg" alt="Take Flight predator mini-game screen" /></span><p class="media-caption">Predator mini-game where players react quickly to evade threats and preserve survival state.</p></div>
+										<div class="col-6 media-grid-item"><span class="ipad-screen-bezel"><img src="images/TakeFlightFeedUserMiniGame.jpeg" alt="Take Flight feed mini-game screen" /></span><p class="media-caption">Feed mini-game focused on timing and resource collection to maintain hunger and progression.</p></div>
+										<div class="col-6 media-grid-item"><span class="ipad-screen-bezel"><img src="images/TakeFlightLeaveIslandMiniGame.png" alt="Take Flight leave-island mini-game screen" /></span><p class="media-caption">Leave Island mini-game sequence where players complete the final escape challenge.</p></div>
 									</div>
 								</div>
 

@@ -38,6 +38,26 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
+/* Subtle lift effect for all images on hover */
+/* Subtle lift effect for project cards on hover */
+.post,
+.case-study-card {
+	transition: transform 0.2s cubic-bezier(0.4, 0.2, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+.post:hover,
+.case-study-card:hover {
+	transform: translateY(-6px) scale(1.03);
+	box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+/* Lift bezel containers on hover */
+.ipad-screen-bezel:hover,
+.ipad17-bezel:hover,
+.iphone17-bezel:hover,
+.ipad-video-bezel:hover {
+	transform: translateY(-6px) scale(1.03);
+	box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+	transition: transform 0.2s cubic-bezier(0.4, 0.2, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
 
 ol, ul {
 	list-style: none;
