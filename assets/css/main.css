@@ -1,7 +1,9 @@
 /* Hamburger menu styles */
-.menuToggle {
-	display: none;
+#menuToggle {
+	opacity: 0;
 	position: absolute;
+	left: -9999px;
+}
 	top: 1em;
 	right: 1em;
 	width: 2em;
