@@ -3763,7 +3763,7 @@ input, select, textarea {
 					padding-top: 0;
 				}
 
-		body.is-menu-visible #menu {
+		.visible #menu {
 			-moz-transform: translateX(0);
 			-webkit-transform: translateX(0);
 			-ms-transform: translateX(0);
