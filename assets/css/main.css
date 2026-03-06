@@ -48,64 +48,25 @@
 		-webkit-transform: translateX(0);
 		-ms-transform: translateX(0);
 		transform: translateX(0);
-		visibility: visible;
-		z-index: 10005;
-		pointer-events: auto;
-		opacity: 1;
-	}
-	#menuToggle:checked ~ .links {
-		display: none !important;
-	}
-}
-@import url(fontawesome-all.min.css);
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,800,900");
-
-/*
-	Future Imperfect by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
-:root {
-  --accent-start: #60443f;
-  --accent-end: #887c73;
-  --accent-gradient: linear-gradient(135deg, var(--accent-start), var(--accent-end));
-}
-
-html, body, div, span, applet, object,
-iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
-pre, a, abbr, acronym, address, big, cite,
-code, del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var, b,
-u, i, center, dl, dt, dd, ol, ul, li, fieldset,
-form, label, legend, table, caption, tbody,
-tfoot, thead, tr, th, td, article, aside,
-canvas, details, embed, figure, figcaption,
-footer, header, hgroup, menu, nav, output, ruby,
-section, summary, time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;}
-
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;}
-
-body {
-	line-height: 1;
-}
-/* Subtle lift effect for all images on hover */
-/* Subtle lift effect for project cards on hover */
-.post,
-.case-study-card {
-	transition: transform 0.2s cubic-bezier(0.4, 0.2, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-.post:hover,
-.case-study-card:hover {
-	transform: translateY(-6px) scale(1.03);
+		@media screen and (max-width: 736px) {
+		  #header {
+		    text-align: center;
+		  }
+		  #header .links {
+		    display: block !important;
+		    margin-top: 1em;
+		  }
+		  #header .links ul {
+		    display: flex;
+		    flex-direction: column;
+		    align-items: center;
+		    padding: 0;
+		    margin: 0;
+		  }
+		  #header .links li {
+		    margin: 0.5em 0;
+		  }
+		}
 	box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
 /* Lift bezel containers on hover */
