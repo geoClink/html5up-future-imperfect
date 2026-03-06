@@ -1,21 +1,3 @@
-// Progressive enhancement: JS hamburger menu
-$(function() {
-	var $menuToggle = $('#menuToggle');
-	var $menu = $('#menu');
-	if ($menuToggle.length && $menu.length) {
-		$menuToggle.hide(); // Hide checkbox if JS is enabled
-		$('.menuToggle').on('click', function(e) {
-			e.preventDefault();
-			$menu.toggleClass('visible');
-		});
-		// Hide menu when clicking outside or on a menu link
-		$menu.on('click', function(e) {
-			if ($(e.target).is('#menu') || $(e.target).is('a')) {
-				$menu.removeClass('visible');
-			}
-		});
-	}
-});
 (function($) {
 	// ...existing code...
 
