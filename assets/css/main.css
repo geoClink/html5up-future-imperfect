@@ -36,10 +36,10 @@
 
 @media screen and (max-width: 736px) {
 	#header .links {
-		display: none !important;
+		display: block !important;
 	}
 	.menuToggle {
-		display: block;
+		display: none;
 	}
 }
 @import url(fontawesome-all.min.css);
