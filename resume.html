@@ -29,6 +29,28 @@
 		</style>
 	</head>
 	<body class="is-preload">
+	<!-- Minimal working hamburger menu -->
+	<input type="checkbox" id="menuToggle" style="display:none;" />
+	<label for="menuToggle" class="menuToggle" style="position:fixed;top:1em;right:1em;z-index:10010;cursor:pointer;width:2em;height:2em;background:#fff;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:center;">
+		<span style="display:block;width:1.5em;height:0.2em;background:#333;border-radius:2px;position:relative;">
+			<span style="display:block;width:1.5em;height:0.2em;background:#333;border-radius:2px;position:absolute;top:-0.5em;"></span>
+			<span style="display:block;width:1.5em;height:0.2em;background:#333;border-radius:2px;position:absolute;top:0.5em;"></span>
+		</span>
+	</label>
+	<nav id="menu" style="position:fixed;right:0;top:0;width:18em;height:100vh;background:#fff;box-shadow:-2px 0 8px rgba(0,0,0,0.08);transform:translateX(100%);transition:transform 0.3s;z-index:10009;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+		<ul style="list-style:none;padding:0;margin:0;width:100%;">
+			<li><a href="index.html" style="display:block;padding:1em;text-align:center;color:#333;text-decoration:none;">Home</a></li>
+			<li><a href="about.html" style="display:block;padding:1em;text-align:center;color:#333;text-decoration:none;">About</a></li>
+			<li><a href="case-studies.html" style="display:block;padding:1em;text-align:center;color:#333;text-decoration:none;">Case Studies</a></li>
+			<li><a href="resume.html" style="display:block;padding:1em;text-align:center;color:#333;text-decoration:none;">Resume</a></li>
+			<li><a href="contact.html" style="display:block;padding:1em;text-align:center;color:#333;text-decoration:none;">Contact</a></li>
+		</ul>
+	</nav>
+	<style>
+		#menuToggle:checked ~ #menu {
+			transform: translateX(0);
+		}
+	</style>
 
 		<input type="checkbox" id="menuToggle" class="menu-toggle-checkbox" style="display:none;" />
 		<label for="menuToggle" class="menuToggle">
