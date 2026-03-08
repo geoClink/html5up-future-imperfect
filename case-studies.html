@@ -118,6 +118,7 @@
 								<li><a href="case-studies.html" class="button active" aria-current="page">Case Studies</a></li>
 								<li><a href="resume.html" class="button">Resume</a></li>
 								<li><a href="contact.html" class="button">Contact</a></li>
+								<li><a href="blog.html" class="button">Blog</a></li>
 							</ul>
 						</nav>
 						<!-- Sidebar menu -->
@@ -211,7 +212,7 @@
 
 						<!-- Intro -->
 							<section id="intro">
-								<a href="index.html" class="logo"><img src="images/logo.jpg" alt="" /></a>
+								<a href="index.html" class="logo"><img src="assets/images/logo-techy.svg" alt="GC Techy Logo" /></a>
 								<header>
 									<h2>George Clinkscales</h2>
 									<p>Building accessible digital experiences</p>
@@ -230,6 +231,7 @@
 					<li><a href="mailto:gclinkscales25@msu.idserve.net" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 				</ul>
 				<p class="copyright">&copy; George Clinkscales. Design: <a href="http://html5up.net">HTML5 UP</a>.</p>
+				<p style="font-size:0.95em;color:#60443f;margin-top:0.5em;">Portfolio Last updated: March 7, 2026</p>
 				<p style="font-size:1em; color:#60443f; margin-top:0.5em;">
 					<strong>Local Developer Time:</strong> <span id="local-time"></span> (Eastern Time Zone)<br>
 				</p>
@@ -241,6 +243,33 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script type="module">
+				import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+				import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
+				const firebaseConfig = {
+					apiKey: "AIzaSyCxL4L3o5xwq1EC6J1tv29QydvRwOsWcCY",
+					authDomain: "myportfolio-ca535.firebaseapp.com",
+					projectId: "myportfolio-ca535",
+					storageBucket: "myportfolio-ca535.firebasestorage.app",
+					messagingSenderId: "195896949757",
+					appId: "1:195896949757:web:8f754054fb2df5dba1b794"
+				};
+				const app = initializeApp(firebaseConfig);
+				const analytics = getAnalytics(app);
+				// Track case study views
+				document.addEventListener('DOMContentLoaded', () => {
+					document.querySelectorAll('.case-study-link').forEach(link => {
+						link.addEventListener('click', () => {
+							if (window.firebase && window.firebase.analytics) {
+								window.firebase.analytics().logEvent('case_study_view', {
+									label: link.textContent.trim(),
+									url: link.getAttribute('href')
+								});
+							}
+						});
+					});
+				});
+			</script>
 			<script>
 			function updateLocalTime() {
 				const now = new Date();

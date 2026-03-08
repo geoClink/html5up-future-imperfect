@@ -3406,17 +3406,15 @@ input, select, textarea {
 
 				#header .links ul li a.button.active,
 				#header .links ul li a.button[aria-current="page"] {
-					background: #60443f;
-					box-shadow: none;
+					background: #60443f !important;
 					color: #fff !important;
-					opacity: 1 !important;
+					border-bottom: 2px solid #887c73 !important;
 				}
-
 				#header .links ul li a.button.active:hover,
 				#header .links ul li a.button[aria-current="page"]:hover {
-					background: var(--accent-gradient);
-					box-shadow: none;
-					color: #ffffff !important;
+					background: #60443f !important;
+					color: #fff !important;
+					border-bottom: 2px solid #887c73 !important;
 				}
 
 		#header .main {

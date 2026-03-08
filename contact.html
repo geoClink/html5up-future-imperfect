@@ -42,6 +42,7 @@
 								<li><a href="case-studies.html" class="button">Case Studies</a></li>
 								<li><a href="resume.html" class="button">Resume</a></li>
 								<li><a href="contact.html" class="button active" aria-current="page">Contact</a></li>
+								<li><a href="blog.html" class="button">Blog</a></li>
 							</ul>
 						</nav>
 						<!-- Sidebar menu -->
@@ -66,21 +67,18 @@
 								<header>
 									<div class="title">
 										<h2>Contact Me</h2>
-										<p>Open to junior iOS roles and product-focused software opportunities; growing my web development skills</p>
+										<p>I’d love to connect with teams hiring for iOS, SwiftUI, user-centered product roles, or freelance work. You can email me directly, review my resume, or use the form below.</p>
 									</div>
 								</header>
 
 								<section>
-									<h3>Get in Touch</h3>
-									<p>I’d love to connect with teams hiring for iOS, SwiftUI, and user-centered product roles. You can email me directly, review my resume, or use the form below.</p>
 									<div class="contact-cta">
 										<a href="mailto:gclinkscales25@msu.idserve.net" class="button primary">Email Me</a>
-										<a href="assets/George-Clinkscales-Resume.pdf" class="button" target="_blank" rel="noopener">Download Resume</a>
 										<a href="https://www.linkedin.com/in/george-clinkscales/" class="button" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 										<a href="https://github.com/geoClink" class="button" target="_blank" rel="noopener noreferrer">GitHub</a>
 									</div>
 
-									<form id="contactForm" method="post" action="#">
+									<form id="contactForm">
 										<div class="row gtr-uniform">
 											<div class="col-6 col-12-xsmall">
 												<input type="text" name="name" id="name" placeholder="Your Name" />
@@ -95,6 +93,10 @@
 												<textarea name="message" id="message" placeholder="Your Message" rows="6"></textarea>
 											</div>
 											<div class="col-12">
+												<label for="brief-upload" style="font-weight:600;margin-bottom:0.3em;">Upload Project Brief (PDF, DOC, PNG, JPG):</label>
+												<input type="file" name="brief-upload" id="brief-upload" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" />
+											</div>
+											<div class="col-12">
 												<ul class="actions">
 													<li><input type="submit" value="Send Message" /></li>
 													<li><input type="reset" value="Clear" /></li>
@@ -107,25 +109,19 @@
 								<script>
 									(function () {
 										const form = document.getElementById('contactForm');
+										const successMsg = document.getElementById('form-success');
 										if (!form) return;
 										form.addEventListener('submit', function (e) {
 											e.preventDefault();
-
 											const name = (document.getElementById('name') || {}).value || '';
 											const email = (document.getElementById('email') || {}).value || '';
 											const subject = (document.getElementById('subject') || {}).value || 'Contact from website';
 											const message = (document.getElementById('message') || {}).value || '';
-
-											// Basic validation
 											if (!email || !message) {
 												alert('Please provide at least your email and a message.');
 												return;
 											}
-
-											// Recipient address (replace if you prefer a different one)
 											const recipient = 'gclinkscales25@msu.idserve.net';
-
-											// Build mailto link
 											const bodyLines = [];
 											if (name) bodyLines.push('Name: ' + name);
 											bodyLines.push('Email: ' + email);
@@ -134,9 +130,8 @@
 											bodyLines.push(message);
 											const body = encodeURIComponent(bodyLines.join('\n'));
 											const mailto = `mailto:${encodeURIComponent(recipient)}?subject=${encodeURIComponent(subject)}&body=${body}`;
-
-											// Open user's mail client
 											window.location.href = mailto;
+											successMsg.style.display = 'block';
 										});
 									})();
 								</script>
@@ -151,7 +146,7 @@
 
 						<!-- Intro -->
 							<section id="intro">
-								<a href="index.html" class="logo"><img src="images/logo.jpg" alt="" /></a>
+								<a href="index.html" class="logo"><img src="assets/images/logo-techy.svg" alt="GC Techy Logo" /></a>
 								<header>
 									<h2>George Clinkscales</h2>
 									<p>Building accessible digital experiences</p>
@@ -170,6 +165,7 @@
 					<li><a href="mailto:gclinkscales25@msu.idserve.net" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 				</ul>
 				<p class="copyright">&copy; George Clinkscales. Design: <a href="http://html5up.net">HTML5 UP</a>.</p>
+				<p style="font-size:0.95em;color:#60443f;margin-top:0.5em;">Portfolio Last updated: March 7, 2026</p>
 				<p style="font-size:1em; color:#60443f; margin-top:0.5em;">
 					<strong>Local Developer Time:</strong> <span id="local-time"></span> (Eastern Time Zone)<br>
 				</p>
@@ -181,6 +177,94 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+    <!-- Firebase SDK and config -->
+    <script type="module">
+			// Import the functions you need from the SDKs you need
+			import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+			import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+			import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
+
+			// Your web app's Firebase configuration
+			const firebaseConfig = {
+				apiKey: "AIzaSyCxL4L3o5xwq1EC6J1tv29QydvRwOsWcCY",
+				authDomain: "myportfolio-ca535.firebaseapp.com",
+				projectId: "myportfolio-ca535",
+				storageBucket: "myportfolio-ca535.firebasestorage.app",
+				messagingSenderId: "195896949757",
+				appId: "1:195896949757:web:8f754054fb2df5dba1b794"
+			};
+
+			// Initialize Firebase
+			const app = initializeApp(firebaseConfig);
+			const db = getFirestore(app);
+			const analytics = getAnalytics(app);
+
+			// Handle contact form submission and custom analytics events
+			document.addEventListener('DOMContentLoaded', () => {
+				const form = document.getElementById('contactForm');
+				const analytics = getAnalytics(app);
+				// Track form submission
+				if (form) {
+					form.addEventListener('submit', async (e) => {
+						e.preventDefault();
+						const name = document.getElementById('name').value;
+						const email = document.getElementById('email').value;
+						const subject = document.getElementById('subject').value;
+						const message = document.getElementById('message').value;
+						try {
+							await addDoc(collection(db, 'contacts'), {
+								name,
+								email,
+								subject,
+								message,
+								timestamp: serverTimestamp()
+							});
+							// Track form submission event
+							if (window.firebase && window.firebase.analytics) {
+								window.firebase.analytics().logEvent('contact_form_submitted', {
+									name,
+									email,
+									subject
+								});
+							}
+							alert('Message sent! I’ll reply soon.');
+							form.reset();
+						} catch (err) {
+							alert('Error sending message: ' + err.message);
+						}
+					});
+				}
+				// Track button clicks
+				document.querySelectorAll('a.button').forEach(btn => {
+					btn.addEventListener('click', () => {
+						if (window.firebase && window.firebase.analytics) {
+							window.firebase.analytics().logEvent('button_click', {
+								label: btn.textContent.trim()
+							});
+						}
+					});
+				});
+				// Track file uploads
+				const fileInput = document.getElementById('brief-upload');
+				if (fileInput) {
+					fileInput.addEventListener('change', () => {
+						if (window.firebase && window.firebase.analytics) {
+							window.firebase.analytics().logEvent('file_upload', {
+								fileType: fileInput.value.split('.').pop()
+							});
+						}
+					});
+				}
+				// Track blog post views (example for blog.html)
+				if (window.location.pathname.includes('blog-post')) {
+					if (window.firebase && window.firebase.analytics) {
+						window.firebase.analytics().logEvent('blog_post_view', {
+							url: window.location.pathname
+						});
+					}
+				}
+			});
+    </script>
 			<script>
 			function updateLocalTime() {
 				const now = new Date();
