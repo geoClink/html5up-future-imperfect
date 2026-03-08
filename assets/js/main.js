@@ -1,4 +1,5 @@
 // Mobile sidebar menu toggle
+// This script enables the mobile sidebar menu toggle functionality.
 $(function() {
 	var $menuBtn = $('#menuToggle');
 	var $sidebarMenu = $('#sidebarMenu');
@@ -17,6 +18,7 @@ $(function() {
 		}
 	});
 });
+// The following code handles breakpoints and layout adjustments for responsive design.
 (function($) {
 	// ...existing code...
 

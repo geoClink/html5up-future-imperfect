@@ -247,6 +247,7 @@ input, select, textarea {
 	}
 
 	@media screen and (max-width: 480px) {
+	/* Responsive CSS: Adjusts layout for mobile screens. */
 
 		html, body {
 			min-width: 320px;
@@ -255,6 +256,7 @@ input, select, textarea {
 	}
 
 	html {
+	/* Styles for mobile menu button and sidebar navigation. */
 		box-sizing: border-box;
 	}
 
