@@ -95,10 +95,7 @@
 											<div class="col-12">
 												<textarea name="message" id="message" placeholder="Your Message" rows="6"></textarea>
 											</div>
-											<div class="col-12">
-												<label for="brief-upload" style="font-weight:600;margin-bottom:0.3em;">Upload Project Brief (PDF, DOC, PNG, JPG):</label>
-												<input type="file" name="brief-upload" id="brief-upload" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" />
-											</div>
+											<!-- Project brief upload field removed. -->
 											<div class="col-12">
 												<ul class="actions">
 													<li><input type="submit" value="Send Message" /></li>
@@ -248,16 +245,7 @@
 					});
 				});
 				// Track file uploads
-				const fileInput = document.getElementById('brief-upload');
-				if (fileInput) {
-					fileInput.addEventListener('change', () => {
-						if (window.firebase && window.firebase.analytics) {
-							window.firebase.analytics().logEvent('file_upload', {
-								fileType: fileInput.value.split('.').pop()
-							});
-						}
-					});
-				}
+				// Project brief upload logic removed.
 				// Track blog post views (example for blog.html)
 				if (window.location.pathname.includes('blog-post')) {
 					if (window.firebase && window.firebase.analytics) {
