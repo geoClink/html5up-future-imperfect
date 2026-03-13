@@ -6,6 +6,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
 		<!-- Prism.js syntax highlighting -->
 		<link rel="stylesheet" href="assets/css/prism-xcode-stamped.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
@@ -216,7 +217,8 @@
 								</ul>
 
 								<h3>Code Highlights</h3>
-								<p><strong>SwiftData persistence model:</strong> game state was modeled to persist world position, progression flags, inventory, and baby-bird lifecycle across sessions.</p>
+								<p class="code-snippet-label">SWIFTDATA PERSISTENCE MODEL</p>
+								<p class="code-snippet-desc">Defines a SwiftData model that stores all player progress, inventory, and game state for seamless saving and loading.</p>
 								<pre class="stamped-xcode-code"><code class="language-swift">@Model
 	final class GameState {
 		var id: UUID
@@ -264,7 +266,8 @@
 		}
 	}</code></pre>
 
-								<p><strong>Main update loop orchestration:</strong> each frame applies survival decay, persists state at intervals, and routes proximity interactions into mini-game transitions.</p>
+								<p class="code-snippet-label">MAIN UPDATE LOOP ORCHESTRATION</p>
+								<p class="code-snippet-desc">Runs the main game loop, updating health, saving progress, and triggering mini-games based on player actions and proximity.</p>
 								<pre class="stamped-xcode-code"><code class="language-swift">func update(currentTime: TimeInterval) {
 		if isPausedForMiniGame { return }
 

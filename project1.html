@@ -6,6 +6,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
 		<!-- Prism.js syntax highlighting -->
 		<link rel="stylesheet" href="assets/css/prism-xcode-stamped.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
@@ -251,7 +252,8 @@
 								<h3>Code Highlights</h3>
 								<p>Selected snippets from my Stamped Swift source showing AI fallback handling, persistence, and user-configurable accessibility settings.</p>
 
-								<p class="code-snippet-label">Itinerary / AI + Fallback</p>
+								<p class="code-snippet-label">ITINERARY / AI + FALLBACK</p>
+								<p class="code-snippet-desc">Swift function for generating travel content using AI and fallback logic.</p>
 								<pre class="stamped-xcode-code"><code class="language-swift">func generateAIContent(previousZip: String? = nil) async {
 	self.isGenerating = true
 
@@ -274,7 +276,8 @@
 	self.isGenerating = false
 }</code></pre>
 
-								<p class="code-snippet-label">Managers / Global Progress Persistence</p>
+								<p class="code-snippet-label">MANAGERS / GLOBAL PROGRESS PERSISTENCE</p>
+								<p class="code-snippet-desc">Swift property and methods for tracking visited locations and saving progress with UserDefaults.</p>
 								<pre class="stamped-xcode-code"><code class="language-swift">@Published var visitedIDs: Set<String> = [] {
 	didSet { save() }
 }
@@ -292,7 +295,8 @@ private func save() {
 	UserDefaults.standard.set(Array(visitedIDs), forKey: saveKey)
 }</code></pre>
 
-								<p class="code-snippet-label">Settings / Accessibility + Preferences</p>
+								<p class="code-snippet-label">SETTINGS / ACCESSIBILITY + PREFERENCES</p>
+								<p class="code-snippet-desc">Swift code for managing accessibility and user preferences in the app.</p>
 								<pre class="stamped-xcode-code"><code class="language-swift">@AppStorage("reduce_motion") var reduceMotion = false
 @AppStorage("high_contrast_mode") var highContrast = false
 @AppStorage("haptics_enabled") var hapticsEnabled = true
