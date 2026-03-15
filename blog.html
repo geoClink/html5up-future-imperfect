@@ -21,8 +21,8 @@
             margin-bottom: 2em;
         }
         .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            display: flex;
+            flex-direction: column;
             gap: 2em;
         }
         .blog-card {
@@ -33,6 +33,8 @@
             padding: 2em 1.5em;
             display: flex;
             flex-direction: column;
+            width: 100%;
+            margin-bottom: 0;
         }
         .blog-card h3 {
             margin-bottom: 0.7em;
@@ -54,7 +56,7 @@
             text-decoration: none;
         }
         @media (max-width: 680px) {
-            .blog-grid { grid-template-columns: 1fr; }
+            .blog-grid { flex-direction: column; }
         }
     </style>
 </head>
@@ -94,87 +96,71 @@
     <div class="blog-section">
         <div class="blog-header">
             <h1>Insights & Blog</h1>
-            <p>Thoughts on product, accessibility, and tech trends from George Clinkscales.</p>
         </div>
         <div class="blog-grid">
                                     <div class="blog-card">
-                                        <div class="blog-meta">Career Experience | March 2026</div>
-                                        <h3>My Journey at Apple Developer Academy Detroit</h3>
-                                                        <p>Attending the Apple Developer Academy in Detroit has been a transformative experience. I’ve worked alongside talented peers, learned from industry mentors, and built real-world apps from concept to launch. The Academy’s hands-on approach pushed me to grow as a developer, designer, and collaborator. I gained deep skills in Swift, UI/UX, accessibility, and teamwork—plus exposure to Apple’s latest tools and frameworks. The Detroit community is vibrant and supportive, and the Academy’s focus on inclusivity and innovation inspired me to build products that make a difference. If you’re considering the Academy, expect to be challenged, supported, and empowered to create your best work.<br><br><a href="https://developeracademy.msu.edu" target="_blank" rel="noopener">Apple Developer Academy at MSU (Detroit)</a></p>
-                                        <a href="#" class="read-more">Expand</a>
+                                        <div class="blog-meta">AI & Innovation | Mar 15, 2026</div>
+                                        <h3>Apple Intelligence: On-Device Foundation Models</h3>
+                                        <p>Apple Intelligence is Apple’s new suite of on-device AI features powered by foundation models. I’ve started experimenting with these capabilities in my projects—using the on-device foundation model in Stamped! to generate personalized itineraries for users, and in CommonSight to create dynamic story cards that help tell the story of Detroit neighborhoods. The ability to run powerful AI directly on the device is pretty amazing: it keeps user data private, enables fast responses, and opens up new creative possibilities.<br><br><strong>Personal Story:</strong> When I first integrated Apple Intelligence into Stamped!, I was blown away by how quickly the itinerary generator adapted to user preferences. It felt like magic—seeing the app suggest routes and activities based on real input. In CommonSight, the story cards became more dynamic and engaging, helping users connect with Detroit’s neighborhoods in a new way.<br><br><strong>Technical Details:</strong> I used Apple’s foundation model APIs to process user data locally, ensuring privacy and speed. The integration was straightforward, but tuning the model for my specific use cases took some trial and error.<br><br><strong>Lessons Learned:</strong> On-device AI is powerful, but it’s important to balance automation with user control. I learned to provide clear options and feedback so users feel empowered.<br><br><strong>What’s Next:</strong> I plan to experiment with more personalized recommendations and interactive features, and I’m excited to see how Apple Intelligence evolves.<br><br><strong>User Impact:</strong> Early testers loved the privacy and speed, and their feedback helped me refine the experience.<br><a href="https://developer.apple.com/documentation/FoundationModels" target="_blank" rel="noopener">Learn more about Apple Foundation Models</a></p>
                                     </div>
-                        <div class="blog-card">
-                            <div class="blog-meta">Tools & IDE | March 2026</div>
-                            <h3>My Thoughts on Xcode 26.3</h3>
-                            <p>Xcode 26.3 feels like a mature, polished IDE for Apple developers. The new features—especially improved SwiftUI previews, faster build times, and enhanced accessibility tools—make daily development smoother and more productive. I appreciate the stability and performance improvements, as well as the expanded support for Apple Intelligence APIs. The UI is cleaner, and the debugging experience is more intuitive. One standout is how Xcode is starting to support agentic coding: workflows where AI and automation help generate, refactor, and test code alongside the developer. This shift makes coding more collaborative and efficient, letting me focus on creative problem-solving while routine tasks are handled by smart tools. While there are still areas for improvement (like simulator speed and occasional SwiftUI quirks), Xcode 26.3 is a strong step forward. It’s a tool I rely on every day, and it keeps getting better.<br><br><a href="https://developer.apple.com/xcode/" target="_blank" rel="noopener">Learn more about Xcode</a></p>
-                            <a href="#" class="read-more">Expand</a>
+                                    <div class="blog-card">
+                                        <div class="blog-meta">Design Principles | Mar 14, 2026</div>
+                                        <h3>LAWS OF UX: what are they and why do they matter</h3>
+                                        <section>
+                                            <p>The Laws of UX are foundational principles drawn from psychology and cognitive science that guide designers in creating intuitive, user-friendly interfaces. By understanding how people perceive, process, and interact with information, designers can build products that feel natural and easy to use. I genuinely enjoy design and want to learn as much of it as I can in order to be a stronger software engineer—improving communication and understanding between design and engineering teams.<br><br><strong>Personal Story:</strong> My interest in design started when I realized how much a simple UI tweak could change the way people use an app. At the Apple Developer Academy, I saw firsthand how accessibility and clarity make a difference for real users.<br><br><strong>Technical Details:</strong> I apply principles like Hick’s Law and Fitts’s Law in my projects, using minimal navigation and high-contrast buttons. In SlotParking, I used SwiftUI’s accessibility features to make the app usable for everyone.<br><br><strong>Lessons Learned:</strong> Design is about empathy—understanding what users need and making their experience seamless.<br><br><strong>What’s Next:</strong> I want to keep learning, attend more design talks, and collaborate with designers to bridge the gap between engineering and design.<br><br><strong>User Impact:</strong> Feedback from users and mentors has helped me refine my approach and build more intuitive products.</p>
+                                            <h3>My Favorite Laws</h3>
+                                            <ul>
+                                                <li><strong>Hick’s Law:</strong> The time it takes to make a decision increases with the number and complexity of choices. I use this principle to simplify navigation and reduce cognitive overload in my apps. For example, SlotParking’s UI is intentionally minimal, helping attendants and drivers make quick choices in busy environments.</li>
+                                                <li><strong>Jakob’s Law:</strong> Users spend most of their time on other sites, so they expect your site to work the same way. I leverage familiar patterns and conventions to make onboarding seamless and reduce friction. When designing Stamped!, I used recognizable navigation and feedback cues to help users feel instantly comfortable.</li>
+                                                <li><strong>Fitts’s Law:</strong> I design interfaces to minimize cognitive overload, ensuring key actions are easy to find and interact with—especially in mobile and accessibility-focused apps. Large, high-contrast buttons in SlotParking make it easy for attendants to update spot counts, even in bright sunlight or with gloves.</li>
+                                                <li><strong>Peak-End Rule:</strong> Users judge experiences largely by the peak (most intense point) and the end. I focus on creating memorable moments and positive wrap-ups in onboarding, tutorials, and app flows. In Stamped!, the celebration animation after completing a city is designed to leave a lasting impression.</li>
+                                                <li><strong>Paradox of the Active User:</strong> Users often skip instructions and dive right in. I design for immediate usability, making sure key actions are discoverable and feedback is clear—even for first-time users. SlotParking’s onboarding is just a few taps, so attendants can start using it right away.</li>
+                                            </ul>
+                                            <h3>How I Apply These Laws</h3>
+                                            <p>Every project I build—from SlotParking to Stamped!—reflects these principles. I prioritize clarity, reduce unnecessary choices, and use familiar patterns to help users feel confident and in control. Accessibility and usability are always at the core of my design process. Hearing the creator of lawsofux.com speak live at DevCreate313 inspired me to dig deeper into these principles and apply them in real-world projects.</p>
+                                            <h3>Personal Takeaways</h3>
+                                            <p>Learning and applying the Laws of UX has made me a more thoughtful designer. I’ve seen firsthand how small changes—like simplifying a menu or making a button bigger—can dramatically improve user satisfaction. I recommend <a href="https://lawsofux.com/" target="_blank" rel="noopener">Laws of UX (lawsofux.com)</a> to anyone serious about design. It’s practical, actionable, and rooted in real science.</p>
+                                            <h3>Further Reading</h3>
+                                            <ul>
+                                                <li><a href="https://lawsofux.com/" target="_blank" rel="noopener">Laws of UX (lawsofux.com)</a> &mdash; Highly recommended! I heard the creator speak live at a DevCreate313 meeting—check it out for practical, actionable design principles.</li>
+                                                <li><a href="https://www.nngroup.com/articles/ten-usability-heuristics/" target="_blank" rel="noopener">Nielsen’s Usability Heuristics</a></li>
+                                            </ul>
+                                        </section>
+                                    </div>
+                                    <div class="blog-card">
+                                        <div class="blog-meta">App Testing | Mar 9, 2026</div>
+                                        <h3>TestFlight: Feedback & Iteration</h3>
+                                        <p>I’ve used TestFlight to beta test Stamped!, TakeFlight, Relationship Builder, and other smaller projects. The platform makes it easy to distribute pre-release builds, gather real user feedback, and iterate quickly. I feel comfortable with both the technology and the process of receiving feedback—because feedback is a gift. It helps me build software that’s truly usable, not just what I think is right.<br><br><strong>Personal Story:</strong> The first time I sent out a TestFlight build, I was nervous—what if people didn’t like it? But testers gave honest feedback, and I learned to embrace it. Their suggestions led to real improvements.<br><br><strong>Technical Details:</strong> I use TestFlight’s crash reports and feedback tools to track issues and prioritize fixes. Managing testers and updates is straightforward, and I’ve built a routine for quick iterations.<br><br><strong>Lessons Learned:</strong> Feedback is essential. It’s not always easy to hear, but it’s what makes software better.<br><br><strong>What’s Next:</strong> I plan to expand my tester pool and try new features in future projects.<br><br><strong>User Impact:</strong> Testers have helped shape my apps, making them more reliable and user-friendly.<br><a href="https://developer.apple.com/testflight/" target="_blank" rel="noopener">Learn more about TestFlight</a></p>
+                                    </div>
+                                    <div class="blog-card">
+                                        <div class="blog-meta">Project Deep Dive | Mar 8, 2026</div>
+                                        <h3>CommonSight: Building a Civic Platform</h3>
+                                        <p>CommonSight is my first internship and my first experience working with a boss in tech. I’m enjoying the process—learning how to collaborate, take feedback, and build a civic platform that empowers Detroit neighborhoods. The project has taught me about real-world teamwork, technical challenges, and the importance of clear communication. It’s exciting to see our work make a difference in the community.<br><br><strong>Personal Story:</strong> Early in the internship, I was nervous about working with a boss and a new team. But I quickly learned the value of collaboration and open communication.<br><br><strong>Technical Details:</strong> We use Firebase and SwiftUI to build scalable features for CommonSight. Integrating AI for story cards was a new challenge, but rewarding.<br><br><strong>Lessons Learned:</strong> Teamwork and feedback are key. Building for civic impact means listening to the community.<br><br><strong>What’s Next:</strong> As I get deeper into the internship, I plan to write more about our progress and impact.<br><br><strong>User Impact:</strong> Community feedback has shaped our roadmap and helped us prioritize features.<br><a href="case-studies.html#commonsight" target="_blank" rel="noopener">Read the CommonSight Case Study</a></p>
+                                    </div>
+                                    <div class="blog-card">
+                                        <div class="blog-meta">Product Thinking | Mar 6, 2026</div>
+                                        <h3>Shipping MVPs That Matter</h3>
+                                        <p>SlotParking is my first MVP designed for real-world impact. I am trying to incorporate all the lessons I learned in the Apple Developer Academy into this project—taking an idea and making it a product in the real world. Instead of building in isolation, I’m launching a hands-on pilot in Detroit—personally visiting parking lots, pitching the app to owners, and using flyers to drive adoption. The goal: make finding a parking spot in busy downtown Detroit easier for everyone, using tech that solves a real problem. By showing the MVP to actual users and lot owners, I’m gathering feedback, validating the product, and learning what works. This approach lets me iterate quickly and build a solution that truly meets the needs of the city. In the future, I will ask for advice on whether this could be monetized.<br><a href="case-studies.html#slotparking" target="_blank" rel="noopener">Read the SlotParking Case Study</a><br><br><strong>Personal Story:</strong> I remember the first time a lot owner gave me feedback—it was tough, but it helped me see the real needs of users. Every conversation is a chance to improve.<br><br><strong>Technical Details:</strong> SlotParking uses SwiftUI, Firebase, and real-time updates to track parking spots. I built the MVP with a focus on usability and quick iteration.<br><br><strong>Lessons Learned:</strong> Building for the real world means adapting fast and listening to feedback.<br><br><strong>What’s Next:</strong> I want to explore monetization and continue testing to see if SlotParking works in Detroit.<br><br><strong>User Impact:</strong> User feedback has shaped the app and helped me prioritize features.</p>
+                                    </div>
+                                    <div class="blog-card">
+                                        <div class="blog-meta">App Launch | Mar 3, 2026</div>
+                                        <h3>My First App on the App Store</h3>
+                                        <p>Launching Stamped!—a city passport app on the App Store was a milestone in my developer journey. This was the first app I built that I really felt passionate about, and it showed—I would stay up late and wake up early to build it. I was obsessed. Stamped! lets users explore cities, check in at landmarks, and collect digital stamps for their travel adventures. From initial concept to shipping, I learned how to design engaging progression loops, polish UI/UX for accessibility, and navigate Apple's review process. Responding to real user feedback helped me iterate quickly and improve the experience. Seeing Stamped! live and available to travelers worldwide was both exciting and humbling—and it inspired me to keep building and improving. There are still many things I want to work on in future updates, and balancing that with work and other projects is difficult, but I want to add a live currency converter, a full translator, make it available in different languages, and possibly experiment with monetization through a pro version. This was a real milestone for me. If you're working toward your first launch, stay curious, keep learning, and celebrate every step!<br><br><strong>Personal Story:</strong> I was obsessed with Stamped!—sometimes working late into the night, sometimes waking up early just to fix a bug or add a feature. The passion paid off when users started sharing their travel stories.<br><br><strong>Technical Details:</strong> Stamped! uses SwiftUI, CoreData, and integrates with Apple Intelligence for itinerary generation. I focused on accessibility and user feedback throughout development.<br><br><strong>Lessons Learned:</strong> Passion drives progress, but feedback shapes the product.<br><br><strong>What’s Next:</strong> I want to add more features, expand to new cities, and experiment with monetization.<br><br><strong>User Impact:</strong> User stories and feedback have inspired new features and improvements.<br><a href="https://apps.apple.com/us/app/stamped-a-city-passport/id6759680336" target="_blank" rel="noopener">View Stamped! on the App Store</a></p>
+                                    </div>
+                                    <div class="blog-card">
+                                        <div class="blog-meta">Tools & IDE | Feb 28, 2026</div>
+                                        <h3>My Thoughts on Xcode 26.3</h3>
+                                        <p>Xcode 26.3 feels like a mature, polished IDE for Apple developers. I began learning code at an interesting time—this is my first IDE, and I want it to help me work faster, but also explain things I may not have learned yet. I want it to help me learn and be a tool, not a crutch. The new features—especially improved SwiftUI previews, faster build times, and enhanced accessibility tools—make daily development smoother and more productive. I appreciate the stability and performance improvements, as well as the expanded support for Apple Intelligence APIs. The UI is cleaner, and the debugging experience is more intuitive. One standout is how Xcode is starting to support agentic coding: workflows where AI and automation help generate, refactor, and test code alongside the developer. This shift makes coding more collaborative and efficient, letting me focus on creative problem-solving while routine tasks are handled by smart tools.<br><br><strong>Personal Story:</strong> Learning code with Xcode as my first IDE was a wild ride. I made plenty of mistakes, but each one taught me something new.<br><br><strong>Technical Details:</strong> I use SwiftUI, Apple Intelligence APIs, and Xcode’s debugging tools daily. The IDE helps me work faster and learn as I go.<br><br><strong>Lessons Learned:</strong> Tools are important, but curiosity and persistence matter more.<br><br><strong>What’s Next:</strong> I want to keep exploring new features and push the limits of what Xcode can do.<br><br><strong>User Impact:</strong> Feedback from teammates and mentors has helped me improve my workflow.<br><a href="https://developer.apple.com/xcode/" target="_blank" rel="noopener">Learn more about Xcode</a></p>
+                                    </div>
+                                    <div class="blog-card">
+                                        <div class="blog-meta">Career Experience | Feb 27, 2026</div>
+                                        <h3>My Journey at Apple Developer Academy Detroit</h3>
+                                        <p>Attending the Apple Developer Academy in Detroit has been a transformative experience. I’ve worked alongside talented peers, made real friends, learned from industry mentors, and built real-world apps from concept to launch. The Academy’s hands-on approach pushed me to grow as a developer, designer, and collaborator. It was very challenging at first, but I was resilient and did not give up—and now I can see this opportunity actually opening doors for myself. I gained deep skills in Swift, UI/UX, accessibility, and teamwork—plus exposure to Apple’s latest tools and frameworks. The Detroit community is vibrant and supportive, and the Academy’s focus on inclusivity and innovation inspired me to build products that make a difference. I am grateful for the opportunity, and I love downtown Detroit and the First National Building. If you’re considering the Academy, expect to be challenged, supported, and empowered to create your best work.<br><br><strong>Personal Story:</strong> The first week was tough—I felt out of my depth, but the support from peers and mentors helped me push through.<br><br><strong>Technical Details:</strong> I learned Swift, UI/UX, accessibility, and teamwork, and built apps from scratch.<br><br><strong>Lessons Learned:</strong> Resilience and community are key to growth.<br><br><strong>What’s Next:</strong> I want to keep learning, build more apps, and help others on their journey.<br><br><strong>User Impact:</strong> The Academy opened doors for me and inspired me to make a difference.<br><a href="https://developeracademy.msu.edu" target="_blank" rel="noopener">Apple Developer Academy at MSU (Detroit)</a></p>
+                                </div>
+                            </div>
                         </div>
-            <div class="blog-card">
-                <div class="blog-meta">App Launch | March 2026</div>
-                <h3>My First App on the App Store</h3>
-                <p>Launching <strong>Stamped!—a city passport app</strong> on the App Store was a milestone in my developer journey. Stamped! lets users explore cities, check in at landmarks, and collect digital stamps for their travel adventures. From initial concept to shipping, I learned how to design engaging progression loops, polish UI/UX for accessibility, and navigate Apple's review process. Responding to real user feedback helped me iterate quickly and improve the experience. Seeing Stamped! live and available to travelers worldwide was both exciting and humbling—and it inspired me to keep building and improving. If you're working toward your first launch, stay curious, keep learning, and celebrate every step!<br><a href="https://apps.apple.com/us/app/stamped-a-city-passport/id6759680336" target="_blank" rel="noopener" style="color:#60443f;font-weight:bold;text-decoration:underline;">View Stamped! on the App Store</a></p>
-                <a href="#" class="read-more">Expand</a>
-            </div>
-            <!-- Existing blog cards below -->
-            <div class="blog-card">
-                <div class="blog-meta">Product Thinking | March 2026</div>
-                <h3>Shipping MVPs That Matter</h3>
-                <p>This is sample preview text for Product Thinking. Click <strong>Expand</strong> to read the full post inline.</p>
-                <a href="#" class="read-more">Expand</a>
-            </div>
-            <div class="blog-card">
-                <div class="blog-meta">Tech Trends | March 2026</div>
-                <h3>AI in Civic Tech: Real Impact</h3>
-                <p>This is sample preview text for Tech Trends. Click <strong>View Full Article</strong> to open a new page.</p>
-                <a href="blog-post-ai.html" class="read-more" target="_blank">View Full Article</a>
-            </div>
-            <div class="blog-card">
-                <div class="blog-meta">Project Deep Dive | March 2026</div>
-                <h3>CommonSight: Building a Civic Platform</h3>
-                <p>This is sample preview text for Project Deep Dive. Click <strong>View Full Article</strong> to open a new page.</p>
-                <a href="blog-post-common-sight.html" class="read-more" target="_blank">View Full Article</a>
-            </div>
-            <div class="blog-card">
-                <div class="blog-meta">Career Insights | March 2026</div>
-                <h3>My Developer Journey: Growth & Lessons</h3>
-                <p>This is sample preview text for Career Insights. Click <strong>Expand</strong> to read the full post inline.</p>
-                <a href="#" class="read-more">Expand</a>
-            </div>
-            <div class="blog-card">
-                <div class="blog-meta">Collaboration | March 2026</div>
-                <h3>Cross-Functional Communication: Aligning Teams</h3>
-                <p>This is sample preview text for Collaboration. Click <strong>Expand</strong> to read the full post inline.</p>
-                <a href="#" class="read-more">Expand</a>
-            </div>
-            <div class="blog-card">
-                <div class="blog-meta">Coding Best Practices | March 2026</div>
-                <h3>Clean Code & Maintainability in SwiftUI</h3>
-                <p>This is sample preview text for Coding Best Practices. Click <strong>Expand</strong> to read the full post inline.</p>
-                <a href="#" class="read-more">Expand</a>
-            </div>
-            <div class="blog-card">
-                <div class="blog-meta">Community Impact | March 2026</div>
-                <h3>Civic Tech for Social Good</h3>
-                <p>This is sample preview text for Community Impact. Click <strong>View Full Article</strong> to open a new page.</p>
-                <a href="blog-post-civic-tech.html" class="read-more" target="_blank">View Full Article</a>
-            </div>
-            <div class="blog-card">
-                <div class="blog-meta">Process | March 2026</div>
-                <h3>My Approach: From Idea to Launch</h3>
-                <p>This is sample preview text for Process. Click <strong>Expand</strong> to read the full post inline.</p>
-                <a href="#" class="read-more">Expand</a>
-            </div>
-            <div class="blog-card">
-                <div class="blog-meta">Client Collaboration | March 2026</div>
-                <h3>Collaborating with Clients: Building Trust & Results</h3>
-                <p>This is sample preview text for Client Collaboration. Click <strong>Expand</strong> to read the full post inline.</p>
-                <a href="#" class="read-more">Expand</a>
-            </div>
-            <div class="blog-card">
-                <div class="blog-meta">Career Growth | March 2026</div>
-                <h3>Career Growth: Lessons & Milestones</h3>
-                <p>This is sample preview text for Career Growth. Click <strong>Expand</strong> to read the full post inline.</p>
-                <a href="#" class="read-more">Expand</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
