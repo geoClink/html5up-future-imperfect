@@ -7,6 +7,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+		<link rel="stylesheet" href="assets/css/prism-xcode-stamped.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
 		<style>
 			.media-grid-item .image.fit {
 				margin-bottom: 0.5em;
@@ -39,7 +41,6 @@
 								<li><a href="about.html" class="button">About</a></li>
 								<li><a href="case-studies.html" class="button active" aria-current="page">Case Studies</a></li>
 								<li><a href="resume.html" class="button">Resume</a></li>
-								<li><a href="contact.html" class="button">Contact</a></li>
 								<li><a href="blog.html" class="button">Blog</a></li>
 							</ul>
 						</nav>
@@ -52,6 +53,7 @@
 									<li><a href="case-studies.html">Case Studies</a></li>
 									<li><a href="resume.html">Resume</a></li>
 									<li><a href="contact.html">Contact</a></li>
+									<li><a href="blog.html">Blog</a></li>
 								</ul>
 							</nav>
 						</aside>
@@ -64,6 +66,7 @@
 								<div class="title">
 									<h2>CommonSight</h2>
 									<p>A role-based community engagement platform that connects neighborhood reporting, mapping, campaigns, stories, events, and direct messaging.</p>
+									<div class="value-prop" style="color:#000;font-weight:600;margin-bottom:0.5em;">Unique Value: CommonSight stands out by unifying fragmented community tools into a seamless workflow, enabling neighborhoods to transform real-time observations into coordinated action and impactful storytelling—something no other platform offers.</div>
 								</div>
 							</header>
 
@@ -71,15 +74,34 @@
 									<h3>Problem</h3>
 									<p>Community insight is often fragmented across separate reporting, communication, and planning tools. The goal was to create a single workflow where neighborhood observations can become coordinated action.</p>
 
+
 								<h3>Project Snapshot</h3>
 								<ul class="alt">
-									<li><strong>Platform:</strong> iOS (SwiftUI + Firebase)</li>
-									<li><strong>Type:</strong> Civic/community collaboration app</li>
-									<li><strong>Focus:</strong> Role-based workflows, shared data, community storytelling</li>
-									<li><strong>Engagement:</strong> Internship project supporting a small business owner's investor demo</li>
-									<li><strong>Team:</strong> Small collaboration</li>
-									<li><strong>Timeline:</strong> Multi-phase design system initiative</li>
+										<li><strong>Platform:</strong> iOS (SwiftUI + Firebase)</li>
+										<li><strong>Type:</strong> Civic/community collaboration app</li>
+										<li><strong>Focus:</strong> Role-based workflows, shared data, community storytelling</li>
+										<li><strong>Engagement:</strong> Internship project supporting a small business owner's investor demo</li>
+										<li><strong>Team:</strong> Small collaboration</li>
+										<li><strong>Timeline:</strong> Multi-phase design system initiative</li>
 								</ul>
+
+								<ul class="actions">
+									<li><a href="https://testflight.apple.com/join/rh7Ybt7K" class="button" target="_blank" rel="noopener noreferrer">View on TestFlight</a></li>
+								</ul>
+								<h3>Demo Video</h3>
+								<p><strong>Demo video:</strong> CommonSight app walkthrough.</p>
+								<div style="display:flex;justify-content:center;margin-bottom:2em;">
+									<div style="text-align:center;max-width:420px;width:100%;">
+										<div class="image iphone-bezel" style="margin-bottom:0.7em;">
+											<video controls playsinline width="100%" poster="images/CommonSiteVideo.jpeg" style="border-radius:30px;aspect-ratio:9/19.5;object-fit:cover;">
+												<source src="images/CommonSightPortVid1.mp4" type="video/mp4" />
+												Your browser does not support the video tag.
+											</video>
+										</div>
+										<div style="font-size:0.98em;color:#222;margin-top:0.4em;">Preview of CommonSight app in action.</div>
+									</div>
+								</div>
+                                
 
 
 								<h3>Role</h3>
@@ -122,15 +144,151 @@
 									<li>Typed model layer (`User`, `Campaign`, `Observation`, `Message`, `StoryCard`) for safer feature composition</li>
 
 
+								<h3>Code Highlights</h3>
+								<div style="margin-bottom:0.2em;">
+  <span class="code-snippet-label" style="display:inline-block;font-weight:700;">FIRESTORE OBSERVATION MODEL</span>
+  <span class="code-snippet-desc" style="display:inline-block;margin-left:0.7em;color:#60443f;">Swift struct for capturing and syncing community observations in Firestore.</span>
+</div>
+<pre class="stamped-xcode-code"><code class="language-swift">struct Observation: Identifiable, Codable {
+    let id: UUID
+    var category: ObservationCategory
+    var title: String
+    var description: String
+    var location: Coordinate 
+    var locationName: String
+    var timestamp: Date
+    var userId: String
+    var userName: String
+    var photoURL: String?
+    var status: ObservationStatus
+
+    struct Coordinate: Codable {
+        let latitude: Double
+        let longitude: Double
+    }
+
+    enum ObservationCategory: String, Codable, CaseIterable {
+        case hazard, vacantLot, communitySpace, business, opportunity
+    }
+
+    enum ObservationStatus: String, Codable {
+        case active, reviewed, resolved
+    }
+}
+</code></pre>
+<div style="margin-bottom:0.2em;">
+  <span class="code-snippet-label" style="display:inline-block;font-weight:700;">FIRESTORE OBSERVATIONS LISTENER</span>
+  <span class="code-snippet-desc" style="display:inline-block;margin-left:0.7em;color:#60443f;">Swift function for real-time Firestore observation updates.</span>
+</div>
+<pre class="stamped-xcode-code"><code class="language-swift">func startObservationsListener(communityCode: String, isDemoMode: Bool = false) {
+    observationsListener = db.collection("communities")
+        .document(communityCode)
+        .collection("observations")
+        .addSnapshotListener { [weak self] snapshot, error in
+            guard let self else { return }
+            if let error {
+                self.errorMessage = "Failed to load observations."
+                self.observations = isDemoMode ? DemoData.allDemoObservations() : []
+                return
+            }
+            guard let snapshot else { return }
+            let fetched = snapshot.documents.compactMap { document in
+                try? document.data(as: Observation.self)
+            }
+            self.observations = isDemoMode ? fetched + DemoData.allDemoObservations() : fetched
+        }
+}
+</code></pre>
+<div style="margin-bottom:0.2em;">
+  <span class="code-snippet-label" style="display:inline-block;font-weight:700;">THREAD NOTIFICATION LISTENER</span>
+  <span class="code-snippet-desc" style="display:inline-block;margin-left:0.7em;color:#60443f;">Swift function for real-time unread thread tracking in Firestore.</span>
+</div>
+<pre class="stamped-xcode-code"><code class="language-swift">func startListening(communityCode: String, currentUserId: String) {
+    listener = db.collection("communities")
+        .document(communityCode)
+        .collection("threads")
+        .addSnapshotListener { [weak self] snapshot, _ in
+            guard let self, let snapshot else { return }
+            var unread: Set<String> = []
+            for document in snapshot.documents {
+                let data = document.data()
+                let threadId = document.documentID
+                let participantIds = data["participantIds"] as? [String] ?? []
+                guard participantIds.contains(currentUserId) else { continue }
+                let senderId = data["lastMessageSenderId"] as? String
+                if senderId == currentUserId { continue }
+                let lastReadAt = (data["lastReadAt"] as? [String: Timestamp])?[currentUserId]
+                let lastMessageAt = data["lastMessageAt"] as? Timestamp
+                if let lastReadAt, let lastMessageAt, lastReadAt.dateValue() < lastMessageAt.dateValue() {
+                    unread.insert(threadId)
+                }
+            }
+            self.unreadThreadIds = unread
+        }
+}
+</code></pre>
+<div style="margin-bottom:0.2em;">
+  <span class="code-snippet-label" style="display:inline-block;font-weight:700;">GENERATE STORY CARD FROM OBSERVATION</span>
+  <span class="code-snippet-desc" style="display:inline-block;margin-left:0.7em;color:#60443f;">Swift function that transforms an observation into a narrative story card for community action.</span>
+</div>
+<pre class="stamped-xcode-code"><code class="language-swift">func generateStoryCard(from observation: Observation) -> StoryCard {
+    let context = "Observation: \(observation.title)\nCategory: \(observation.category.rawValue)\nLocation: \(observation.locationName)\nDescription: \(observation.description)"
+    let callToAction = "Take action: \(observation.status == .active ? "Report or resolve" : "Reviewed")"
+    return StoryCard(
+        id: UUID(),
+        context: context,
+        callToAction: callToAction,
+        coalition: "Neighborhood Coalition",
+        createdAt: Date()
+    )
+}
+</code></pre>
 								<h3>Outcome</h3>
 								<p>CommonSight evolved into a unified civic workflow rather than separate utilities. The app demonstrates full-stack product thinking on iOS—combining data capture, geospatial context, collaboration, and campaign storytelling into one coherent experience.</p>
 
-								<h3>Next Iteration</h3>
-								<p>Planned next steps include richer analytics for campaign impact, stronger moderation workflows, and deeper offline resilience for field reporting scenarios.</p>
-
-								<ul class="actions">
-									<li><a href="case-studies.html" class="button">Back to Case Studies</a></li>
-								</ul>
+																<h3>Key Screens</h3>
+																<div style="display:flex;flex-wrap:wrap;gap:2em;justify-content:center;margin-bottom:2em;">
+																	<div style="text-align:center;max-width:230px;">
+																		<div class="image iphone-bezel" style="margin-bottom:0.7em;">
+																			  <img src="images/CommonSightAIStoryCard.PNG" alt="CommonSight Story Card screen" style="width:100%;max-width:230px;aspect-ratio:9/19.5;object-fit:cover;border-radius:30px;" />
+																		</div>
+																		<div style="font-size:1em;color:#60443f;font-weight:500;">Story Card Screen</div>
+																		<div style="font-size:0.98em;color:#222;margin-top:0.4em;">The Story Card screen lets users turn field observations into actionable stories, complete with context, call-to-action, and coalition details. Designed for clarity and impact, it helps communities organize and communicate local needs.</div>
+																	</div>
+																	<div style="text-align:center;max-width:230px;">
+																		<div class="image iphone-bezel" style="margin-bottom:0.7em;">
+																			  <img src="images/CommonSightCoalitionandStoryCard.PNG" alt="CommonSight Dashboard screen" style="width:100%;max-width:230px;aspect-ratio:9/19.5;object-fit:cover;border-radius:30px;" />
+																		</div>
+																		<div style="font-size:1em;color:#60443f;font-weight:500;">Dashboard Screen</div>
+																		<div style="font-size:0.98em;color:#222;margin-top:0.4em;">The Dashboard screen provides a summary of coalitions, active campaigns, and recent story cards. It gives users a quick overview of community activity and entry points to deeper engagement.</div>
+																	</div>
+																	<div style="text-align:center;max-width:230px;">
+																		<div class="image iphone-bezel" style="margin-bottom:0.7em;">
+																			  <img src="images/CommonSightCreateStoryView.PNG" alt="CommonSight Create Story screen" style="width:100%;max-width:230px;aspect-ratio:9/19.5;object-fit:cover;border-radius:30px;" />
+																		</div>
+																		<div style="font-size:1em;color:#60443f;font-weight:500;">Create Story Screen</div>
+																		<div style="font-size:0.98em;color:#222;margin-top:0.4em;">The Create Story screen allows users to select observations and generate new story cards. It supports tagging opportunities, locations, and contributors, streamlining the process of community storytelling.</div>
+																	</div>
+																	<div style="text-align:center;max-width:230px;">
+																		<div class="image iphone-bezel" style="margin-bottom:0.7em;">
+																			  <img src="images/CommonSightMessageView.PNG" alt="CommonSight Messages screen" style="width:100%;max-width:230px;aspect-ratio:9/19.5;object-fit:cover;border-radius:30px;" />
+																		</div>
+																		<div style="font-size:1em;color:#60443f;font-weight:500;">Messages Screen</div>
+																		<div style="font-size:0.98em;color:#222;margin-top:0.4em;">The Messages screen enables direct communication between coalition partners, with support for real-time updates and attachment sharing. It keeps teams aligned and responsive to community needs.</div>
+																	</div>
+																	<div style="text-align:center;max-width:230px;">
+																		<div class="image iphone-bezel" style="margin-bottom:0.7em;">
+																			  <img src="images/CommonSightProfileView.PNG" alt="CommonSight Profile screen" style="width:100%;max-width:230px;aspect-ratio:9/19.5;object-fit:cover;border-radius:30px;" />
+																		</div>
+																		<div style="font-size:1em;color:#60443f;font-weight:500;">Profile Screen</div>
+																		<div style="font-size:0.98em;color:#222;margin-top:0.4em;">The Profile screen lets users manage their role, neighborhood, and contact information. It supports role-based access and ensures community members are properly identified and connected.</div>
+																	</div>
+																</div>
+																<h3>Next Iteration</h3>
+																<p>Planned next steps include richer analytics for campaign impact, stronger moderation workflows, and deeper offline resilience for field reporting scenarios.</p>
+																<ul class="actions">
+																	<li><a href="case-studies.html" class="button">Back to Case Studies</a></li>
+																</ul>
 							</section>
 						</article>
 					</div>
@@ -140,7 +298,7 @@
 						<section id="intro">
 							<a href="index.html" class="logo"><img src="images/logo.jpg" alt="" /></a>
 							<header>
-								<h2>George Clinkscales</h2>
+								<h2>George Clinkscales Jr.</h2>
 								<p>Building accessible digital experiences</p>
 							</header>
 						</section>
@@ -167,6 +325,8 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-swift.min.js"></script>
 			<script>
 			function updateLocalTime() {
 				const now = new Date();

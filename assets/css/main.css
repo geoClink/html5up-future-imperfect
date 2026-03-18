@@ -1,3 +1,44 @@
+/* iPhone bezel styling for app screenshots (global, for all case studies) */
+.image.iphone-bezel {
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	padding: 10px;
+	margin-bottom: 1.5em;
+	background: #222;
+	box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+	cursor: pointer;
+	will-change: transform;
+	transition: transform 0.24s ease, box-shadow 0.24s ease;
+	max-width: 230px;
+	border-radius: 38px;
+}
+.image.iphone-bezel:hover,
+.image.iphone-bezel:focus-visible {
+	transform: translateY(-10px) scale(1.015);
+	box-shadow: 0 22px 36px rgba(0,0,0,0.28);
+}
+.image.iphone-bezel::before {
+	content: '';
+	position: absolute;
+	top: 17px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 38%;
+	height: 20px;
+	border-radius: 999px;
+	background: linear-gradient(180deg, #1b1b1b 0%, #0f0f0f 100%);
+	box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 1px 2px rgba(0,0,0,0.45);
+	z-index: 2;
+}
+.image.iphone-bezel img {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 9 / 19.5;
+	object-fit: cover;
+	border-radius: 30px;
+}
 @media screen and (max-width: 736px) {
 	.menu-btn {
 		display: block !important;

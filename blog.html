@@ -140,7 +140,7 @@
                                     <div class="blog-card">
                                         <div class="blog-meta">Product Thinking | Mar 6, 2026</div>
                                         <h3>Shipping MVPs That Matter</h3>
-                                        <p>SlotParking is my first MVP designed for real-world impact. I am trying to incorporate all the lessons I learned in the Apple Developer Academy into this project—taking an idea and making it a product in the real world. Instead of building in isolation, I’m launching a hands-on pilot in Detroit—personally visiting parking lots, pitching the app to owners, and using flyers to drive adoption. The goal: make finding a parking spot in busy downtown Detroit easier for everyone, using tech that solves a real problem. By showing the MVP to actual users and lot owners, I’m gathering feedback, validating the product, and learning what works. This approach lets me iterate quickly and build a solution that truly meets the needs of the city. In the future, I will ask for advice on whether this could be monetized.<br><br><strong>Personal Story:</strong> I remember the first time a lot owner gave me feedback—it was tough, but it helped me see the real needs of users. Every conversation is a chance to improve.<br><br><strong>Technical Details:</strong> SlotParking uses SwiftUI, Firebase, and real-time updates to track parking spots. I built the MVP with a focus on usability and quick iteration.<br><br><strong>Lessons Learned:</strong> Building for the real world means adapting fast and listening to feedback.<br><br><strong>What’s Next:</strong> I want to explore monetization and continue testing to see if SlotParking works in Detroit.<br><br><strong>User Impact:</strong> User feedback has shaped the app and helped me prioritize features.<br><a href="slotparking.html" target="_blank" rel="noopener" style="display:block;margin-top:1em;">Read the SlotParking Case Study</a></p>
+                                        <p>SlotParking is my first MVP designed for real-world impact. I am trying to incorporate all the lessons I learned in the Apple Developer Academy into this project—taking an idea and making it a product in the real world. Instead of building in isolation, I’m launching a hands-on pilot in Detroit—personally visiting parking lots, pitching the app to owners, and using flyers to drive adoption. The goal: make finding a parking spot in busy downtown Detroit easier for everyone, using tech that solves a real problem. By showing the MVP to actual users and lot owners, I’m gathering feedback, validating the product, and learning what works. This approach lets me iterate quickly and build a solution that truly meets the needs of the city. In the future, I will ask for advice on whether this could be monetized.<br><br><strong>Personal Story:</strong> I remember the first time a lot owner gave me feedback—it was tough, but it helped me see the real needs of users. Every conversation is a chance to improve.<br><br><strong>Technical Details:</strong> SlotParking uses SwiftUI, Firebase, and real-time updates to track parking spots. I built the MVP with a focus on usability and quick iteration.<br><br><strong>Lessons Learned:</strong> Building for the real world means adapting fast and listening to feedback.<br><br><strong>What’s Next:</strong> I want to explore monetization and continue testing to see if SlotParking works in Detroit.<br><br><strong>User Impact:</strong> User feedback has shaped the app and helped me prioritize features.<br><a href="slotparking.html" target="_blank" rel="noopener" style="display:inline;margin-top:1em;">Read the SlotParking Case Study</a></p>
                                     </div>
                                     <div class="blog-card">
                                         <div class="blog-meta">App Launch | Mar 3, 2026</div>
@@ -168,26 +168,22 @@
         <ul class="icons">
             <li><a href="https://github.com/geoClink" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span class="label">GitHub</span></a></li>
             <li><a href="https://www.linkedin.com/in/george-clinkscales/" class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
+            <!-- Email icon removed to prevent mailto behavior. -->
         </ul>
         <p class="copyright">&copy; George Clinkscales Jr. Design: <a href="http://html5up.net">HTML5 UP</a>.</p>
-        <p style="font-size:0.95em;color:#60443f;margin-top:0.5em;">Local Developer Time: <span id="local-time"></span></p>
+        <p style="font-size:1em; color:#60443f; margin-top:0.5em;">
+            <strong>Local Developer Time:</strong> <span id="local-time"></span> (Eastern Time Zone)<br>
+        </p>
     </section>
-    <!-- Scripts for mobile menu functionality -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
 const fullPosts = [
-  'Dynamic Type, VoiceOver, and high-contrast modes are essential for accessible apps. In SwiftUI, I use .accessibilityLabel, .accessibilityHint, and .accessibilityTraits to ensure every element is usable. Testing with Accessibility Inspector helps catch issues early.',
-  'Shipping MVPs means focusing on core value, iterating quickly, and listening to users. For CommonSight, we launched with essential features, then added AI and campaign modules based on feedback.',
-  '',
-  '',
-  'My journey started in horticulture, moved to lab work, and grew into civic tech and iOS development. Each step taught me adaptability and user empathy.',
-  'Clear communication bridges technical and product teams. I use diagrams, demos, and tradeoff discussions to align everyone quickly.',
-  'Clean code in SwiftUI means modular views, MVVM architecture, and thorough testing. Maintainability is key for scaling and onboarding new developers.',
-  '',
-  'My process starts with user needs, moves through wireframing, prototyping, and iterative development, and ends with launch and feedback.',
-  'Client collaboration is about clear communication, setting expectations, and delivering results. I use regular check-ins and transparent progress updates.',
-  'Career growth is a journey of learning, adapting, and celebrating milestones. I reflect on each project and use feedback to improve.'
+    'Dynamic Type, VoiceOver, and high-contrast modes are essential for accessible apps. In SwiftUI, I use .accessibilityLabel, .accessibilityHint, and .accessibilityTraits to ensure every element is usable. Testing with Accessibility Inspector helps catch issues early.',
+    'Shipping MVPs means focusing on core value, iterating quickly, and listening to users. For CommonSight, we launched with essential features, then added AI and campaign modules based on feedback.',
+    'My process starts with user needs, moves through wireframing, prototyping, and iterative development, and ends with launch and feedback.',
+    'Client collaboration is about clear communication, setting expectations, and delivering results. I use regular check-ins and transparent progress updates.',
+    'Career growth is a journey of learning, adapting, and celebrating milestones. I reflect on each project and use feedback to improve.'
 ];
 window.addEventListener('DOMContentLoaded', () => {
   const cards = document.querySelectorAll('.blog-card');

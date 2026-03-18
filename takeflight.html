@@ -2,7 +2,7 @@
 <!-- Project 2: TakeFlight -->
 <html>
 	<head>
-		<title>TakeFlight — Case Study | George Clinkscales, JR.</title>
+		<title>TakeFlight — Case Study | George Clinkscales Jr.</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -99,7 +99,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1>George Clinkscales, JR.</h1>
+						<h1>George Clinkscales Jr.</h1>
 						<!-- Menu button for mobile -->
 						<button id="menuToggle" aria-label="Open menu" class="menu-btn">
 							<span class="menu-icon">
@@ -112,7 +112,6 @@
 								<li><a href="about.html" class="button">About</a></li>
 								<li><a href="case-studies.html" class="button active" aria-current="page">Case Studies</a></li>
 								<li><a href="resume.html" class="button">Resume</a></li>
-								<li><a href="contact.html" class="button">Contact</a></li>
 								<li><a href="blog.html" class="button">Blog</a></li>
 							</ul>
 						</nav>
@@ -126,15 +125,6 @@
 									<li><a href="resume.html">Resume</a></li>
 									<li><a href="contact.html">Contact</a></li>
 									<li><a href="blog.html">Blog</a></li>
-								</ul>
-								<hr style="margin:1em 0;">
-								<div style="padding-left:1em;font-weight:600;color:#60443f;">Case Study Quick Links</div>
-								<ul style="margin-top:0.5em;">
-									<li><a href="stamped.html">Stamped! <span style="color:#888;font-size:0.9em;">(SwiftUI)</span></a></li>
-									<li><a href="takeflight.html">TakeFlight <span style="color:#888;font-size:0.9em;">(SwiftUI)</span></a></li>
-									<li><a href="commonsight.html">CommonSight <span style="color:#888;font-size:0.9em;">(SwiftUI)</span></a></li>
-									<li><a href="learntocode.html">LearnToCode <span style="color:#888;font-size:0.9em;">(Web Dev)</span></a></li>
-								</ul>
 								</ul>
 							</nav>
 						</aside>
@@ -218,8 +208,10 @@
 								</ul>
 
 								<h3>Code Highlights</h3>
-								<p class="code-snippet-label">SWIFTDATA PERSISTENCE MODEL</p>
-								<p class="code-snippet-desc">Defines a SwiftData model that stores all player progress, inventory, and game state for seamless saving and loading.</p>
+								<div style="margin-bottom:0.2em;">
+									<span class="code-snippet-label" style="display:inline-block;font-weight:700;">SWIFTDATA PERSISTENCE MODEL</span>
+									<span class="code-snippet-desc" style="display:inline-block;margin-left:0.7em;color:#60443f;">Defines a SwiftData model that stores all player progress, inventory, and game state for seamless saving and loading.</span>
+								</div>
 								<pre class="stamped-xcode-code"><code class="language-swift">@Model
 	final class GameState {
 		var id: UUID
@@ -267,8 +259,10 @@
 		}
 	}</code></pre>
 
-								<p class="code-snippet-label">MAIN UPDATE LOOP ORCHESTRATION</p>
-								<p class="code-snippet-desc">Runs the main game loop, updating health, saving progress, and triggering mini-games based on player actions and proximity.</p>
+								<div style="margin-bottom:0.2em;">
+									<span class="code-snippet-label" style="display:inline-block;font-weight:700;">MAIN UPDATE LOOP ORCHESTRATION</span>
+									<span class="code-snippet-desc" style="display:inline-block;margin-left:0.7em;color:#60443f;">Runs the main game loop, updating health, saving progress, and triggering mini-games based on player actions and proximity.</span>
+								</div>
 								<pre class="stamped-xcode-code"><code class="language-swift">func update(currentTime: TimeInterval) {
 		if isPausedForMiniGame { return }
 
@@ -325,11 +319,12 @@
 				<!-- Sidebar -->
 					<section id="sidebar">
 						<section id="intro">
-							<a href="index.html" class="logo"><img src="images/logo.jpg" alt="" /></a>
+							<a href="index.html" class="logo"><img src="assets/images/logo-techy.svg" alt="GC Techy Logo" /></a>
 							<header>
-								<h2>George Clinkscales, JR.</h2>
+								<h2>George Clinkscales Jr.</h2>
 								<p>Building accessible digital experiences</p>
 							</header>
+						</section>
 						</section>
 					</section>
 
@@ -343,8 +338,10 @@
 					<!-- Email icon removed to prevent mailto behavior. -->
 				</ul>
 				<p class="copyright">&copy; George Clinkscales Jr. Design: <a href="http://html5up.net">HTML5 UP</a>.</p>
+				<p style="font-size:0.95em;color:#60443f;margin-top:0.5em;">Last updated: March 17, 2026</p>
 				<p style="font-size:1em; color:#60443f; margin-top:0.5em;">
 					<strong>Local Developer Time:</strong> <span id="local-time"></span> (Eastern Time Zone)<br>
+					<span style="font-size:0.97em; color:#887c73;">.</span>
 				</p>
 			</section>
 
