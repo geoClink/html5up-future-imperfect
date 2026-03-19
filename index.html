@@ -684,10 +684,22 @@
 							</div>
 
 							<h3 class="testimonial-subheading">Client Quotes</h3>
-							<p style="text-align:center; color:#b36b00; font-size:1em; margin-bottom:1.5em;"><strong>Note:</strong> The following quotes are sample filler text and will be replaced with real client feedback soon.</p>
 							<div class="testimonials-slider">
 								<div class="testimonials-container">
 									<div class="testimonial-slide active">
+										<div class="testimonial-card">
+											<div class="testimonial-quote">
+												<p class="testimonial-text">George showed a deep commitment to both the vision and the details, consistently stepping up to solve problems and strengthen the foundation of our MVP. I cannot express how his contributions helped turn abstract concepts into something tangible and real.</p>
+											</div>
+											<div class="testimonial-author">
+												<div class="testimonial-info">
+													<p class="testimonial-name">Ashlee Cunninigham</p>
+													<p class="testimonial-title"><i>Founder</i>, We Change Community Consulting </p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="testimonial-slide">
 										<div class="testimonial-card">
 											<div class="testimonial-quote">
 												<p class="testimonial-text">I’ve had the chance to work with George in the Apple Developer Academy and on projects outside of it, and he consistently brings real value to a team. He’s dependable, collaborative, and always works to make the final product stronger. He’s someone I’d confidently recommend.</p>
@@ -700,19 +712,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="testimonial-slide">
-										<div class="testimonial-card">
-											<div class="testimonial-quote">
-												<p class="testimonial-text">He communicates clearly, takes ownership, and ships polished work. George helped turn rough ideas into a cohesive, investor-ready experience.</p>
-											</div>
-											<div class="testimonial-author">
-												<div class="testimonial-info">
-													<p class="testimonial-name">Internship Stakeholder</p>
-													<p class="testimonial-title">Small Business Owner</p>
-												</div>
-											</div>
-										</div>
-									</div>
+									
 									<div class="testimonial-slide">
 										<div class="testimonial-card">
 											<div class="testimonial-quote">
@@ -991,5 +991,41 @@
 				}
 			</script>
 
+		<!-- Scroll Depth and Time on Screen Tracking -->
+		let maxScroll = 0;
+		let startTime = Date.now();
+		window.addEventListener('scroll', () => {
+			const scrollDepth = window.scrollY + window.innerHeight;
+			if (scrollDepth > maxScroll) {
+				maxScroll = scrollDepth;
+			}
+		});
+		function sendUserMetrics() {
+			const endTime = Date.now();
+			const timeOnScreen = Math.round((endTime - startTime) / 1000); // seconds
+			// Send to Firestore
+			if (window.firebase && window.firebase.firestore) {
+				// Using Firestore via module import
+				try {
+					const db = window.firebase.firestore();
+					db.collection('userMetrics').add({
+						scrollDepth: maxScroll,
+						timeOnScreen: timeOnScreen,
+						timestamp: new Date()
+					});
+				} catch (err) {
+					// Handle error silently
+				}
+			}
+			// Using Firestore via module import (for ES module usage)
+			if (typeof addDoc === 'function' && typeof collection === 'function' && typeof db !== 'undefined') {
+				addDoc(collection(db, 'userMetrics'), {
+					scrollDepth: maxScroll,
+					timeOnScreen: timeOnScreen,
+					timestamp: new Date().toISOString()
+				}).catch(() => {});
+			}
+		}
+		window.addEventListener('beforeunload', sendUserMetrics);
 	</body>
 </html>
