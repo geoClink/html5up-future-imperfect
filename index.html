@@ -636,7 +636,7 @@
 									<div class="intro-copy">
 									<h1 style="font-size:2.2em;letter-spacing:0.03em;font-weight:900;color:#222;margin-bottom:0.25em;">George Clinkscales Jr.</h1>
 									<div style="color:#60443f;font-size:1em;margin-bottom:0.2em;">
-										<img src="images/pin.svg" alt="Location pin" style="width:16px;height:16px;vertical-align:middle;margin-right:0.3em;" />Detroit, MI
+										<img src="assets/images/pin.svg" alt="Location pin" style="width:16px;height:16px;vertical-align:middle;margin-right:0.3em;" />Detroit, MI
 									</div>
 									<div style="font-size:1.35em;font-weight:700;color:#60443f;margin-bottom:0.4em;">SwiftUI-Focused iOS Developer</div>
 									<div style="font-size:1.08em;color:#222;line-height:1.5;margin-bottom:0.5em;">
@@ -653,7 +653,7 @@
 							<h2>Featured iOS/SwiftUI Case Studies</h2>
 							<div class="projects">
 								<article class="project main-project">
-									<a href="stamped.html" class="image"><img src="images/project1.jpeg" alt="Stamped! app project image" /></a>
+									<a href="stamped.html" class="image"><img src="assets/images/project1.jpeg" alt="Stamped! app project image" /></a>
 									<h3>Stamped! — A City Passport</h3>
 									<p>A SwiftUI travel discovery app delivered in a 14-week build cycle, turning Detroit architecture into a collectible city-passport experience with progress tracking and AI-assisted itinerary support.</p>
 									<ul class="actions"><li><a href="stamped.html" class="button">View Featured Case Study</a></li></ul>
@@ -991,7 +991,7 @@
 				}
 			</script>
 
-		<!-- Scroll Depth and Time on Screen Tracking -->
+		<script>
 		let maxScroll = 0;
 		let startTime = Date.now();
 		window.addEventListener('scroll', () => {
@@ -1003,29 +1003,113 @@
 		function sendUserMetrics() {
 			const endTime = Date.now();
 			const timeOnScreen = Math.round((endTime - startTime) / 1000); // seconds
-			// Send to Firestore
 			if (window.firebase && window.firebase.firestore) {
-				// Using Firestore via module import
 				try {
 					const db = window.firebase.firestore();
 					db.collection('userMetrics').add({
 						scrollDepth: maxScroll,
 						timeOnScreen: timeOnScreen,
-						timestamp: new Date()
+						timestamp: new Date(),
+						page: document.title
 					});
-				} catch (err) {
-					// Handle error silently
-				}
+				} catch (err) {}
 			}
-			// Using Firestore via module import (for ES module usage)
 			if (typeof addDoc === 'function' && typeof collection === 'function' && typeof db !== 'undefined') {
 				addDoc(collection(db, 'userMetrics'), {
 					scrollDepth: maxScroll,
 					timeOnScreen: timeOnScreen,
-					timestamp: new Date().toISOString()
+					timestamp: new Date().toISOString(),
+					page: document.title
 				}).catch(() => {});
 			}
 		}
 		window.addEventListener('beforeunload', sendUserMetrics);
+
+		// Button click tracking
+		function trackButtonClick(e) {
+			if (window.firebase && window.firebase.firestore) {
+				try {
+					const db = window.firebase.firestore();
+					db.collection('userEvents').add({
+						event: 'button_click',
+						label: e.target.textContent.trim(),
+						page: document.title,
+						timestamp: new Date()
+					});
+				} catch (err) {}
+			}
+		}
+		document.querySelectorAll('button, .button, .card-cta').forEach(btn => {
+			btn.addEventListener('click', trackButtonClick);
+		});
+
+		// External link click tracking
+		function trackExternalLink(e) {
+			const href = e.target.href || e.target.closest('a')?.href;
+			if (href && (href.includes('github.com') || href.includes('linkedin.com') || href.includes('apps.apple.com') || href.includes('testflight.apple.com'))) {
+				if (window.firebase && window.firebase.firestore) {
+					try {
+						const db = window.firebase.firestore();
+						db.collection('userEvents').add({
+							event: 'external_link_click',
+							url: href,
+							label: e.target.textContent.trim(),
+							page: document.title,
+							timestamp: new Date()
+						});
+					} catch (err) {}
+				}
+			}
+		}
+		document.querySelectorAll('a').forEach(link => {
+			link.addEventListener('click', trackExternalLink);
+		});
+
+		// Section visibility tracking
+		function trackSectionVisibility(sectionId) {
+			if (window.firebase && window.firebase.firestore) {
+				try {
+					const db = window.firebase.firestore();
+					db.collection('userEvents').add({
+						event: 'section_visible',
+						section: sectionId,
+						page: document.title,
+						timestamp: new Date()
+					});
+				} catch (err) {}
+			}
+		}
+		['testimonials-section','featured-projects','contact-section','intro-section'].forEach(id => {
+			const section = document.getElementById(id);
+			if (section) {
+				const observer = new IntersectionObserver(entries => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							trackSectionVisibility(id);
+						}
+					});
+				}, { threshold: 0.2 });
+				observer.observe(section);
+			}
+		});
+
+		// Form submission tracking
+		function trackFormSubmit(e) {
+			if (window.firebase && window.firebase.firestore) {
+				try {
+					const db = window.firebase.firestore();
+					db.collection('userEvents').add({
+						event: 'form_submit',
+						form: e.target.id || e.target.name || 'unknown',
+						page: document.title,
+						timestamp: new Date()
+					});
+				} catch (err) {}
+			}
+		}
+		document.querySelectorAll('form').forEach(form => {
+			form.addEventListener('submit', trackFormSubmit);
+		});
+		</script>
 	</body>
 </html>

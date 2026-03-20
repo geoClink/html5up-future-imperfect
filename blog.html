@@ -1,14 +1,19 @@
 <!DOCTYPE HTML>
-<!-- Blog page: Insights and posts by George Clinkscales on tech, product, and accessibility. -->
+<!-- Blog page: Insights and posts by George Clinkscales Jr. on tech, product, and accessibility. -->
 <html>
 <head>
     <!-- The <head> section contains metadata, page title, and links to stylesheets. -->
-    <title>Blog | George Clinkscales</title>
+    <title>Blog | George Clinkscales Jr.</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="Insights and blog posts by George Clinkscales on product, accessibility, and tech trends." />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+    <meta name="description" content="Insights and blog posts by George Clinkscales Jr. on product, accessibility, and tech trends." />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+        <!-- Prism.js syntax highlighting includes -->
+        <link rel="stylesheet" href="assets/css/prism-xcode-stamped.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-swift.min.js"></script>
     <style>
         /* Custom styles for blog section, cards, and layout. */
         .blog-section {
@@ -62,7 +67,7 @@
 </head>
 <body>
     <header id="header">
-        <h1>George Clinkscales</h1>
+        <h1>Blog</h1>
         <!-- Menu button for mobile -->
         <button id="menuToggle" aria-label="Open menu" class="menu-btn">
             <span class="menu-icon">
@@ -99,15 +104,16 @@
         </div>
         <div class="blog-grid">
             <div class="blog-card">
-                <div class="blog-meta">Apple History | Mar 19, 2026</div>
-                <h3>The 9:41 Rule: Steve Jobs and Apple’s Iconic Time</h3>
-                <p>If you look closely at Apple’s marketing images, you’ll notice a curious detail: the time on iPhones and iPads is almost always set to 9:41. This isn’t a coincidence—it’s a tribute to a historic moment in Apple’s history.</p>
-                <p><strong>The Origin:</strong> The 9:41 rule began with the launch of the original iPhone. During Steve Jobs’ legendary keynote on January 9, 2007, he revealed the iPhone to the world at exactly 9:41 AM. Apple’s designers set the time in all product images to match that moment, creating a subtle nod to the company’s biggest milestone.</p>
-                <p><strong>Why 9:41?</strong> Apple’s presentations are meticulously timed. The team wanted the product reveal to coincide with the time shown on the screen. When Jobs unveiled the iPhone, the clock matched the keynote’s schedule—making 9:41 a symbol of innovation and precision.</p>
-                <p><strong>Design Impact:</strong> Since then, 9:41 has appeared in nearly every Apple device image, from iPhones to iPads and Macs. It’s a small detail, but it reflects Apple’s attention to storytelling and brand consistency.</p>
-                <p><strong>Fun Fact:</strong> Before the iPhone, Apple used 9:42 for the original Macintosh launch. The switch to 9:41 marked a new era for the company.</p>
-                <p><strong>Takeaway:</strong> The 9:41 rule is more than just a time—it’s a reminder of Apple’s culture of detail, history, and the impact of Steve Jobs’ vision. Next time you see an Apple ad, check the clock!</p>
+                <div class="blog-meta">Community Impact | Mar 19, 2026</div>
+                <h3>Visiting the Water Board Building: Initiative & Real-World Impact</h3>
+                <p>Sometimes, the best opportunities come from a bit of luck and a lot of initiative. On a recent visit to the Water Board Building with my Challenge 5 team, we had no idea that our trip would coincide with the monthly board meeting. We simply wanted to learn more about the organization and explore ways our skills could make a real difference in the community.</p>
+                <p>As we entered, we found ourselves in the midst of the board meeting. Rather than quietly observing, our project manager seized the moment and stood up to address the board directly. With genuine curiosity and a spirit of service, she asked if there were any pain points the board faces daily that technology—and our team—could help solve.</p>
+                <p>The board responded candidly, sharing a real challenge they encounter. This unexpected conversation may have set the stage for our Challenge 5 project and, potentially, secured a client whose needs align perfectly with our mission to create meaningful, real-world impact.</p>
+                <p>We are now waiting to meet with the board again, eager to learn more and begin working on a solution. This experience is a testament to the power of showing up, asking questions, and being ready to serve. Our journey to the Water Board Building was more than a search for a project—it was a step toward making a lasting difference in our community.</p>
+                <footer>
+                </footer>
             </div>
+            
             <div class="blog-card">
                 <div class="blog-meta">Learning Methods | Mar 18, 2026</div>
                 <h3>Challenge Based Learning: What It Is and Why It Matters</h3>
@@ -134,6 +140,7 @@
                 At the Apple Developer Academy, CBL shaped how I learn and build. Working in teams, we tackled real challenges—like improving accessibility in apps or designing civic platforms. The process taught me to collaborate, iterate, and connect learning to real impact.</p>
                 <p><strong>Why It Matters:</strong><br>
                 CBL prepares learners for the real world. It builds critical thinking, teamwork, and adaptability. By focusing on authentic challenges, it makes learning meaningful and empowers students to make a difference.</p>
+                <p><a href="https://education.apple.com/learning-center/R006554-en_US" target="_blank" rel="noopener">Learn more about Challenge Based Learning at Apple Learning Center</a></p>
             </div>
             <div class="blog-card">
                 <div class="blog-meta">SwiftUI | Mar 17, 2026</div>
@@ -165,7 +172,6 @@ class CityData: ObservableObject {
                     <li><strong>Set Up App Store Connect:</strong> Create an App Store Connect account and register your app. Fill in metadata, screenshots, and descriptions.</li>
                     <li><strong>Configure Xcode:</strong> Set your app’s bundle identifier, version, and build number. Make sure your provisioning profiles and certificates are correct.</li>
                     <li><strong>Archive and Validate:</strong> In Xcode, select Product &gt; Archive. Once archived, validate your build to catch any issues before submission.</li>
-                    <li><strong>Upload to App Store Connect:</strong> Use Xcode’s Organizer to upload your archive. Fill in release notes and select your build in App Store Connect.</li>
                     <li><strong>Fill Out Required Information:</strong> Before submitting, you must provide:
                         <ul>
                             <li><strong>App Name & Subtitle:</strong> The name and a short tagline for your app.</li>
@@ -186,6 +192,7 @@ class CityData: ObservableObject {
                     <li><strong>Release Your App:</strong> Once approved, set your release date or launch manually. Celebrate your achievement!</li>
                 </ol>
                 <p><strong>Tips:</strong> Read Apple’s guidelines, test on real devices, and prepare clear screenshots and descriptions. Stay positive—every step is a learning opportunity!</p>
+                <p><a href="https://developer.apple.com/app-store/submitting/" target="_blank" rel="noopener">Official Apple Guide: Submitting to the App Store</a></p>
             </div>
             <div class="blog-card">
                 <div class="blog-meta">AI & Innovation | Mar 15, 2026</div>
@@ -240,6 +247,16 @@ class CityData: ObservableObject {
                 <div class="blog-meta">Tools & IDE | Mar 9, 2026</div>
                 <h3>My Thoughts on Xcode 26.3</h3>
                 <p>Xcode 26.3 feels like a mature, polished IDE for Apple developers. I began learning code at an interesting time—this is my first IDE, and I want it to help me work faster, but also explain things I may not have learned yet. I want it to help me learn and be a tool, not a crutch. The new features—especially improved SwiftUI previews, faster build times, and enhanced accessibility tools—make daily development smoother and more productive. I appreciate the stability and performance improvements, as well as the expanded support for Apple Intelligence APIs. The UI is cleaner, and the debugging experience is more intuitive. One standout is how Xcode is starting to support agentic coding: workflows where AI and automation help generate, refactor, and test code alongside the developer. This shift makes coding more collaborative and efficient, letting me focus on creative problem-solving while routine tasks are handled by smart tools.<br><br><strong>Personal Story:</strong> Learning code with Xcode as my first IDE was a wild ride. I made plenty of mistakes, but each one taught me something new.<br><br><strong>Technical Details:</strong> I use SwiftUI, Apple Intelligence APIs, and Xcode’s debugging tools daily. The IDE helps me work faster and learn as I go.<br><br><strong>Lessons Learned:</strong> Tools are important, but curiosity and persistence matter more.<br><br><strong>What’s Next:</strong> I want to keep exploring new features and push the limits of what Xcode can do.<br><br><strong>User Impact:</strong> Feedback from teammates and mentors has helped me improve my workflow.<br><a href="https://developer.apple.com/xcode/" target="_blank" rel="noopener">Learn more about Xcode</a></p>
+            </div>
+            <div class="blog-card">
+                <div class="blog-meta">Apple History | Mar 5, 2026</div>
+                <h3>The 9:41 Rule: Steve Jobs and Apple’s Iconic Time</h3>
+                <p>If you look closely at Apple’s marketing images, you’ll notice a curious detail: the time on iPhones and iPads is almost always set to 9:41. This isn’t a coincidence—it’s a tribute to a historic moment in Apple’s history.</p>
+                <p><strong>The Origin:</strong> The 9:41 rule began with the launch of the original iPhone. During Steve Jobs’ legendary keynote on January 9, 2007, he revealed the iPhone to the world at exactly 9:41 AM. Apple’s designers set the time in all product images to match that moment, creating a subtle nod to the company’s biggest milestone.</p>
+                <p><strong>Why 9:41?</strong> Apple’s presentations are meticulously timed. The team wanted the product reveal to coincide with the time shown on the screen. When Jobs unveiled the iPhone, the clock matched the keynote’s schedule—making 9:41 a symbol of innovation and precision.</p>
+                <p><strong>Design Impact:</strong> Since then, 9:41 has appeared in nearly every Apple device image, from iPhones to iPads and Macs. It’s a small detail, but it reflects Apple’s attention to storytelling and brand consistency.</p>
+                <p><strong>Fun Fact:</strong> Before the iPhone, Apple used 9:42 for the original Macintosh launch. The switch to 9:41 marked a new era for the company.</p>
+                <p><strong>Takeaway:</strong> The 9:41 rule is more than just a time—it’s a reminder of Apple’s culture of detail, history, and the impact of Steve Jobs’ vision. Next time you see an Apple ad, check the clock!</p>
             </div>
             <div class="blog-card">
                 <div class="blog-meta">Career Experience | Feb 27, 2026</div>
@@ -317,6 +334,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateLocalTime();
     setInterval(updateLocalTime, 1000);
 });
+
 </script>
 </body>
 </html>

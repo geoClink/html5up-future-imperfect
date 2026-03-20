@@ -31,7 +31,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1>George Clinkscales Jr.</h1>
+						<h1>Contact</h1>
 						<!-- Menu button for mobile -->
 						<button id="menuToggle" aria-label="Open menu" class="menu-btn">
 							<span class="menu-icon">
@@ -268,6 +268,132 @@
 			}
 			setInterval(updateLocalTime, 1000);
 			updateLocalTime();
+			</script>
+
+		<!-- Scroll depth and time-on-page tracking -->
+			<script>
+			let maxScroll = 0;
+			let startTime = Date.now();
+			window.addEventListener('scroll', () => {
+				const scrollDepth = window.scrollY + window.innerHeight;
+				if (scrollDepth > maxScroll) {
+					maxScroll = scrollDepth;
+				}
+			});
+			function sendUserMetrics() {
+				const endTime = Date.now();
+				const timeOnScreen = Math.round((endTime - startTime) / 1000);
+				if (window.firebase && window.firebase.firestore) {
+					try {
+						const db = window.firebase.firestore();
+						db.collection('userMetrics').add({
+							scrollDepth: maxScroll,
+							timeOnScreen: timeOnScreen,
+							timestamp: new Date(),
+							page: document.title,
+							device: navigator.userAgent,
+							screen: { width: window.innerWidth, height: window.innerHeight }
+						});
+					} catch (err) {}
+				}
+				if (typeof addDoc === 'function' && typeof collection === 'function' && typeof db !== 'undefined') {
+					addDoc(collection(db, 'userMetrics'), {
+						scrollDepth: maxScroll,
+						timeOnScreen: timeOnScreen,
+						timestamp: new Date().toISOString(),
+						page: document.title,
+						device: navigator.userAgent,
+						screen: { width: window.innerWidth, height: window.innerHeight }
+					}).catch(() => {});
+				}
+			}
+			window.addEventListener('beforeunload', sendUserMetrics);
+
+			// Button click tracking
+			function trackButtonClick(e) {
+				if (window.firebase && window.firebase.firestore) {
+					try {
+						const db = window.firebase.firestore();
+						db.collection('userEvents').add({
+							event: 'button_click',
+							label: e.target.textContent.trim(),
+							page: document.title,
+							timestamp: new Date()
+						});
+					} catch (err) {}
+				}
+			}
+			document.querySelectorAll('button, .button, .card-cta').forEach(btn => {
+				btn.addEventListener('click', trackButtonClick);
+			});
+
+			// External link click tracking
+			function trackExternalLink(e) {
+				const href = e.target.href || e.target.closest('a')?.href;
+				if (href && (href.includes('github.com') || href.includes('linkedin.com') || href.includes('apps.apple.com') || href.includes('testflight.apple.com'))) {
+					if (window.firebase && window.firebase.firestore) {
+						try {
+							const db = window.firebase.firestore();
+							db.collection('userEvents').add({
+								event: 'external_link_click',
+								url: href,
+								label: e.target.textContent.trim(),
+								page: document.title,
+								timestamp: new Date()
+							});
+						} catch (err) {}
+					}
+				}
+			}
+			document.querySelectorAll('a').forEach(link => {
+				link.addEventListener('click', trackExternalLink);
+			});
+
+			// Section visibility tracking
+			function trackSectionVisibility(sectionId) {
+				if (window.firebase && window.firebase.firestore) {
+					try {
+						const db = window.firebase.firestore();
+						db.collection('userEvents').add({
+							event: 'section_visible',
+							section: sectionId,
+							page: document.title,
+							timestamp: new Date()
+						});
+					} catch (err) {}
+				}
+			}
+			['testimonials-section','featured-projects','contact-section','intro-section'].forEach(id => {
+				const section = document.getElementById(id);
+				if (section) {
+					const observer = new IntersectionObserver(entries => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								trackSectionVisibility(id);
+							}
+						});
+					}, { threshold: 0.2 });
+					observer.observe(section);
+				}
+			});
+
+			// Form submission tracking
+			function trackFormSubmit(e) {
+				if (window.firebase && window.firebase.firestore) {
+					try {
+						const db = window.firebase.firestore();
+						db.collection('userEvents').add({
+							event: 'form_submit',
+							form: e.target.id || e.target.name || 'unknown',
+							page: document.title,
+							timestamp: new Date()
+						});
+					} catch (err) {}
+				}
+			}
+			document.querySelectorAll('form').forEach(form => {
+				form.addEventListener('submit', trackFormSubmit);
+			});
 			</script>
 
 	</body>
