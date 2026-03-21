@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-swift.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
     <style>
         /* Custom styles for blog section, cards, and layout. */
         .blog-section {
@@ -103,6 +104,81 @@
             <h1>Insights & Blog</h1>
         </div>
         <div class="blog-grid">
+            <div class="blog-card">
+                <div class="blog-meta">App Store Advertising | Mar 21, 2026</div>
+                <h3>Completing the Apple Ads Certificate: Key Rules & Strategies for iOS App Store Advertising</h3>
+                <p>On March 21, 2026, I completed the Apple Search Ads Certification, deepening my understanding of how to effectively promote apps on the iOS App Store. Here are the most important rules and strategies I learned for advertising applications and maximizing visibility, downloads, and ROI:</p>
+                <h4>Essential Rules for App Store Advertising</h4>
+                <ul>
+                    <li><strong>Follow Apple’s Ad Guidelines:</strong> All ads must comply with Apple’s creative and content policies. Avoid misleading claims, prohibited content, and ensure your app’s metadata is accurate and up to date.</li>
+                    <li><strong>Respect User Privacy:</strong> Use Apple’s privacy-friendly attribution and never collect or use user data for targeting without consent. Leverage SKAdNetwork for privacy-compliant campaign measurement.</li>
+                    <li><strong>Maintain High App Quality:</strong> Only advertise apps that meet Apple’s quality standards—good ratings, no crashes, and up-to-date with the latest iOS requirements.</li>
+                    <li><strong>Be Transparent:</strong> Clearly communicate your app’s value proposition in ad copy and screenshots. Avoid clickbait or deceptive practices.</li>
+                </ul>
+                <h4>Effective Strategies for iOS App Store Ads</h4>
+                <ul>
+                    <li><strong>Keyword Optimization:</strong> Research and bid on relevant keywords that match your app’s core features and user intent. Use Apple’s keyword suggestion tools and monitor performance regularly.</li>
+                    <li><strong>Creative Testing:</strong> Continuously A/B test ad creatives—icons, screenshots, and copy—to find what resonates best with your target audience.</li>
+                    <li><strong>Audience Targeting:</strong> Use Apple’s audience refinement tools to target users by location, device type, demographics, and previous app interactions.</li>
+                    <li><strong>Budget Management:</strong> Set clear daily and total campaign budgets. Monitor cost-per-tap (CPT) and cost-per-acquisition (CPA) to optimize spend for the best ROI.</li>
+                    <li><strong>Leverage Custom Product Pages:</strong> Create tailored App Store pages for different audiences or campaigns to improve conversion rates.</li>
+                    <li><strong>Track & Analyze Results:</strong> Use Apple Search Ads dashboard and SKAdNetwork data to measure installs, engagement, and optimize campaigns based on real performance data.</li>
+                </ul>
+                <h4>Keyword Match Types & Bidding</h4>
+                <p>In Apple Search Ads, the match type you choose for a keyword determines how closely a user’s search must match your keyword for your ad to appear. Exact match gives you the most control and typically warrants a higher bid, since you know the term is highly relevant. Broad match and Search Match cast a wider net, so you may want to start with lower bids and adjust as you see which terms perform best. As a rule of thumb: bid more aggressively on exact match keywords you know convert, and use more conservative bids for broad or discovery-focused campaigns until you identify new high-performers.</p>
+                <h4>Keyword Mining (Harvesting)</h4>
+                <p>In Apple Search Ads, “keyword mining” (sometimes called “harvesting”) is the process of using Discovery campaigns and Search Match to uncover new, high-performing search terms you might not have thought of. When these new keywords start driving installs or conversions, you move them into your Exact Match campaigns and add them as negatives in Discovery. This keeps your data clean and ensures you’re always expanding your reach with fresh, relevant keywords. It’s a continuous cycle: discover, test, promote, and repeat.</p>
+                <h4>Structuring Search Results Campaigns</h4>
+                <p>The first step in structuring search results campaigns is to divide your keywords into four separate campaigns, each focused on a different keyword theme. This structure helps you measure results, monitor performance, optimize campaigns, and scale for long-term growth. The four recommended campaign types are:</p>
+                <ul>
+                    <li><strong>Brand:</strong> Target keywords related to your app or company name. These capture users already searching for you and help protect your brand presence.</li>
+                    <li><strong>Category:</strong> Focus on generic keywords that describe your app’s function or category (e.g., “fitness tracker,” “budget planner”). Great for reaching users interested in your app’s space.</li>
+                    <li><strong>Competitor:</strong> Bid on keywords related to competing apps. This can help you attract users considering alternatives, but requires careful monitoring and compliance with Apple’s policies.</li>
+                    <li><strong>Discovery:</strong> Use broad match and search match to uncover new, high-performing keywords you may not have considered. This campaign is for exploration and growth.</li>
+                </ul>
+                <p><strong>Note:</strong> If you already have existing search campaigns, avoid importing them directly into Apple Ads. Apple recommends building campaigns from scratch for best results, as importing can lead to poor performance.</p>
+                <p><strong>Pro Tip:</strong> For the cleanest data and most efficient budget, add your best-performing keywords (Brand, Category, Competitor) as <em>negative exact match</em> keywords in your Discovery campaign. This prevents your discovery ads from showing for terms you already know work, so Apple’s AI is forced to find new, long-tail search terms. It also keeps your reports tidy—your main campaigns show performance for proven keywords, while Discovery only surfaces new opportunities. When a new term starts performing, move it to your main campaign and add it as a negative in Discovery. This is a standard best practice among experienced Apple Search Ads managers, and it’s made a big difference in my own projects. <span style="color:#888;font-size:0.95em;">(Example: For SlotParking, I’d add “Detroit parking” and “parking app” as negatives in Discovery, so the AI finds new phrases like “overnight parking near Ford Field.”)</span></p>
+                <p><strong>What is Max CPT?</strong> Max CPT (Maximum Cost-Per-Tap) is the highest amount you’re willing to pay for a single tap on your app’s ad in the App Store. It acts as your bidding ceiling—you’ll never pay more than this amount for a tap.</p>
+                <p>Apple Search Ads uses a second-price auction system. This means you don’t always pay your full Max CPT. For example, if you set your Max CPT at $1.00 and the next highest bid is $0.60, you’ll only pay just enough to outbid them—typically a little above $0.60. But if your Max CPT is set too low compared to competitors, your ad may not be shown at all. Setting a competitive Max CPT helps ensure your ad gets visibility without overspending.</p>
+                <h4>Setting a Daily Budget</h4>
+                <p>When launching a campaign, you’ll choose a daily budget—the average amount you want to spend per day. While your actual daily spend may vary (sometimes going a bit over or under), Apple ensures that your total spend for the month won’t exceed your daily budget multiplied by the average number of days in a month (about 30.4). If you set a specific end date for your campaign, your total spend will be capped at your daily budget times the number of days the campaign runs. Your campaign will keep running and spending each month based on your daily budget unless you pause, remove, or set an end date for it. This gives you predictable control over your ad costs while allowing for some daily flexibility.</p>
+                <p><strong>How to Set Your Max CPT:</strong> Work backwards from your target cost-per-install (CPI). For example, if you want to keep your cost per install at $2.00 and your data shows that 1 out of every 4 ad taps leads to an install (a 25% conversion rate), divide your CPI goal by your conversion rate. In this case, $2.00 ÷ 4 = $0.50. That means you should set your Max Cost-Per-Tap (CPT) at $0.50 or less to stay on budget. This approach helps you bid confidently and ensures your ad spend aligns with your business goals.</p>
+                <p><strong>Takeaway:</strong> Completing the Apple Ads Certificate gave me a strategic framework for running compliant, effective, and data-driven ad campaigns on the iOS App Store. By following Apple’s rules and applying these strategies, developers can boost app visibility, attract quality users, and maximize return on ad spend.</p>
+                <p><a href="https://searchads.apple.com/certification/" target="_blank" rel="noopener">Learn more about Apple Search Ads Certification</a></p>
+            </div>
+            <div class="blog-card">
+                <div class="blog-meta">Python API | Mar 20, 2026</div>
+                <h3>Building a Modern Python API: FastAPI, Pydantic, httpx, Uvicorn, Thunder Client, and Render</h3>
+                <p>When I set out to build a robust backend for my portfolio projects, I wanted speed, clarity, and reliability. FastAPI checked all the boxes: it’s async-first, type-safe, and developer-friendly. Here’s how I shipped a production-ready API using FastAPI, Pydantic, httpx, Uvicorn, Thunder Client, and Render.</p>
+                <ul>
+                    <li><strong>FastAPI & Pydantic:</strong> FastAPI lets you define endpoints with Python type hints, and Pydantic handles data validation and serialization. This means you get automatic docs, clear error messages, and confidence your data is always correct.</li>
+                    <li><strong>httpx:</strong> For async HTTP requests, httpx is my go-to. It’s fast, supports async/await, and makes it easy to fetch external data (like weather or exchange rates) and integrate with other APIs.</li>
+                    <li><strong>Uvicorn:</strong> Uvicorn is the lightning-fast ASGI server that powers FastAPI in production. It’s simple to run locally and scales well on Render.</li>
+                    <li><strong>Thunder Client:</strong> Testing APIs shouldn’t be a chore. Thunder Client (a VS Code extension) lets me quickly test endpoints, check responses, and debug issues without leaving my editor.</li>
+                    <li><strong>Render:</strong> For hosting, Render is a game-changer. It’s easy to deploy FastAPI apps, manage environment variables, and set up automatic builds from GitHub. Render’s free tier is perfect for prototypes, and scaling up is seamless.</li>
+                </ul>
+                <p><strong>Sample Endpoint:</strong></p>
+                <pre class="stamped-xcode-code"><code class="language-python">from fastapi import FastAPI
+from pydantic import BaseModel
+import httpx
+
+app = FastAPI()
+
+class Weather(BaseModel):
+    city: str
+    temperature: float
+
+@app.get("/weather/{city}", response_model=Weather)
+async def get_weather(city: str):
+    async with httpx.AsyncClient() as client:
+        resp = await client.get(f"https://api.weatherapi.com/v1/current.json?key=YOUR_KEY&q={city}")
+        data = resp.json()
+        return Weather(city=city, temperature=data["current"]["temp_c"])
+</code></pre>
+                <p><strong>Takeaways:</strong> Combining FastAPI, Pydantic, httpx, Uvicorn, Thunder Client, and Render makes backend development fast, reliable, and fun. I can ship new endpoints in minutes, test them instantly, and deploy updates with zero downtime.<br>
+                <a href="michiganapiweather.html" target="_blank" rel="noopener">Read the CoastCast Case Study</a>
+                </p>
+            </div>
             <div class="blog-card">
                 <div class="blog-meta">Community Impact | Mar 19, 2026</div>
                 <h3>Visiting the Water Board Building: Initiative & Real-World Impact</h3>
@@ -248,6 +324,7 @@ class CityData: ObservableObject {
                 <h3>My Thoughts on Xcode 26.3</h3>
                 <p>Xcode 26.3 feels like a mature, polished IDE for Apple developers. I began learning code at an interesting time—this is my first IDE, and I want it to help me work faster, but also explain things I may not have learned yet. I want it to help me learn and be a tool, not a crutch. The new features—especially improved SwiftUI previews, faster build times, and enhanced accessibility tools—make daily development smoother and more productive. I appreciate the stability and performance improvements, as well as the expanded support for Apple Intelligence APIs. The UI is cleaner, and the debugging experience is more intuitive. One standout is how Xcode is starting to support agentic coding: workflows where AI and automation help generate, refactor, and test code alongside the developer. This shift makes coding more collaborative and efficient, letting me focus on creative problem-solving while routine tasks are handled by smart tools.<br><br><strong>Personal Story:</strong> Learning code with Xcode as my first IDE was a wild ride. I made plenty of mistakes, but each one taught me something new.<br><br><strong>Technical Details:</strong> I use SwiftUI, Apple Intelligence APIs, and Xcode’s debugging tools daily. The IDE helps me work faster and learn as I go.<br><br><strong>Lessons Learned:</strong> Tools are important, but curiosity and persistence matter more.<br><br><strong>What’s Next:</strong> I want to keep exploring new features and push the limits of what Xcode can do.<br><br><strong>User Impact:</strong> Feedback from teammates and mentors has helped me improve my workflow.<br><a href="https://developer.apple.com/xcode/" target="_blank" rel="noopener">Learn more about Xcode</a></p>
             </div>
+            
             <div class="blog-card">
                 <div class="blog-meta">Apple History | Mar 5, 2026</div>
                 <h3>The 9:41 Rule: Steve Jobs and Apple’s Iconic Time</h3>
@@ -258,13 +335,43 @@ class CityData: ObservableObject {
                 <p><strong>Fun Fact:</strong> Before the iPhone, Apple used 9:42 for the original Macintosh launch. The switch to 9:41 marked a new era for the company.</p>
                 <p><strong>Takeaway:</strong> The 9:41 rule is more than just a time—it’s a reminder of Apple’s culture of detail, history, and the impact of Steve Jobs’ vision. Next time you see an Apple ad, check the clock!</p>
             </div>
-            <div class="blog-card">
-                <div class="blog-meta">Career Experience | Feb 27, 2026</div>
-                <h3>My Journey at Apple Developer Academy Detroit</h3>
-                <p>Attending the Apple Developer Academy in Detroit has been a transformative experience. I’ve worked alongside talented peers, made real friends, learned from industry mentors, and built real-world apps from concept to launch. The Academy’s hands-on approach pushed me to grow as a developer, designer, and collaborator. It was very challenging at first, but I was resilient and did not give up—and now I can see this opportunity actually opening doors for myself. I gained deep skills in Swift, UI/UX, accessibility, and teamwork—plus exposure to Apple’s latest tools and frameworks. The Detroit community is vibrant and supportive, and the Academy’s focus on inclusivity and innovation inspired me to build products that make a difference. I am grateful for the opportunity, and I love downtown Detroit and the First National Building. If you’re considering the Academy, expect to be challenged, supported, and empowered to create your best work.<br><br><strong>Personal Story:</strong> The first week was tough—I felt out of my depth, but the support from peers and mentors helped me push through.<br><br><strong>Technical Details:</strong> I learned Swift, UI/UX, accessibility, and teamwork, and built apps from scratch.<br><br><strong>Lessons Learned:</strong> Resilience and community are key to growth.<br><br><strong>What’s Next:</strong> I want to keep learning, build more apps, and help others on their journey.<br><br><strong>User Impact:</strong> The Academy opened doors for me and inspired me to make a difference.<br><a href="https://developeracademy.msu.edu" target="_blank" rel="noopener">Apple Developer Academy at MSU (Detroit)</a></p>
-            </div>
-        </div>
-    </div>
+
+           <div class="blog-card">
+    <div class="blog-meta">UI/UX Design | March 3 2026</div>
+    <h3>Designing with Apple’s Human Interface Guidelines (HIG)</h3>
+    <p>The Apple Human Interface Guidelines (HIG) are the gold standard for designing intuitive, accessible, and beautiful apps for iOS, macOS, and beyond. As a developer and designer, I’ve found that following the HIG not only improves usability but also helps apps feel at home on Apple platforms.</p>
+    <h4>What is the HIG?</h4>
+    <p>The HIG is Apple’s official design framework, covering everything from navigation and layout to color, typography, and motion. It’s a living document that evolves with each platform update, providing best practices for building apps that are clear, consistent, and delightful to use.</p>
+    <h4>Why Follow the HIG?</h4>
+    <ul>
+        <li><strong>Consistency:</strong> Apps that follow the HIG feel familiar to users, reducing the learning curve and building trust.</li>
+        <li><strong>Accessibility:</strong> The HIG emphasizes readable text, sufficient contrast, and support for assistive technologies—making apps usable for everyone.</li>
+        <li><strong>Efficiency:</strong> By using standard components and patterns, you can build faster and avoid reinventing the wheel.</li>
+        <li><strong>App Store Success:</strong> Apple reviews apps for HIG compliance, so following the guidelines can help you get approved and featured.</li>
+    </ul>
+    <h4>Key Principles I Apply</h4>
+    <ul>
+        <li><strong>Clarity:</strong> Every element should have a clear purpose. I use whitespace, hierarchy, and concise labels to guide users.</li>
+        <li><strong>Deference:</strong> The interface stays out of the way, letting content and actions shine. Subtle animations and transitions help users stay oriented without distraction.</li>
+        <li><strong>Depth:</strong> Visual layers and motion create a sense of place, making navigation feel natural and engaging.</li>
+    </ul>
+    <h4>Lessons from My Projects</h4>
+    <p>In projects like Stamped! and SlotParking, I applied HIG principles to design navigation bars, tab bars, and modals that feel native to iOS. I paid special attention to touch targets, color contrast, and dynamic type. Testing with real users helped me refine flows and catch accessibility issues early.</p>
+    <h4>Tips for Applying the HIG</h4>
+    <ul>
+        <li>Start with Apple’s templates and components in Xcode or SwiftUI.</li>
+        <li>Use SF Symbols for icons—they scale and adapt automatically.</li>
+        <li>Test with VoiceOver and Dynamic Type enabled.</li>
+        <li>Stay up to date: review the HIG with each major iOS/macOS release.</li>
+    </ul>
+    <h4>Resources</h4>
+    <ul>
+        <li><a href="https://developer.apple.com/design/human-interface-guidelines/" target="_blank" rel="noopener">Apple Human Interface Guidelines</a></li>
+        <li><a href="https://developer.apple.com/sf-symbols/" target="_blank" rel="noopener">SF Symbols</a></li>
+        <li><a href="https://developer.apple.com/accessibility/" target="_blank" rel="noopener">Apple Accessibility</a></li>
+    </ul>
+</div>
+               
     <section id="footer">
         <ul class="icons">
             <li><a href="https://github.com/geoClink" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span class="label">GitHub</span></a></li>
