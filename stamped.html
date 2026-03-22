@@ -44,27 +44,28 @@
 				width: 100%;
 				height: auto;
 				aspect-ratio: 9 / 19.5;
-				object-fit: cover;
+				object-fit: contain;
 				border-radius: 27px;
 			}
 			.media-grid-item .ipad17-bezel {
 				display: block;
 				position: relative;
 				margin: 0 0 0.5em 0;
-				max-width: 420px;
-				padding: 14px 6px 6px;
-				border-radius: 22px;
+				max-width: 640px;
+				padding: 1px 6px 1px 6px;
+				border-radius: 16px;
+				overflow: hidden;
 				background: #222;
 				box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 			}
 			.media-grid-item .ipad17-bezel::before {
 				content: '';
 				position: absolute;
-				top: 4px;
+				top: 1.5px;
 				left: 50%;
 				transform: translateX(-50%);
-				width: 7px;
-				height: 7px;
+				width: 6px;
+				height: 6px;
 				border-radius: 50%;
 				background: radial-gradient(circle at 30% 30%, #3f4f67 0%, #111 70%);
 				box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
@@ -75,8 +76,8 @@
 				width: 100%;
 				height: auto;
 				aspect-ratio: 4 / 3;
-				object-fit: cover;
-				border-radius: 15px;
+				object-fit: contain;
+				border-radius: 12px;
 			}
 			.media-group-title {
 				margin: 0.8em 0 0.7em;
@@ -145,6 +146,7 @@
 								<li><a href="about.html" class="button">About</a></li>
 								<li><a href="case-studies.html" class="button active" aria-current="page">Case Studies</a></li>
 								<li><a href="resume.html" class="button">Resume</a></li>
+								<li><a href="contact.html" class="button">Contact</a></li>
 								<li><a href="blog.html" class="button">Blog</a></li>
 							</ul>
 						</nav>
@@ -363,16 +365,7 @@ func resetAllContent() {
 						</article>
 					</div>
 
-				<!-- Sidebar -->
-					<section id="sidebar">
-						<section id="intro">
-							<a href="index.html" class="logo"><img src="assets/images/logo.jpg" alt="" /></a>
-							<header>
-								<h2>George Clinkscales Jr.</h2>
-								<p>Building accessible digital experiences</p>
-							</header>
-						</section>
-					</section>
+                
 
 			</div>
 
@@ -384,8 +377,11 @@ func resetAllContent() {
 					<!-- Email icon removed to prevent mailto behavior. -->
 				</ul>
 				<p class="copyright">&copy; George Clinkscales Jr. Design: <a href="http://html5up.net">HTML5 UP</a>.</p>
+				<p style="font-size:0.97em; color:#60443f; margin-top:0.2em;"><a href="privacy.html" style="color:#60443f;text-decoration:underline;">Privacy Policy</a></p>
+				<p style="font-size:0.95em;color:#60443f;margin-top:0.5em;">Last updated: March 21, 2026</p>
 				<p style="font-size:1em; color:#60443f; margin-top:0.5em;">
 					<strong>Local Developer Time:</strong> <span id="local-time"></span> (Eastern Time Zone)<br>
+					<span style="font-size:0.97em; color:#887c73;">.</span>
 				</p>
 			</section>
 

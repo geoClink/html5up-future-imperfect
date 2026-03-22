@@ -13,6 +13,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="Contact George Clinkscales Jr. for junior iOS and product-focused software opportunities; currently growing web development skills." />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
 		<style>
         /* Custom styles for contact call-to-action and buttons. */
 			.contact-cta {
@@ -77,9 +78,22 @@
 
 								<section>
 									<!-- Contact buttons removed as requested -->
-
+<ul class="actions">
+    <li>
+        <a href="https://www.linkedin.com/in/george-clinkscales/" class="button" target="_blank" rel="noopener noreferrer">
+				Visit LinkedIn <span class="icon brands fa-linkedin" style="margin-left:0.5em;"></span>
+        </a>
+    </li>
+    <li>
+        <a href="https://github.com/geoClink" class="button" target="_blank" rel="noopener noreferrer">
+				Visit GitHub <span class="icon brands fa-github" style="margin-left:0.5em;"></span>
+        </a>
+    </li>
+</ul>
 									<form id="contactForm">
+										<div id="form-success" style="display:none;margin-bottom:1em;padding:1em 1.2em;background:#e6f9ed;color:#256029;border:1px solid #b7e4c7;border-radius:7px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,0.04);text-align:center;transition:opacity 0.3s;">Message sent! I’ll reply soon.</div>
 										<div class="row gtr-uniform">
+											
 											<div class="col-6 col-12-xsmall">
 												<input type="text" name="name" id="name" placeholder="Your Name" />
 											</div>
@@ -102,6 +116,9 @@
 										</div>
 									</form>
 								</section>
+
+								<!-- Social buttons: LinkedIn and GitHub -->
+								
 
 								<script>
 									(function () {
@@ -141,14 +158,6 @@
 				<!-- Sidebar -->
 					<section id="sidebar">
 
-						<!-- Intro -->
-							<section id="intro">
-								<a href="index.html" class="logo"><img src="assets/images/logo-techy.svg" alt="GC Techy Logo" /></a>
-								<header>
-									<h2>George Clinkscales Jr.</h2>
-									<p>Building accessible digital experiences</p>
-								</header>
-							</section>
 					</section>
 
 			</div>
@@ -161,7 +170,8 @@
 					<!-- Email icon removed to prevent mailto behavior. -->
 				</ul>
 				<p class="copyright">&copy; George Clinkscales Jr. Design: <a href="http://html5up.net">HTML5 UP</a>.</p>
-				<p style="font-size:0.95em;color:#60443f;margin-top:0.5em;">Last updated: March 17, 2026</p>
+				<p style="font-size:0.97em; color:#60443f; margin-top:0.2em;"><a href="privacy.html" style="color:#60443f;text-decoration:underline;">Privacy Policy</a></p>
+				<p style="font-size:0.95em;color:#60443f;margin-top:0.5em;">Last updated: March 21, 2026</p>
 				<p style="font-size:1em; color:#60443f; margin-top:0.5em;">
 					<strong>Local Developer Time:</strong> <span id="local-time"></span> (Eastern Time Zone)<br>
 					<span style="font-size:0.97em; color:#887c73;">.</span>
@@ -224,7 +234,15 @@
 									subject
 								});
 							}
-							alert('Message sent! I’ll reply soon.');
+							const successMsg = document.getElementById('form-success');
+							if (successMsg) {
+								successMsg.style.display = 'block';
+								successMsg.style.opacity = '1';
+								setTimeout(() => {
+									successMsg.style.opacity = '0';
+									setTimeout(() => { successMsg.style.display = 'none'; }, 400);
+								}, 3500);
+							}
 							form.reset();
 						} catch (err) {
 							alert('Error sending message: ' + err.message);
