@@ -105,7 +105,7 @@
         </div>
         <div class="blog-grid">
             <div class="blog-card">
-                <div class="blog-meta">App Store Advertising | Mar 21, 2026</div>
+                <div class="blog-meta">App Store Advertising | Mar 22, 2026</div>
                 <h3>Completing the Apple Ads Certificate: Key Rules & Strategies for iOS App Store Advertising</h3>
                 <p>On March 21, 2026, I completed the Apple Search Ads Certification, deepening my understanding of how to effectively promote apps on the iOS App Store. Here are the most important rules and strategies I learned for advertising applications and maximizing visibility, downloads, and ROI:</p>
                 <h4>Essential Rules for App Store Advertising</h4>
@@ -147,7 +147,7 @@
                 <p><a href="https://searchads.apple.com/certification/" target="_blank" rel="noopener">Learn more about Apple Search Ads Certification</a></p>
             </div>
             <div class="blog-card">
-                <div class="blog-meta">Python API | Mar 20, 2026</div>
+                <div class="blog-meta">Python API | Mar 21, 2026</div>
                 <h3>Building a Modern Python API: FastAPI, Pydantic, httpx, Uvicorn, Thunder Client, and Render</h3>
                 <p>When I set out to build a robust backend for my portfolio projects, I wanted speed, clarity, and reliability. FastAPI checked all the boxes: it’s async-first, type-safe, and developer-friendly. Here’s how I shipped a production-ready API using FastAPI, Pydantic, httpx, Uvicorn, Thunder Client, and Render.</p>
                 <ul>
@@ -180,7 +180,7 @@ async def get_weather(city: str):
                 </p>
             </div>
             <div class="blog-card">
-                <div class="blog-meta">Community Impact | Mar 19, 2026</div>
+                <div class="blog-meta">Community Impact | Mar 20, 2026</div>
                 <h3>Visiting the Water Board Building: Initiative & Real-World Impact</h3>
                 <p>Sometimes, the best opportunities come from a bit of luck and a lot of initiative. On a recent visit to the Water Board Building with my Challenge 5 team, we had no idea that our trip would coincide with the monthly board meeting. We simply wanted to learn more about the organization and explore ways our skills could make a real difference in the community.</p>
                 <p>As we entered, we found ourselves in the midst of the board meeting. Rather than quietly observing, our project manager seized the moment and stood up to address the board directly. With genuine curiosity and a spirit of service, she asked if there were any pain points the board faces daily that technology—and our team—could help solve.</p>
@@ -191,7 +191,7 @@ async def get_weather(city: str):
             </div>
             
             <div class="blog-card">
-                <div class="blog-meta">Learning Methods | Mar 18, 2026</div>
+                <div class="blog-meta">Learning Methods | Mar 19, 2026</div>
                 <h3>Challenge Based Learning: What It Is and Why It Matters</h3>
                 <p><strong>What is Challenge Based Learning (CBL)?</strong><br>
                 Challenge Based Learning is an educational approach where learners tackle real-world challenges through hands-on projects, teamwork, and iterative problem solving. Instead of memorizing facts, students identify a meaningful challenge, research solutions, build prototypes, and reflect on their process. CBL encourages creativity, collaboration, and practical application of knowledge.</p>
@@ -218,6 +218,10 @@ async def get_weather(city: str):
                 CBL prepares learners for the real world. It builds critical thinking, teamwork, and adaptability. By focusing on authentic challenges, it makes learning meaningful and empowers students to make a difference.</p>
                 <p><a href="https://education.apple.com/learning-center/R006554-en_US" target="_blank" rel="noopener">Learn more about Challenge Based Learning at Apple Learning Center</a></p>
             </div>
+<div class="blog-card"> <div class="blog-meta">SwiftUI | Mar 18, 2026</div> <h3>Understanding @StateObject vs @ObservedObject in SwiftUI: A Reflective Guide</h3> <p>As I continue to deepen my SwiftUI knowledge, I often revisit the distinction between <code>@StateObject</code> and <code>@ObservedObject</code>. This post is both a reference for others and a personal learning log—a place to clarify, reflect, and return to when I need a refresher.</p> <h4>What is <code>@StateObject</code>?</h4> <ul> <li><strong>Ownership:</strong> Use <code>@StateObject</code> when your view is responsible for creating and owning the lifecycle of the observable object.</li> <li><strong>Initialization:</strong> The object is initialized once for the lifetime of the view.</li> <li><strong>Persistence:</strong> SwiftUI keeps the object alive as long as the view exists, even if the view is recreated due to state changes.</li> <li><strong>Typical Use:</strong> Root or parent views that create the model.</li> </ul> <h4>What is <code>@ObservedObject</code>?</h4> <ul> <li><strong>Reference:</strong> Use <code>@ObservedObject</code> when the observable object is created elsewhere and passed into the view.</li><li><strong>No Ownership:</strong> The view does not own the object; it just observes it for changes.</li> <li><strong>Re-initialization:</strong> If the parent view recreates the child, the observed object is not re-initialized (unless the parent provides a new instance).</li> <li><strong>Typical Use:</strong> Child or subviews that receive the model from a parent.</li> </ul> <h4>Common Pitfalls</h4> <ul> <li><strong>Using <code>@ObservedObject</code> for creation:</strong> If you create an object with <code>@ObservedObject</code> in a view, it will be recreated every time the view reloads, losing state.</li> <li><strong>Multiple sources of truth:</strong> Accidentally creating two instances of the same model by mixing <code>@StateObject</code> and <code>@ObservedObject</code> in the wrong places.</li> </ul> <h4>Quick Reference Table</h4> <table border="1" cellpadding="6" style="border-collapse:collapse;"> <tr><th></th><th>@StateObject</th><th>@ObservedObject</th></tr> <tr><td>Who creates?</td><td>The view itself</td><td>Parent or external</td></tr> <tr><td>Who owns?</td><td>The view</td><td>Parent/external</td></tr><tr><td>When to use?</td><td>Root/parent view</td><td>Child/subview</td></tr> <tr><td>Lifecycle</td><td>Persists for view's life</td><td>Follows reference</td></tr> </table> <h4>Personal Reflection</h4> <p>Every time I get tripped up by a disappearing model or a view that doesn’t update, it’s usually because I mixed up <code>@StateObject</code> and <code>@ObservedObject</code>. Writing this out helps me remember: <strong>create and own with <code>@StateObject</code>, observe with <code>@ObservedObject</code></strong>. When in doubt, check who should own the data and where it’s created.</p> <h4>Further Reading</h4> <ul> <li><a href="https://developer.apple.com/documentation/swiftui/managing-model-data-in-your-app">Apple: Managing Model Data in Your App</a></li> <li><a href="https://www.hackingwithswift.com/quick-start/swiftui/whats-the-difference-between-stateobject-and-observedobject">Hacking with Swift: StateObject vs ObservedObject</a></li> </ul> <p style="margin-top:2em;color:#888;font-size:0.97em;"></p></p> </div>
+
+
+            
             <div class="blog-card">
                 <div class="blog-meta">SwiftUI | Mar 17, 2026</div>
                 <h3>Structs vs. Classes in SwiftUI: What’s the Difference?</h3>
