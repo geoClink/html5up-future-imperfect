@@ -1,3 +1,7 @@
+/* Force all links to use the same color regardless of visited state */
+a:link, a:visited {
+	color: #0078d7;
+}
 /* Ensure footer is always full width and centered */
 #footer {
 	width: 100%;
@@ -396,11 +400,13 @@ input, select, textarea {
 	}
 
 	h3 {
-		font-size: 0.9em;
+		font-size: 1.3em;
+		margin-bottom: 0.5em;
 	}
 
 	h4 {
-		font-size: 0.7em;
+		font-size: 1.1em;
+		margin-bottom: 0.3em;
 	}
 
 	h5 {
