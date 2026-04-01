@@ -295,7 +295,7 @@
 				</ul>
 				<p class="copyright">&copy; George Clinkscales Jr. Design: <a href="http://html5up.net">HTML5 UP</a>.</p>
 				<p style="font-size:0.97em; color:#60443f; margin-top:0.2em;"><a href="privacy.html" style="color:#60443f;text-decoration:underline;">Privacy Policy</a></p>
-				<p style="font-size:0.95em;color:#60443f;margin-top:0.5em;">Last updated: March 21, 2026</p>
+				<p style="font-size:0.95em;color:#60443f;margin-top:0.5em;">Last updated: <script>document.write(new Date(document.lastModified).toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"}))</script></p>
 				<p style="font-size:1em; color:#60443f; margin-top:0.5em;">
 					<strong>Local Developer Time:</strong> <span id="local-time"></span> (Eastern Time Zone)<br>
 					<span style="font-size:0.97em; color:#887c73;">.</span>
@@ -379,15 +379,15 @@
 						});
 					} catch (err) {}
 				}
-				if (typeof addDoc === 'function' && typeof collection === 'function' && typeof db !== 'undefined') {
-					addDoc(collection(db, 'userMetrics'), {
-						scrollDepth: maxScroll,
-						timeOnScreen: timeOnScreen,
-						timestamp: new Date().toISOString(),
+				if (typeof analytics !== 'undefined' && analytics && typeof analytics.logEvent === 'function') {
+					analytics.logEvent('user_metrics', {
+						scroll_depth: maxScroll,
+						time_on_screen: timeOnScreen,
 						page: document.title,
 						device: navigator.userAgent,
-						screen: { width: window.innerWidth, height: window.innerHeight }
-					}).catch(() => {});
+						screen_width: window.innerWidth,
+						screen_height: window.innerHeight
+					});
 				}
 			}
 			window.addEventListener('beforeunload', sendUserMetrics);

@@ -650,7 +650,7 @@
 					<!-- Featured Case Studies -->
 
 						<section class="featured-projects">
-							<h2>Featured iOS/SwiftUI Case Studies</h2>
+							<h2>Featured iOS/SwiftUI Case Study</h2>
 							<div class="projects">
 								<article class="project main-project">
 									<a href="stamped.html" class="image"><img src="assets/images/project1.jpeg" alt="Stamped! app project image" /></a>
@@ -760,7 +760,7 @@
 			   </ul>
 			   <p class="copyright">&copy; George Clinkscales Jr. Design: <a href="http://html5up.net">HTML5 UP</a>.</p>
 			   <p style="font-size:0.97em; color:#60443f; margin-top:0.2em;"><a href="privacy.html" style="color:#60443f;text-decoration:underline;">Privacy Policy</a></p>
-			   <p style="font-size:0.95em;color:#60443f;margin-top:0.5em;">Last updated: March 21, 2026</p>
+			   <p style="font-size:0.95em;color:#60443f;margin-top:0.5em;">Last updated: <script>document.write(new Date(document.lastModified).toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"}))</script></p>
 			   <p style="font-size:1em; color:#60443f; margin-top:0.5em;">
 				   <strong>Local Developer Time:</strong> <span id="local-time"></span> (Eastern Time Zone)<br>
 				   <span style="font-size:0.97em; color:#887c73;">.</span>
@@ -1021,6 +1021,16 @@
 					timestamp: new Date().toISOString(),
 					page: document.title
 				}).catch(() => {});
+			}
+			if (typeof analytics !== 'undefined' && analytics && typeof analytics.logEvent === 'function') {
+				analytics.logEvent('user_metrics', {
+					scroll_depth: maxScroll,
+					time_on_screen: timeOnScreen,
+					page: document.title,
+					device: navigator.userAgent,
+					screen_width: window.innerWidth,
+					screen_height: window.innerHeight
+				});
 			}
 		}
 		window.addEventListener('beforeunload', sendUserMetrics);
