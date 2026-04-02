@@ -15,7 +15,7 @@
 		<meta property="og:title" content="Case Studies | George Clinkscales Jr." />
 		<meta property="og:description" content="Explore case studies in SwiftUI travel discovery, game systems, and civic technology." />
 		<meta property="og:type" content="website" />
-		<meta property="og:image" content="images/logo.jpg" />
+		<meta property="og:image" content="assets/images/logo.jpg" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content="Case Studies | George Clinkscales Jr." />
 		<meta name="twitter:description" content="Explore case studies in SwiftUI travel discovery, game systems, and civic technology." />
@@ -74,6 +74,13 @@
 				border: 1px solid rgba(136, 124, 115, 0.35);
 				border-radius: 999px;
 			}
+			.value-prop {
+				font-style: italic;
+				color: #666;
+				font-size: 0.9em;
+				margin-bottom: 0.6em;
+				font-weight: normal;
+			}
 			.case-study-card .card-cta {
 				display: inline-block;
 				border: 1px solid rgba(160, 160, 160, 0.35);
@@ -92,6 +99,25 @@
 			}
 			.case-study-card.main-card h3 {
 				font-size: 1.25em;
+			}
+			.case-study-card.featured {
+				border: 1px solid rgba(46, 186, 174, 0.4);
+				border-top: 3px solid #2ebaae;
+				background: linear-gradient(160deg, #f5fffe 0%, #fff 65%);
+			}
+			.app-store-badge {
+				display: inline-block;
+				background: #2ebaae;
+				color: #fff;
+				font-size: 0.58em;
+				font-weight: 700;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				padding: 0.3em 0.65em;
+				border-radius: 999px;
+				margin-left: 0.55em;
+				vertical-align: middle;
+				line-height: 1.4;
 			}
 			@media (max-width: 680px) {
 				.case-study-cards {
@@ -154,11 +180,11 @@
 								<section>
 									<h3>SwiftUI & iOS Projects</h3>
 									<div class="case-study-cards">
-										<a href="stamped.html" class="case-study-card main-card">
+										<a href="stamped.html" class="case-study-card main-card featured">
 											<img src="assets/images/Stamped! City Passport Light No Alpha.png" alt="Stamped! City Passport Light No Alpha" style="width:80px;height:80px;border-radius:8px;margin-right:1em;float:left;object-fit:cover;" />
-											<h3>Stamped! — A City Passport</h3>
+											<h3>Stamped! — A City Passport <span class="app-store-badge">Live on App Store</span></h3>
 											<p>A SwiftUI travel discovery app that turns Detroit architecture into a collectible city-passport experience with progress tracking and AI-assisted itinerary support.</p>
-											<div class="value-prop" style="color:#000000;font-weight:600;margin-bottom:0.5em;">Unique Value: Stamped! is the only city exploration app that turns urban discovery into a gamified learning loop, blending passport stamps, AI itineraries, and mastery challenges for a truly engaging and memorable experience—unlike typical travel guides.</div>
+											<div class="value-prop">The only city app that turns architecture exploration into a gamified learning loop — live on the App Store.</div>
 											<div class="tech-tags">
 											<span class="tech-tag">SwiftUI</span>
 											<span class="tech-tag">AI Itinerary</span>
@@ -172,7 +198,7 @@
 											<img src="assets/images/SlotParkingIcon.png" alt="SlotParking project image" style="width:80px;height:80px;border-radius:8px;margin-right:1em;float:left;object-fit:cover;" />
 											<h3>SlotParking</h3>
 											<p>A SwiftUI-based parking management app designed to streamline slot reservations, track parking history, and optimize user experience for drivers and lot managers. Built in Xcode with modern iOS best practices.</p>
-											<div class="value-prop" style="color:#000000;font-weight:600;margin-bottom:0.5em;">Unique Value: SlotParking bridges the gap between lot owners and drivers, providing real-time inventory and trusted access to parking in high-traffic urban areas.</div>
+											<div class="value-prop">Connects lot owners and drivers through live parking inventory in Detroit.</div>
 											<div class="tech-tags">
 											<span class="tech-tag">SwiftUI</span>
 											<span class="tech-tag">Firebase</span>
@@ -186,7 +212,7 @@
 											<img src="assets/images/CommonSightAppIcon.png" alt="CommonSight project image" style="width:80px;height:80px;border-radius:8px;margin-right:1em;float:left;object-fit:cover;" />
 											<h3>CommonSight</h3>
 											<p>A role-based civic platform built during an internship with a small business owner to deliver an investor-ready demo for neighborhood reporting, campaigns, and direct communication.</p>
-											<div class="value-prop" style="color:#000000;font-weight:600;margin-bottom:0.5em;">Unique Value: CommonSight unifies fragmented community tools into a single workflow, empowering neighborhoods to turn observations into coordinated action and impactful storytelling.</div>
+											<div class="value-prop">Turns neighborhood observations into coordinated community action.</div>
 											<div class="tech-tags">
 											<span class="tech-tag">SwiftUI</span>
 											<span class="tech-tag">Firebase</span>
@@ -200,7 +226,7 @@
 											<img src="assets/images/TakeFlight.png" alt="TakeFlight project image" style="width:80px;height:80px;border-radius:8px;margin-right:1em;float:left;object-fit:cover;" />
 											<h3>TakeFlight — A Bird's Life</h3>
 											<p>A SpriteKit survival game available on iPad and macOS, with full keyboard compatibility as players build and defend a nest across Belle Isle mini-games.</p>
-											<div class="value-prop" style="color:#000000;font-weight:600;margin-bottom:0.5em;">Unique Value: TakeFlight connects multiple mini-games into a cohesive survival loop, blending narrative, skill-building, and replayability for a fresh gaming experience.</div>
+											<div class="value-prop">Four interconnected mini-games in a cohesive survival narrative for iPad and macOS.</div>
 											<div class="tech-tags">
 											<span class="tech-tag">SpriteKit</span>
 											<span class="tech-tag">iPadOS</span>
@@ -214,7 +240,7 @@
 											<img src="assets/images/MichiganAPIIcon.png" alt="MichiganAPIWeather project image" style="width:80px;height:80px;border-radius:8px;margin-right:1em;float:left;object-fit:cover;" />
 											<h3>CoastCast</h3>
 											<p>SwiftUI iOS app with a Python backend API for real-time Michigan water and weather data. Combines a modern interface with custom API calls to deliver up-to-date information for Michigan lakes and regions.</p>
-											<div class="value-prop" style="color:#000000;font-weight:600;margin-bottom:0.5em;">Unique Value: Combines a modern SwiftUI interface with a custom Python API to deliver up-to-date water and weather information for Michigan lakes and regions.</div>
+											<div class="value-prop">Live Michigan water and weather data via a custom-built Python API backend.</div>
 											<div class="tech-tags">
 											<span class="tech-tag">SwiftUI</span>
 											<span class="tech-tag">Python API</span>
@@ -227,7 +253,7 @@
 										<img src="assets/images/bridgenoalpha.png" alt="RelationshipBuilder project image" style="width:80px;height:80px;border-radius:8px;margin-right:1em;float:left;object-fit:cover;" />
 												<h3>Relationship — Builder</h3>
 												<p>A SwiftUI app for building and tracking professional relationships through interactive learning, gamified quizzes, and custom badges. Modular architecture, onboarding flows, and accessibility-first design.</p>
-												<div class="value-prop" style="color:#000000;font-weight:600;margin-bottom:0.5em;">Unique Value: RelationshipBuilder motivates users to grow their professional network with gamified learning, custom badges, and interactive onboarding—combining modular SwiftUI components and asset management for a polished, scalable experience.</div>
+												<div class="value-prop">Gamified professional networking with badges, quizzes, and interactive onboarding.</div>
 												<div class="tech-tags">
 												<span class="tech-tag">SwiftUI</span>
 												<span class="tech-tag">Quiz</span>
@@ -244,7 +270,7 @@
 											<img src="assets/images/Siren1024x1024.jpeg" alt="Siren CafeCoffeeOrderingApp project image" style="width:80px;height:80px;border-radius:8px;margin-right:1em;float:left;object-fit:cover;" />
 											<h3>Siren Cafe Coffee Ordering App</h3>
 											<p>An iOS app for the Siren Cafe in Detroit, featuring menu browsing, item customization, and interactive customer feedback. Built with SwiftUI, MVVM, and UIKit confetti animations for a modern, engaging ordering experience.</p>
-											<div class="value-prop" style="color:#000000;font-weight:600;margin-bottom:0.5em;">Unique Value: Siren Cafe modernizes local coffee shop ordering with flexible item customization, confetti celebration, and direct call links—delivering a polished, accessible experience for customers and staff.</div>
+											<div class="value-prop">Modernizes local coffee shop ordering with item customization and confetti feedback.</div>
 											<div class="tech-tags">
 											<span class="tech-tag">SwiftUI</span>
 											<span class="tech-tag">UIKit Integration</span>
@@ -261,7 +287,7 @@
 											<img src="assets/images/learntocodepng.png" alt="LearnToCode portfolio image" style="width:80px;height:80px;border-radius:8px;margin-right:1em;float:left;object-fit:cover;" />
 											<h3>LearnToCode</h3>
 											<p>A Visual Studio Code-based learning project focused on building coding fluency through hands-on implementation, debugging, and iterative problem-solving.</p>
-											<div class="value-prop" style="color:#000000;font-weight:600;margin-bottom:0.5em;">Unique Value: LearnToCode uniquely delivers practical, hands-on coding practice in a real environment, helping learners build genuine fluency and confidence across multiple languages—unlike most theory-heavy coding platforms.</div>
+											<div class="value-prop">Hands-on coding practice across 9+ languages in a real browser environment.</div>
 											<div class="tech-tags">
 											<span class="tech-tag">VS Code</span>
 											<span class="tech-tag">JavaScript</span>
