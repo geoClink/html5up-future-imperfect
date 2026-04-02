@@ -65,6 +65,43 @@
         @media (max-width: 680px) {
             .blog-grid { flex-direction: column; }
         }
+        .key-takeaway {
+            background: #f5fffe;
+            border-left: 3px solid #2ebaae;
+            border-radius: 0 6px 6px 0;
+            padding: 0.65em 1em;
+            margin: 0.75em 0 0.5em;
+            font-size: 0.93em;
+            color: #333;
+        }
+        .key-takeaway strong { color: #222; }
+        .related-project {
+            display: inline-block;
+            font-size: 0.78em;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: #60443f;
+            border: 1px solid rgba(96,68,63,0.3);
+            border-radius: 999px;
+            padding: 0.28em 0.75em;
+            text-decoration: none;
+            margin: 0.4em 0 0.6em;
+        }
+        .related-project:hover { background: rgba(96,68,63,0.07); }
+        .blog-body[hidden] { display: none; }
+        .read-more-btn {
+            background: none;
+            border: none;
+            color: #2ebaae;
+            font-weight: 700;
+            font-size: 0.93em;
+            cursor: pointer;
+            padding: 0.5em 0 0;
+            text-align: left;
+            font-family: inherit;
+        }
+        .read-more-btn:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -110,6 +147,7 @@
     <div class="blog-meta">Design & Process | Mar 30, 2026</div>
     <h3>Feedback Is a Skill: How to Ask for It, Give It, and Actually Use It</h3>
     <p>About 60% of a designer's time, I've been told, isn't spent designing. It's spent in the messy, human, often uncomfortable territory of feedback. And yet, for something so central to the creative process, most of us were never really taught how to do it well.</p>
+    <div class="key-takeaway blog-persist"><strong>Key Takeaway:</strong> Feedback is a skill — the people who get good at asking for it, giving it, and sitting with it tend to go somewhere.</div>
     <p>Feedback isn't a formality you get at the end of a project. It's the navigation system — the thing that keeps you from drifting in the wrong direction for months, only to surface and find you've been solving the wrong problem entirely.</p>
 
     <h4>How to Ask a Good Question</h4>
@@ -141,6 +179,7 @@
     <div class="blog-meta">AI Certification | Mar 27, 2026</div>
     <h3>What I Actually Learned Finishing the Claude Code in Action Certification</h3>
     <p>I finished the Claude Code in Action certification this week, and the thing that stuck with me most wasn’t any specific feature — it was a shift in how I think about what AI is actually for in a development workflow.</p>
+    <div class="key-takeaway blog-persist"><strong>Key Takeaway:</strong> AI tools reward the developer who knows their domain — the better you understand what you’re building, the more leverage you get.</div>
     <p>I came in thinking of AI tools as sophisticated autocomplete. You describe what you want, it suggests code, you decide whether to keep it. The course reframed that pretty quickly. The real unlock isn’t the code generation — it’s the agentic part. Setting up Claude to actually run terminal commands, manage files, and execute changes without you narrating every step. That’s a different relationship with the tool entirely.</p>
 
     <h4>The thing that changed how I work</h4>
@@ -157,6 +196,8 @@
     <div class="blog-meta">App Store Advertising | Mar 22, 2026</div>
     <h3>What an iOS Developer Actually Gets Out of the Apple Ads Certification</h3>
     <p>I built Stamped!, published it to the App Store, and then immediately ran into the part nobody talks about in app development courses: now what? You have a working product and zero users. The Apple Search Ads certification felt like the natural next step — not because I'm planning to run ad campaigns tomorrow, but because building apps without understanding how discovery works is like designing a building without knowing where the entrance is.</p>
+    <div class="key-takeaway blog-persist"><strong>Key Takeaway:</strong> The App Store is an auction, not a meritocracy — your metadata and keyword strategy matter as much as the app itself.</div>
+    <a href="stamped.html" class="related-project blog-persist">→ Related project: Stamped! Case Study</a>
     <p>What I didn't expect was how much the course would change how I think about the App Store itself, before you even spend a dollar on ads.</p>
 
     <h4>The part that reframed everything</h4>
@@ -176,6 +217,7 @@
                 <div class="blog-meta">Python API | Mar 21, 2026</div>
                 <h3>Building a Modern Python API: FastAPI, Pydantic, httpx, Uvicorn, Thunder Client, and Render</h3>
                 <p>When I set out to build a robust backend for my portfolio projects, I wanted speed, clarity, and reliability. FastAPI checked all the boxes: it’s async-first, type-safe, and developer-friendly. Here’s how I shipped a production-ready API using FastAPI, Pydantic, httpx, Uvicorn, Thunder Client, and Render.</p>
+                <a href="michiganapiweather.html" class="related-project blog-persist">→ Related project: CoastCast Case Study</a>
                 <ul>
                     <li><strong>FastAPI & Pydantic:</strong> FastAPI lets you define endpoints with Python type hints, and Pydantic handles data validation and serialization. This means you get automatic docs, clear error messages, and confidence your data is always correct.</li>
                     <li><strong>httpx:</strong> For async HTTP requests, httpx is my go-to. It’s fast, supports async/await, and makes it easy to fetch external data (like weather or exchange rates) and integrate with other APIs.</li>
@@ -428,31 +470,40 @@ const fullPosts = [
     'Client collaboration is about clear communication, setting expectations, and delivering results. I use regular check-ins and transparent progress updates.',
     'Career growth is a journey of learning, adapting, and celebrating milestones. I reflect on each project and use feedback to improve.'
 ];
-window.addEventListener('DOMContentLoaded', () => {
-  const cards = document.querySelectorAll('.blog-card');
-  cards.forEach((card, idx) => {
-    const btn = card.querySelector('.read-more');
-    if (btn.getAttribute('href') === '#') {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        if (btn.classList.contains('expanded')) {
-          card.querySelector('.full-post').remove();
-          btn.textContent = 'Expand';
-          btn.classList.remove('expanded');
-        } else {
-          const full = document.createElement('div');
-          full.className = 'full-post';
-          full.style.marginTop = '1em';
-          full.style.color = '#333';
-          full.style.fontSize = '1em';
-          full.textContent = fullPosts[idx];
-          card.appendChild(full);
-          btn.textContent = 'Show Less';
-          btn.classList.add('expanded');
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.blog-card').forEach(function(card) {
+        var children = Array.from(card.children);
+        var h3 = card.querySelector('h3');
+        if (!h3) return;
+        var h3Idx = children.indexOf(h3);
+        var introIdx = h3Idx + 1;
+        if (introIdx >= children.length) return;
+
+        var collapseFrom = introIdx + 1;
+        while (collapseFrom < children.length && children[collapseFrom].classList && children[collapseFrom].classList.contains('blog-persist')) {
+            collapseFrom++;
         }
-      });
-    }
-  });
+
+        var toCollapse = children.slice(collapseFrom);
+        if (toCollapse.length === 0) return;
+
+        var body = document.createElement('div');
+        body.className = 'blog-body';
+        body.hidden = true;
+        toCollapse.forEach(function(el) { body.appendChild(el); });
+        card.appendChild(body);
+
+        var btn = document.createElement('button');
+        btn.className = 'read-more-btn';
+        btn.textContent = 'Read more ↓';
+        btn.addEventListener('click', function() {
+            var isHidden = body.hidden;
+            body.hidden = !isHidden;
+            btn.textContent = isHidden ? 'Read less ↑' : 'Read more ↓';
+            if (!isHidden) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        card.appendChild(btn);
+    });
 });
 // Add local developer time to blog footer
 function updateLocalTime() {
