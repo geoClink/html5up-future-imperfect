@@ -15,7 +15,7 @@
 		<meta property="og:title" content="George Clinkscales Jr. | Portfolio" />
 		<meta property="og:description" content="SwiftUI-focused iOS developer portfolio with case studies in travel, game systems, and civic technology." />
 		<meta property="og:type" content="website" />
-		<meta property="og:image" content="images/logo.jpg" />
+		<meta property="og:image" content="assets/images/logo.jpg" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content="George Clinkscales Jr.| Portfolio" />
 		<meta name="twitter:description" content="SwiftUI-focused iOS developer portfolio with case studies in travel, game systems, and civic technology." />
@@ -325,7 +325,37 @@
 				max-width: 58ch;
 				line-height: 1.65;
 			}
-			/* Hero CTA removed (navigation actions are in header) */
+			.intro-stat-bar {
+				display: flex;
+				align-items: center;
+				gap: 0.5em 1.2em;
+				flex-wrap: wrap;
+				margin: 0.85em 0 1em;
+			}
+			.intro-stat {
+				font-size: 0.88em;
+				color: #555;
+				white-space: nowrap;
+			}
+			.intro-stat strong {
+				color: #222;
+				font-weight: 700;
+			}
+			.intro-stat-divider {
+				color: #ccc;
+				font-size: 0.85em;
+				line-height: 1;
+			}
+			.intro-ctas {
+				display: flex;
+				gap: 0.75em;
+				flex-wrap: wrap;
+				margin-top: 0.1em;
+			}
+			@media (max-width: 768px) {
+				.intro-stat-bar { gap: 0.4em 1em; }
+				.intro-ctas { justify-content: center; }
+			}
 
 			/* Strengths section */
 			.strengths-grid {
@@ -631,16 +661,27 @@
 							<header class="intro-card">
 								<div class="intro-card-inner">
 									<a href="index.html" class="logo">
-										<img src="assets/images/logo-techy.svg" alt="GC Techy Logo" />
+										<img loading="lazy" src="assets/images/logo-techy.svg" alt="GC Techy Logo" />
 									</a>
 									<div class="intro-copy">
 									<h1 style="font-size:2.2em;letter-spacing:0.03em;font-weight:900;color:#222;margin-bottom:0.25em;">George Clinkscales Jr.</h1>
 									<div style="color:#60443f;font-size:1em;margin-bottom:0.2em;">
-										<img src="assets/images/pin.svg" alt="Location pin" style="width:16px;height:16px;vertical-align:middle;margin-right:0.3em;" />Detroit, MI
+										<img loading="lazy" src="assets/images/pin.svg" alt="Location pin" style="width:16px;height:16px;vertical-align:middle;margin-right:0.3em;" />Detroit, MI
 									</div>
 									<div style="font-size:1.35em;font-weight:700;color:#60443f;margin-bottom:0.4em;">SwiftUI-Focused iOS Developer</div>
 									<div style="font-size:1.08em;color:#222;line-height:1.5;margin-bottom:0.5em;">
 										I build accessible, polished app experiences for real users, designing and shipping practical products <span style="color:#60443f;font-weight:500;">with strong UX thinking and clean implementation.</span>
+									</div>
+									<div class="intro-stat-bar">
+										<span class="intro-stat"><strong>1</strong> App on the App Store</span>
+										<span class="intro-stat-divider">·</span>
+										<span class="intro-stat"><strong>7</strong> iOS Projects</span>
+										<span class="intro-stat-divider">·</span>
+										<span class="intro-stat">Apple Developer Academy</span>
+										<span class="intro-stat-divider">·</span>
+										<span class="intro-stat" style="color:#2ebaae;font-weight:600;">Open to opportunities</span>
+									</div>
+									<div class="intro-ctas">
 									</div>
 									</div>
 								</div>
@@ -653,7 +694,7 @@
 							<h2>Featured iOS/SwiftUI Case Study</h2>
 							<div class="projects">
 								<article class="project main-project">
-									<a href="stamped.html" class="image"><img src="assets/images/project1.jpeg" alt="Stamped! app project image" /></a>
+									<a href="stamped.html" class="image"><img loading="lazy" src="assets/images/project1.jpeg" alt="Stamped! app project image" /></a>
 									<h3>Stamped! — A City Passport</h3>
 									<p>A SwiftUI travel discovery app delivered in a 14-week build cycle, turning Detroit architecture into a collectible city-passport experience with progress tracking and AI-assisted itinerary support.</p>
 									<ul class="actions">
@@ -723,7 +764,7 @@
 											<div class="testimonial-author">
 												<div class="testimonial-info">
 													<p class="testimonial-name">Jaiden Henley</p>
-													<p class="testimonial-title">Project Partner</p>
+													<p class="testimonial-title">iOS Development Partner, Apple Developer Academy</p>
 												</div>
 											</div>
 										</div>
