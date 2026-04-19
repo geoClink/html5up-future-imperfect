@@ -15,109 +15,8 @@
 		<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-swift.min.js"></script>
 		<style>
-			.media-grid-item .image.fit {
-				margin-bottom: 0.5em;
-			}
-			.media-grid-item .iphone17-bezel {
-				display: block;
-				position: relative;
-				margin: 0 auto 0.5em;
-				max-width: 270px;
-				padding: 7px;
-				border-radius: 34px;
-				background: #222;
-				box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-			}
-			.media-grid-item .iphone17-bezel::before {
-				content: '';
-				position: absolute;
-				top: 13px;
-				left: 50%;
-				transform: translateX(-50%);
-				width: 34%;
-				height: 16px;
-				border-radius: 999px;
-				background: linear-gradient(180deg, #1b1b1b 0%, #0f0f0f 100%);
-				box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 1px 2px rgba(0,0,0,0.45);
-				z-index: 2;
-			}
-			.media-grid-item .iphone17-bezel img {
-				display: block;
-				width: 100%;
-				height: auto;
-				aspect-ratio: 9 / 19.5;
-				object-fit: contain;
-				border-radius: 27px;
-			}
-			.media-grid-item .ipad17-bezel {
-				display: block;
-				position: relative;
-				margin: 0 0 0.5em 0;
-				max-width: 640px;
-				padding: 1px 6px 1px 6px;
-				border-radius: 16px;
-				overflow: hidden;
-				background: #222;
-				box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-			}
-			.media-grid-item .ipad17-bezel::before {
-				content: '';
-				position: absolute;
-				top: 1.5px;
-				left: 50%;
-				transform: translateX(-50%);
-				width: 6px;
-				height: 6px;
-				border-radius: 50%;
-				background: radial-gradient(circle at 30% 30%, #3f4f67 0%, #111 70%);
-				box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
-				z-index: 3;
-			}
-			.media-grid-item .ipad17-bezel img {
-				display: block;
-				width: 100%;
-				height: auto;
-				aspect-ratio: 4 / 3;
-				object-fit: contain;
-				border-radius: 12px;
-			}
 			.media-group-title {
 				margin: 0.8em 0 0.7em;
-			}
-			.ipad-video-bezel {
-				display: block;
-				position: relative;
-				margin: 0 auto 1.2em;
-				max-width: 760px;
-				padding: 14px 6px 6px;
-				border-radius: 22px;
-				background: #222;
-				box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-			}
-			.ipad-video-bezel::before {
-				content: '';
-				position: absolute;
-				top: 4px;
-				left: 50%;
-				transform: translateX(-50%);
-				width: 7px;
-				height: 7px;
-				border-radius: 50%;
-				background: radial-gradient(circle at 30% 30%, #3f4f67 0%, #111 70%);
-				box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
-				z-index: 3;
-			}
-			.ipad-video-bezel video {
-				display: block;
-				width: 100%;
-				height: auto;
-				border-radius: 15px;
-			}
-			.media-caption {
-				font-size: 0.9em;
-				color: #666;
-				margin: 0 0 1.25em 0;
-				line-height: 1.45;
 			}
 			.code-snippet-label {
 				font-size: 0.78em;
@@ -194,7 +93,7 @@
 								<h3>Demo Video</h3>
 								<p><strong>Demo video:</strong> Stamped iPad walkthrough.</p>
 								<div class="ipad-video-bezel">
-									<video controls playsinline width="100%" poster="assets/images/QUIZLIGHTMODE.PNG">
+									<video controls playsinline width="100%" poster="assets/images/QUIZLIGHTMODE.webp">
 										<source src="assets/images/Stamped!IpadScreenRecording.MP4" type="video/mp4" />
 										Your browser does not support the video tag.
 									</video>
@@ -214,12 +113,12 @@
 									<li><strong>Type:</strong> Educational travel companion</li>
 									<li><strong>Focus:</strong> Gamified learning, accessibility, offline-first content</li>
 									<li><strong>Team:</strong> Solo</li>
-									<li><strong>Role:</strong> Product designer and iOS engineer</li>
+									<li><strong>Role:</strong> Product designer and iOS developer</li>
 									<li><strong>Timeline:</strong> November 2025 - February 2026</li>
 								</ul>
 
 								<h3>Role</h3>
-								<p>Solo product designer and iOS engineer responsible for concept definition, interaction design, architecture, implementation, and release preparation.</p>
+								<p>Solo product designer and iOS developer responsible for concept definition, interaction design, architecture, implementation, and release preparation.</p>
 
 								<h3>My Contributions</h3>
 								<ul>
@@ -340,20 +239,20 @@ func resetAllContent() {
 								<h4 class="media-group-title">iPhone Screens</h4>
 								<div class="box alt">
 									<div class="row gtr-uniform">
-										<div class="col-4 media-grid-item"><span class="iphone17-bezel"><img loading="lazy" src="assets/images/iPhoneLightMode.png" alt="Stamped light mode city list view" /></span><p class="media-caption">Light mode city list flow in the Stamped travel discovery experience.</p></div>
-										<div class="col-4 media-grid-item"><span class="iphone17-bezel"><img loading="lazy" src="assets/images/iPhoneDarkMode.png" alt="Stamped dark mode city list view" /></span><p class="media-caption">Dark mode interface preserving hierarchy and readability across key interactions.</p></div>
-										<div class="col-4 media-grid-item"><span class="iphone17-bezel"><img loading="lazy" src="assets/images/IphoneHighContrastCityListViewEdited.png" alt="Stamped high contrast city list view" /></span><p class="media-caption">High contrast city list view supporting accessibility-first visual clarity.</p></div>
+										<div class="col-4 media-grid-item"><span class="iphone-bezel"><img loading="lazy" src="assets/images/iPhoneLightMode.webp" alt="Stamped light mode city list view" /></span><p class="media-caption">Light mode city list flow in the Stamped travel discovery experience.</p></div>
+										<div class="col-4 media-grid-item"><span class="iphone-bezel"><img loading="lazy" src="assets/images/iPhoneDarkMode.png" alt="Stamped dark mode city list view" /></span><p class="media-caption">Dark mode interface preserving hierarchy and readability across key interactions.</p></div>
+										<div class="col-4 media-grid-item"><span class="iphone-bezel"><img loading="lazy" src="assets/images/IphoneHighContrastCityListViewEdited.webp" alt="Stamped high contrast city list view" /></span><p class="media-caption">High contrast city list view supporting accessibility-first visual clarity.</p></div>
 									</div>
 								</div>
 
 								<h4 class="media-group-title">iPad Screens</h4>
 								<div class="box alt">
 									<div class="row gtr-uniform">
-										<div class="col-12 media-grid-item"><span class="ipad17-bezel"><img loading="lazy" src="assets/images/QUIZLIGHTMODE.PNG" alt="Stamped quiz light mode iPad view" /></span><p class="media-caption">Quiz flow in light mode optimized for iPad screen space and readability.</p></div>
-										<div class="col-12 media-grid-item"><span class="ipad17-bezel"><img loading="lazy" src="assets/images/TRAVELDOSSIERHIGHCONTRAST.PNG" alt="Stamped travel dossier high contrast iPad view" /></span><p class="media-caption">Travel dossier in high contrast mode for improved visual accessibility on iPad.</p></div>
+										<div class="col-12 media-grid-item"><span class="ipad-bezel"><img loading="lazy" src="assets/images/QUIZLIGHTMODE.webp" alt="Stamped quiz light mode iPad view" /></span><p class="media-caption">Quiz flow in light mode optimized for iPad screen space and readability.</p></div>
+										<div class="col-12 media-grid-item"><span class="ipad-bezel"><img loading="lazy" src="assets/images/TRAVELDOSSIERHIGHCONTRAST.webp" alt="Stamped travel dossier high contrast iPad view" /></span><p class="media-caption">Travel dossier in high contrast mode for improved visual accessibility on iPad.</p></div>
 				 						<!-- Removed image for refresh -->
 				 						<!-- Re-adding image to fix display issue -->
-										<div class="col-12 media-grid-item"><span class="ipad17-bezel"><img loading="lazy" src="assets/images/AICURATEDDARKMODE.PNG" alt="Stamped AI curated dark mode iPad view" /></span><p class="media-caption">AI-curated itinerary experience in dark mode for low-light planning workflows.</p></div>
+										<div class="col-12 media-grid-item"><span class="ipad-bezel"><img loading="lazy" src="assets/images/AICURATEDDARKMODE.webp" alt="Stamped AI curated dark mode iPad view" /></span><p class="media-caption">AI-curated itinerary experience in dark mode for low-light planning workflows.</p></div>
 									</div>
 								</div>
 

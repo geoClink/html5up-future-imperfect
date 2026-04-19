@@ -19,45 +19,31 @@ a:link, a:visited {
 	box-shadow: none !important;
 }
 /* iPhone bezel styling for app screenshots (global, for all case studies) */
-.image.iphone-bezel {
+.iphone-bezel {
 	display: block;
 	position: relative;
-	margin: 0 auto;
-	padding: 10px;
-	margin-bottom: 1.5em;
+	margin: 0 auto 0.5em;
+	padding: 7px;
 	background: #222;
-	box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+	box-shadow: 0 12px 24px rgba(0,0,0,0.2);
 	cursor: pointer;
 	will-change: transform;
 	transition: transform 0.24s ease, box-shadow 0.24s ease;
-	max-width: 230px;
-	border-radius: 38px;
+	max-width: 270px;
+	border-radius: 34px;
 }
-.image.iphone-bezel:hover,
-.image.iphone-bezel:focus-visible {
+.iphone-bezel:hover,
+.iphone-bezel:focus-visible {
 	transform: translateY(-10px) scale(1.015);
 	box-shadow: 0 22px 36px rgba(0,0,0,0.28);
 }
-.image.iphone-bezel::before {
-	content: '';
-	position: absolute;
-	top: 17px;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 38%;
-	height: 20px;
-	border-radius: 999px;
-	background: linear-gradient(180deg, #1b1b1b 0%, #0f0f0f 100%);
-	box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 1px 2px rgba(0,0,0,0.45);
-	z-index: 2;
-}
-.image.iphone-bezel img {
+.iphone-bezel img {
 	display: block;
 	width: 100%;
 	height: auto;
 	aspect-ratio: 9 / 19.5;
 	object-fit: cover;
-	border-radius: 30px;
+	border-radius: 27px;
 }
 @media screen and (max-width: 736px) {
 	.menu-btn {
@@ -183,9 +169,7 @@ a:link, a:visited {
 /* Subtle lift effect for all images on hover */
 /* Subtle lift effect for project cards on hover */
 /* Lift bezel containers on hover */
-.ipad-screen-bezel:hover,
-.ipad17-bezel:hover,
-.iphone17-bezel:hover,
+.ipad-bezel:hover,
 .ipad-video-bezel:hover {
 	transform: translateY(-6px) scale(1.03);
 	box-shadow: 0 8px 24px rgba(0,0,0,0.08);
@@ -3876,6 +3860,67 @@ input, select, textarea {
 			}
 
 		}
+
+/* ── Shared case study components ───────────────────────────────────────── */
+
+.media-caption {
+	font-size: 0.9em;
+	color: #666;
+	margin: 0 0 1.25em 0;
+	line-height: 1.45;
+}
+
+.media-grid-item .image.fit {
+	margin-bottom: 0.5em;
+}
+
+.ipad-video-bezel {
+	display: block;
+	position: relative;
+	margin: 0 auto 1.2em;
+	max-width: 760px;
+	padding: 14px 6px 6px;
+	border-radius: 22px;
+	background: #222;
+	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+.ipad-video-bezel::before {
+	content: '';
+	position: absolute;
+	top: 4px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: radial-gradient(circle at 30% 30%, #3f4f67 0%, #111 70%);
+	box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+	z-index: 3;
+}
+.ipad-video-bezel video {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 15px;
+}
+
+.ipad-bezel {
+	display: block;
+	position: relative;
+	margin: 0 0 0.5em;
+	max-width: 640px;
+	padding: 10px;
+	border-radius: 20px;
+	overflow: hidden;
+	background: #222;
+	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+.ipad-bezel img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 12px;
+}
 
 /* Outcome snapshot bar — shared across all case studies */
 .outcome-snapshot {

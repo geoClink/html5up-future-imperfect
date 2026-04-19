@@ -394,6 +394,7 @@
 				display: flex;
 				flex-direction: column;
 				height: 100%;
+				min-width: 0;
 				background: #fff;
 				border: 1px solid rgba(160, 160, 160, 0.25);
 				border-radius: 8px;
@@ -436,6 +437,17 @@
 			}
 			.featured-projects .project .actions {
 				margin-top: auto;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5em;
+			}
+			.featured-projects .project .actions li {
+				list-style: none;
+				margin: 0;
+			}
+			.featured-projects .project .actions .button {
+				white-space: nowrap;
+				font-size: 0.82em;
 			}
 			.featured-projects .project .image.placeholder-gradient {
 				display: flex;
@@ -606,6 +618,28 @@
 				font-size: 0.9em;
 				color: #666;
 			}
+
+			/* Scroll fade-in animation */
+			.fade-in {
+				opacity: 0;
+				transform: translateY(24px);
+				transition: opacity 0.6s ease, transform 0.6s ease;
+			}
+			.fade-in.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+			/* Project card image zoom on hover */
+			.featured-projects .project .image {
+				overflow: hidden;
+			}
+			.featured-projects .project .image img {
+				transition: transform 0.4s ease;
+			}
+			.featured-projects .project:hover .image img {
+				transform: scale(1.06);
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -669,9 +703,9 @@
 									<div style="color:#60443f;font-size:1em;margin-bottom:0.2em;">
 										<img loading="lazy" src="assets/images/pin.svg" alt="Location pin" style="width:16px;height:16px;vertical-align:middle;margin-right:0.3em;" />Detroit, MI
 									</div>
-									<div style="font-size:1.35em;font-weight:700;color:#60443f;margin-bottom:0.4em;">SwiftUI-Focused iOS Developer</div>
+									<div style="font-size:1.35em;font-weight:700;color:#60443f;margin-bottom:0.4em;">iOS Developer · SwiftUI · Core ML · WidgetKit</div>
 									<div style="font-size:1.08em;color:#222;line-height:1.5;margin-bottom:0.5em;">
-										I build accessible, polished app experiences for real users, designing and shipping practical products <span style="color:#60443f;font-weight:500;">with strong UX thinking and clean implementation.</span>
+										I transitioned into software development through the Apple Developer Academy, where I shipped two live iOS apps in under a year. I build accessible, polished experiences with <span style="color:#60443f;font-weight:500;">SwiftUI, clean architecture, and strong UX thinking.</span>
 									</div>
 									<div class="intro-stat-bar">
 										<span class="intro-stat"><strong>2</strong> Apps on the App Store</span>
@@ -680,9 +714,11 @@
 										<span class="intro-stat-divider">·</span>
 										<span class="intro-stat">Apple Developer Academy</span>
 										<span class="intro-stat-divider">·</span>
-										<span class="intro-stat" style="color:#2ebaae;font-weight:600;">Open to opportunities</span>
+										<span class="intro-stat" style="color:#2ebaae;font-weight:600;">Open to full-time iOS roles</span>
 									</div>
 									<div class="intro-ctas">
+										<a href="case-studies.html" class="button primary">View My Work</a>
+										<a href="assets/images/resume.pdf" class="button" target="_blank" rel="noopener noreferrer">Download Resume</a>
 									</div>
 									</div>
 								</div>
@@ -691,16 +727,25 @@
 
 					<!-- Featured Case Studies -->
 
-						<section class="featured-projects">
-							<h2>Featured iOS/SwiftUI Case Study</h2>
+						<section class="featured-projects fade-in">
+							<h2>Featured iOS/SwiftUI Case Studies</h2>
 							<div class="projects">
-								<article class="project main-project">
-									<a href="stamped.html" class="image"><img loading="lazy" src="assets/images/project1.jpeg" alt="Stamped! app project image" /></a>
+								<article class="project">
+									<a href="stamped.html" class="image"><img loading="lazy" src="assets/images/project1.webp" alt="Stamped! app project image" /></a>
 									<h3>Stamped! — A City Passport</h3>
 									<p>A SwiftUI travel discovery app delivered in a 14-week build cycle, turning Detroit architecture into a collectible city-passport experience with progress tracking and AI-assisted itinerary support.</p>
 									<ul class="actions">
 										<li><a href="stamped.html" class="button">View Case Study</a></li>
 										<li><a href="https://apps.apple.com/us/app/stamped-a-city-passport/id6759680336" class="button" target="_blank" rel="noopener noreferrer">Download on the App Store <i class="fab fa-app-store-ios" style="margin-left:4px;"></i></a></li>
+									</ul>
+								</article>
+								<article class="project">
+									<a href="takeflight.html" class="image"><img loading="lazy" src="assets/images/TakeFlightLeaveIslandMiniGame.webp" alt="TakeFlight app project image" /></a>
+									<h3>TakeFlight — Bird Raising Game</h3>
+									<p>An iOS game where players raise a bird through mini-games, built with SwiftUI and featuring Game Center leaderboards, custom animations, and shipped live on the App Store.</p>
+									<ul class="actions">
+										<li><a href="takeflight.html" class="button">View Case Study</a></li>
+										<li><a href="https://apps.apple.com/us/app/takeflight/id6744877255" class="button" target="_blank" rel="noopener noreferrer">Download on the App Store <i class="fab fa-app-store-ios" style="margin-left:4px;"></i></a></li>
 									</ul>
 								</article>
 							</div>
@@ -710,25 +755,8 @@
 					
 
 								<!-- Why Hire Me -->
-						<section class="testimonials-section">
-							<h2>What I Offer Teams</h2>
-							<p>I combine product thinking, clean implementation, and accessibility-first decisions to ship work that is easy to use and easy to maintain.</p>
-							<div class="strengths-grid">
-								<article class="strength-card">
-									<h3>Accessibility from day one</h3>
-									<p>I design and build with VoiceOver, Dynamic Type, contrast, and usability in mind from the first iteration.</p>
-								</article>
-								<article class="strength-card">
-									<h3>End-to-end product ownership</h3>
-									<p>I can move from concept to shipped experience, including user flows, architecture, implementation, and iteration.</p>
-								</article>
-								<article class="strength-card">
-									<h3>Cross-functional communication</h3>
-									<p>I translate technical decisions into clear product tradeoffs that stakeholders and teammates can align on quickly.</p>
-								</article>
-							</div>
-
-							<h3 class="testimonial-subheading">Testimonials</h3>
+						<section class="testimonials-section fade-in">
+							<h2>What People Say</h2>
 							<div class="testimonials-slider">
 								<div class="testimonials-container">
 									<div class="testimonial-slide active">
@@ -779,10 +807,27 @@
 								<div class="indicator-dot" onclick="goToClientQuote(1)" aria-label="Quote 2"></div>
 								<div class="indicator-dot" onclick="goToClientQuote(2)" aria-label="Quote 3"></div>
 							</div>
+
+							<h2 style="margin-top:2em;">What I Offer Teams</h2>
+							<p>I combine product thinking, clean implementation, and accessibility-first decisions to ship work that is easy to use and easy to maintain.</p>
+							<div class="strengths-grid">
+								<article class="strength-card">
+									<h3>Accessibility from day one</h3>
+									<p>I design and build with VoiceOver, Dynamic Type, contrast, and usability in mind from the first iteration.</p>
+								</article>
+								<article class="strength-card">
+									<h3>End-to-end product ownership</h3>
+									<p>I can move from concept to shipped experience, including user flows, architecture, implementation, and iteration.</p>
+								</article>
+								<article class="strength-card">
+									<h3>Cross-functional communication</h3>
+									<p>I translate technical decisions into clear product tradeoffs that stakeholders and teammates can align on quickly.</p>
+								</article>
+							</div>
 						</section>
 
 						
-						<section class="contact-section" style="margin-top:2em; text-align:center;">
+						<section class="contact-section fade-in" style="margin-top:2em; text-align:center;">
 							<p style="font-size:1em; color:#60443f; margin-bottom:0.5em;">
 								<strong>Note:</strong> I am currently open to full-time roles, freelance, contract, and collaborative projects—<a href="contact.html" style="color:#2ebaae;font-weight:600;">reach out if you’d like to work together</a>.
 							</p>
@@ -1165,6 +1210,22 @@
 		document.querySelectorAll('form').forEach(form => {
 			form.addEventListener('submit', trackFormSubmit);
 		});
+		</script>
+
+		<script>
+			// Scroll fade-in: watch for .fade-in elements entering the viewport
+			const observer = new IntersectionObserver(function(entries) {
+				entries.forEach(function(entry) {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+						observer.unobserve(entry.target);
+					}
+				});
+			}, { threshold: 0.12 });
+
+			document.querySelectorAll('.fade-in').forEach(function(el) {
+				observer.observe(el);
+			});
 		</script>
 	</body>
 </html>
