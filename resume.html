@@ -97,7 +97,7 @@
 
 <section class="resume-section">
 <h3>Professional Summary</h3>
-<p>Before joining the Apple Developer Academy, I managed complex botanical data and logistical workflows in horticultural business management. I was inspired to transition into software engineering by the challenge of using technology to solve real-world logistical friction. I have experience in SwiftUI, CoreML, and agentic AI architectures. I add value to engineering teams by combining scientific precision with test-driven development to build accessible, HIG-compliant products that reduce operational costs through on-device intelligence.</p>
+<p>iOS developer with 2 apps shipped to the App Store in under a year, trained at the Apple Developer Academy in Detroit. I build accessible SwiftUI products with experience in Core ML, SpriteKit, and agentic AI. I bring engineering precision and product thinking to every build.</p>
 </section>
 
 <section class="resume-section">
@@ -123,7 +123,7 @@
 	<a href="https://testflight.apple.com/join/bHcPj25S" target="_blank" rel="noopener noreferrer">View on TestFlight <i class=’fa fa-plane’ style=’margin-left:4px;’></i></a> | <a href="https://github.com/geoClink/MichiganAPIWeather" target="_blank" rel="noopener noreferrer">View on GitHub <i class=’fab fa-github’ style=’margin-left:4px;’></i></a><br>
 	<strong>Developed an on-device CoreML classifier</strong> to predict Michigan beach crowd levels from real-time weather data.<br>
 	<strong>Built a full-stack architecture</strong> with a SwiftUI frontend and Python FastAPI backend, integrating live external APIs with seamless data parsing and error handling.</li>
-	<li><strong style="font-size:1.15em;">SavingsCalculator | Engineer</strong><br>
+	<li><strong style="font-size:1.15em;">RateChecker | Engineer</strong><br>
 	April 2026 | CoreML, WidgetKit, SwiftData, Swift Testing<br>
 	<a href="https://testflight.apple.com/join/xYUDj7rk" target="_blank" rel="noopener noreferrer">View on TestFlight <i class=’fa fa-plane’ style=’margin-left:4px;’></i></a> | <a href="https://github.com/geoClink/Savings-Calculator" target="_blank" rel="noopener noreferrer">View on GitHub <i class=’fab fa-github’ style=’margin-left:4px;’></i></a><br>
 	<strong>Engineered an on-device ML forecasting engine</strong> using Core ML and the FRED API, with a WidgetKit extension for real-time rate monitoring on the home screen.<br>
@@ -193,41 +193,121 @@
 	<li><i>Montgomery County Food Bank</i> | Volunteer | Conroe, TX | January 2025 – May 2025</li>
 </ul>
 </section>
-	 <!-- Footer -->
-	 <section id="footer">
-		 <ul class="icons">
-		 	<li><a href="https://github.com/geoClink" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span class="label">GitHub</span></a></li>
-		 	<li><a href="https://www.linkedin.com/in/george-clinkscales/" class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
-		 	<!-- Email icon removed to prevent mailto behavior. -->
-		 </ul>
-		 <p class="copyright">&copy; George Clinkscales Jr. Design: <a href="http://html5up.net">HTML5 UP</a>.</p>
-	<p style="font-size:0.97em; color:#60443f; margin-top:0.2em;"><a href="privacy.html" style="color:#60443f;text-decoration:underline;">Privacy Policy</a></p>
-	<p style="font-size:0.95em;color:#60443f;margin-top:0.5em;">Last updated: <script>document.write(new Date(document.lastModified).toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"}))</script></p>
-	<p style="font-size:1em; color:#60443f; margin-top:0.5em;">
-		<strong>Local Developer Time:</strong> <span id="local-time"></span> (Eastern Time Zone)<br>
-		<span style="font-size:0.97em; color:#887c73;">.</span>
-	</p>
-	 </section>
+				</section>
+				</article>
+				</div>
+			<!-- Footer -->
+			<section id="footer">
+	<div class="footer-inner">
+		<div class="footer-brand">
+			<strong>George Clinkscales Jr.</strong>
+			<span>iOS Developer &middot; Apple Developer Academy &middot; Detroit, MI</span>
+		</div>
+		<nav class="footer-nav">
+			<a href="index.html">Home</a>
+			<a href="about.html">About</a>
+			<a href="case-studies.html">Case Studies</a>
+			<a href="resume.html">Resume</a>
+			<a href="contact.html">Contact</a>
+			<a href="blog.html">Blog</a>
+		</nav>
+		<ul class="footer-social icons">
+			<li><a href="https://github.com/geoClink" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span class="label">GitHub</span></a></li>
+			<li><a href="https://www.linkedin.com/in/george-clinkscales/" class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
+		</ul>
+	</div>
+	<div class="footer-bottom">
+		<p>&copy; George Clinkscales Jr. &middot; <a href="privacy.html">Privacy Policy</a></p>
+	</div>
+</section>
+
+<style>
+#footer {
+	background: #f9f9f9;
+	border-top: 1px solid #e5e5e5;
+	margin-top: 4em;
+	padding: 0;
+}
+.footer-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 1.5em;
+	padding: 2em 2.5em;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+.footer-brand {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25em;
+}
+.footer-brand strong {
+	font-size: 1em;
+	color: #222;
+}
+.footer-brand span {
+	font-size: 0.82em;
+	color: #888;
+}
+.footer-nav {
+	display: flex;
+	gap: 1.5em;
+	flex-wrap: wrap;
+}
+.footer-nav a {
+	font-size: 0.88em;
+	color: #555;
+	text-decoration: none;
+	border-bottom: none;
+}
+.footer-nav a:hover {
+	color: #60443f;
+}
+.footer-social {
+	display: flex;
+	gap: 1em;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.footer-social li a {
+	font-size: 1.3em;
+	color: #888;
+}
+.footer-social li a:hover {
+	color: #60443f;
+}
+.footer-bottom {
+	border-top: 1px solid #e5e5e5;
+	text-align: center;
+	padding: 0.9em 2em;
+}
+.footer-bottom p {
+	margin: 0;
+	font-size: 0.82em;
+	color: #aaa;
+}
+.footer-bottom a {
+	color: #aaa;
+	text-decoration: underline;
+}
+@media (max-width: 700px) {
+	.footer-inner {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 1.5em;
+	}
+	.footer-nav {
+		gap: 1em;
+	}
+}
+</style>
 </div> <!-- End of #wrapper -->
 <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/main.js"></script>
-<script>
-function updateLocalTime() {
-	const now = new Date();
-	let offset = -5;
-	const jan = new Date(now.getFullYear(), 0, 1);
-	const jul = new Date(now.getFullYear(), 6, 1);
-	const stdTimezoneOffset = Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
-	if (now.getTimezoneOffset() < stdTimezoneOffset) offset = -4;
-	const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-	const est = new Date(utc + (3600000 * offset));
-	const timeString = est.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-	document.getElementById('local-time').textContent = timeString;
-}
-setInterval(updateLocalTime, 1000);
-updateLocalTime();
-</script>
 <script>
 // Scroll depth and time-on-page tracking
 let maxScroll = 0;

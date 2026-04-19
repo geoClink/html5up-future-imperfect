@@ -63,18 +63,27 @@
 
 				/* About page: two-column layout for image + text */
 				.about-grid {
-					display: block;
 					margin-top: 1em;
 				}
-				.about-grid::after {
-					content: '';
-					display: block;
-					clear: both;
-				}
 				.about-image {
-					float: left;
-					width: 260px;
-					margin: 0 1.5em 0.75em 0;
+					display: none;
+				}
+				.story-inner {
+					display: flex;
+					gap: 1.5em;
+					align-items: start;
+				}
+				.story-inner img {
+					width: 200px;
+					flex-shrink: 0;
+					border-radius: 8px;
+					box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+					align-self: stretch;
+					object-fit: cover;
+				}
+				@media (max-width: 600px) {
+					.story-inner { flex-direction: column; }
+					.story-inner img { width: 100%; }
 				}
 				.about-image img {
 					width: 100%;
@@ -192,20 +201,19 @@
 										</div>
 										<div class="about-text">
 											<div class="about-section">
-												<h3>My Story</h3>
-												<p><strong>I’m a developer passionate about making learning fun and accessible through “edu-tainment”—educational entertainment that engages and inspires.</strong></p>
+												<div class="story-inner">
+												<img src="assets/images/myself.webp" alt="George Clinkscales Jr." />
+												<div>
+												<h3 style="margin-top:0;">My Story</h3>
+																								<p>I’m a Colorado State University graduate turned iOS developer, currently at the Apple Developer Academy in Detroit. My transition into software was driven by curiosity and a desire to build things that are genuinely useful — products that feel intuitive, accessible, and well-crafted from day one.</p>
 
-												<p>I graduated from Colorado State University and am now at the Apple Developer Academy, where I focus on building products that are useful, inclusive, and technically strong. My transition into software was driven by curiosity and a hands-on approach to solving real problems. I care deeply about UI/UX and engineering, and I love creating experiences that feel intuitive and accessible for everyone.</p>
+												<p>In under a year I’ve shipped two apps to the App Store: <a href="stamped.html" style="font-weight:bold;">Stamped!</a>, a SwiftUI travel discovery app, and <a href="takeflight.html" style="font-weight:bold;">TakeFlight</a>, a SpriteKit survival game. Beyond those, I’ve contributed to civic tech through <a href="commonsight.html" style="font-weight:bold;">CommonSight</a>, built an on-device ML savings tool (<a href="ratechecker.html" style="font-weight:bold;">RateChecker</a>), and built an agentic AI sports analyst (<a href="detroitsportschatbot.html" style="font-weight:bold;">Detroit Sports Chatbot</a>).</p>
 
-												<p>My project experience is diverse: I have two apps shipped on the App Store — a travel discovery app (<a href="stamped.html" style="font-weight:bold;">Stamped!</a>) and a SpriteKit survival game (<a href="takeflight.html" style="font-weight:bold;">TakeFlight</a>). Beyond iOS, I’ve contributed to civic tech through <a href="commonsight.html" style="font-weight:bold;">CommonSight</a>, built an on-device ML savings tool currently in TestFlight (<a href="ratechecker.html" style="font-weight:bold;">RateChecker</a>), and explored agentic AI through the <a href="detroitsportschatbot.html" style="font-weight:bold;">Detroit Sports Chatbot</a> — an AI analyst using LLM tool-calling to answer live sports questions. I’m currently in the early stages of a civic project with the Detroit Water and Sewerage Department, pushing me deeper into real-world stakeholder work and public infrastructure challenges.</p>
+												<p>Outside of code I ride bikes, explore Detroit restaurants, volunteer at local food banks, and plant trees with The Greening of Detroit — experiences that keep me connected to the community I’m building for.</p>
 
-												<p>Outside of work, I love to ride my bike, explore new restaurants, volunteer at local food banks, and plant trees in Detroit with The Greening of Detroit. These experiences keep me inspired and connected to my community, shaping how I approach building products—with empathy, creativity, and a focus on meaningful impact.</p>
-
-												<p>Currently, I’m contributing through an internship, helping a small business owner shape an investor-ready demo. That experience has sharpened how I balance speed, clarity, and user trust in every build.</p>
-
-												<p>What began as curiosity has evolved into a dedicated pursuit of excellence. As I prepare to graduate from the Apple Developer Academy in Detroit, I’m proud of the foundations I’ve laid and even more motivated by the challenges ahead. What defines my approach isn’t just the code—it’s the intention behind it. I thrive on understanding the “why” before building the “how,” ensuring every solution I create serves a clear, human purpose.</p>
-
-												<p class=”seeking-callout”><strong>Currently seeking</strong> junior iOS developer roles and internship opportunities &mdash; ideally on teams building products that serve real communities. <a href=”contact.html”>Let’s connect.</a></p>
+												<p class="seeking-callout"><strong>Currently seeking</strong> full-time iOS developer roles — ideally on teams building products that serve real communities. <a href="contact.html">Let’s connect.</a></p>
+												</div>
+												</div>
 
 												</div>
 
@@ -236,14 +244,11 @@
 											</div>
 
 											<div class="about-section">
-												<div class="about-section">
-													<h3>How I Learned</h3>
-													<p>My learning journey has been shaped by hands-on projects, teamwork, and Challenge Based Learning (CBL). At the Apple Developer Academy, mentorship is a key part of the experience—experienced professionals help us grow by challenging our thinking and supporting us as we tackle real-world problems. CBL introduced me to learning through action, working in teams, and applying knowledge to solve authentic challenges. This environment fostered collaboration, creativity, and practical problem-solving.</p>
-													<p>Outside the classroom, I’ve spent countless hours on YouTube tutorials, breaking down other people’s code on GitHub, and working on personal projects. Since I began coding, I’ve truly immersed myself in the process and have a lot of fun solving these problems. I would love to continue learning and building as I move forward.</p>
-													<p>Through feedback and shared experience, I thrive where learning is active, collaborative, and directly connected to building real products.</p>
-												</div>
-												<div class="about-section">
-													<h3>My Tech Journey</h3>
+												<h3>How I Learned</h3>
+												<p>I didn’t learn from a formal curriculum — I learned by doing. I’ve spent hours in browser DevTools inspecting how real sites work, breaking things apart and rebuilding them. I watch tutorials, then immediately apply what I learned to real projects. When I hit a wall, I don’t stop — I dig in, try every angle, and figure it out. That’s how I’ve picked up SwiftUI, web development, AI tooling, and everything in between.</p>
+											</div>
+											<div class="about-section">
+												<h3>My Tech Journey</h3>
 													<ul class="simple-timeline" style="list-style:none;padding-left:0;margin:2em 0;">
 																										<li class="timeline-card" style="margin-bottom:2em;display:flex;align-items:flex-start;background:#f7f7f7;border-radius:10px;box-shadow:0 2px 8px rgba(96,68,63,0.08);padding:1.2em 1em;cursor:pointer;position:relative;">
 																											<span style="font-size:2em;margin-right:1em;">🐦</span>
@@ -434,8 +439,6 @@
 													</li>
 												</ul>
 											</div>
-										</div>
-									</div>
 
 										<div class="about-section">
 											<h3>What Guides Me</h3>
@@ -464,20 +467,113 @@
 					</div>
 
 <!-- Footer -->
-<section id="footer" style="text-align:center;padding:3em 2em;margin-top:4em;background:#f9f9f9;border-top:1px solid #e5e5e5;">
-    <ul class="icons">
-        <li><a href="https://github.com/geoClink" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span class="label">GitHub</span></a></li>
-        <li><a href="https://www.linkedin.com/in/george-clinkscales/" class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
-        <!-- Email icon removed to prevent mailto behavior. -->
-    </ul>
-	<p class="copyright">&copy; George Clinkscales Jr. Design: <a href="http://html5up.net">HTML5 UP</a>.</p>
-	<p style="font-size:0.97em; color:#60443f; margin-top:0.2em;"><a href="privacy.html" style="color:#60443f;text-decoration:underline;">Privacy Policy</a></p>
-	<p style="font-size:0.95em;color:#60443f;margin-top:0.5em;">Last updated: <script>document.write(new Date(document.lastModified).toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"}))</script></p>
-	<p style="font-size:1em; color:#60443f; margin-top:0.5em;">
-		<strong>Local Developer Time:</strong> <span id="local-time"></span> (Eastern Time Zone)<br>
-		<span style="font-size:0.97em; color:#887c73;">.</span>
-	</p>
+<section id="footer">
+	<div class="footer-inner">
+		<div class="footer-brand">
+			<strong>George Clinkscales Jr.</strong>
+			<span>iOS Developer &middot; Apple Developer Academy &middot; Detroit, MI</span>
+		</div>
+		<nav class="footer-nav">
+			<a href="index.html">Home</a>
+			<a href="about.html">About</a>
+			<a href="case-studies.html">Case Studies</a>
+			<a href="resume.html">Resume</a>
+			<a href="contact.html">Contact</a>
+			<a href="blog.html">Blog</a>
+		</nav>
+		<ul class="footer-social icons">
+			<li><a href="https://github.com/geoClink" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span class="label">GitHub</span></a></li>
+			<li><a href="https://www.linkedin.com/in/george-clinkscales/" class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
+		</ul>
+	</div>
+	<div class="footer-bottom">
+		<p>&copy; George Clinkscales Jr. &middot; <a href="privacy.html">Privacy Policy</a></p>
+	</div>
 </section>
+
+<style>
+#footer {
+	background: #f9f9f9;
+	border-top: 1px solid #e5e5e5;
+	margin-top: 4em;
+	padding: 0;
+}
+.footer-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 1.5em;
+	padding: 2em 2.5em;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+.footer-brand {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25em;
+}
+.footer-brand strong {
+	font-size: 1em;
+	color: #222;
+}
+.footer-brand span {
+	font-size: 0.82em;
+	color: #888;
+}
+.footer-nav {
+	display: flex;
+	gap: 1.5em;
+	flex-wrap: wrap;
+}
+.footer-nav a {
+	font-size: 0.88em;
+	color: #555;
+	text-decoration: none;
+	border-bottom: none;
+}
+.footer-nav a:hover {
+	color: #60443f;
+}
+.footer-social {
+	display: flex;
+	gap: 1em;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.footer-social li a {
+	font-size: 1.3em;
+	color: #888;
+}
+.footer-social li a:hover {
+	color: #60443f;
+}
+.footer-bottom {
+	border-top: 1px solid #e5e5e5;
+	text-align: center;
+	padding: 0.9em 2em;
+}
+.footer-bottom p {
+	margin: 0;
+	font-size: 0.82em;
+	color: #aaa;
+}
+.footer-bottom a {
+	color: #aaa;
+	text-decoration: underline;
+}
+@media (max-width: 700px) {
+	.footer-inner {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 1.5em;
+	}
+	.footer-nav {
+		gap: 1em;
+	}
+}
+</style>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
