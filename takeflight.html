@@ -15,82 +15,17 @@
 		<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-swift.min.js"></script>
 		<style>
-			.media-grid-item .image.fit {
-				margin-bottom: 0.5em;
-			}
 			.media-grid-item .image.fit img {
 				display: block;
 				width: 100%;
 				height: 240px;
 				object-fit: cover;
 			}
-			.ipad-screen-bezel {
-				display: block;
-				position: relative;
-				margin: 0 0 0.5em;
-				padding: 14px 6px 6px;
-				border-radius: 22px;
-				background: #222;
-				box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-			}
-			.ipad-screen-bezel::before {
-				content: '';
-				position: absolute;
-				top: 4px;
-				left: 50%;
-				transform: translateX(-50%);
-				width: 7px;
-				height: 7px;
-				border-radius: 50%;
-				background: radial-gradient(circle at 30% 30%, #3f4f67 0%, #111 70%);
-				box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
-				z-index: 3;
-			}
-			.ipad-screen-bezel img {
-				display: block;
-				width: 100%;
-				height: auto;
-				aspect-ratio: 4 / 3;
-				object-fit: cover;
-				border-radius: 15px;
-			}
-			.ipad-video-bezel {
-				display: block;
-				position: relative;
-				margin: 0 auto 1.2em;
-				max-width: 760px;
-				padding: 14px 6px 6px;
-				border-radius: 22px;
-				background: #222;
-				box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-			}
-			.ipad-video-bezel::before {
-				content: '';
-				position: absolute;
-				top: 4px;
-				left: 50%;
-				transform: translateX(-50%);
-				width: 7px;
-				height: 7px;
-				border-radius: 50%;
-				background: radial-gradient(circle at 30% 30%, #3f4f67 0%, #111 70%);
-				box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
-				z-index: 3;
-			}
+			/* takeflight-specific: video fills bezel with cover crop */
 			.ipad-video-bezel video {
-				display: block;
-				width: 100%;
-				height: auto;
 				aspect-ratio: 4 / 3;
 				object-fit: cover;
 				background: #111;
-				border-radius: 15px;
-			}
-			.media-caption {
-				font-size: 0.9em;
-				color: #666;
-				margin: 0 0 1.25em 0;
-				line-height: 1.45;
 			}
 		</style>
 	</head>
@@ -314,10 +249,10 @@
 								<p><strong>Key screens:</strong> Nest-building, predator, feed, and island-escape mini-game moments from the shipped build.</p>
 								<div class="box alt">
 									<div class="row gtr-uniform">
-										<div class="col-6 media-grid-item"><span class="ipad-screen-bezel"><img loading="lazy" src="assets/images/TakeFlightBuildNestMiniGame.jpeg" alt="TakeFlight build-nest mini-game screen" /></span><p class="media-caption">Build Nest mini-game where players assemble materials under pressure to unlock core progression.</p></div>
-										<div class="col-6 media-grid-item"><span class="ipad-screen-bezel"><img loading="lazy" src="assets/images/TakeFlightPredatorMiniGame.jpeg" alt="TakeFlight predator mini-game screen" /></span><p class="media-caption">Predator mini-game where players react quickly to evade threats and preserve survival state.</p></div>
-										<div class="col-6 media-grid-item"><span class="ipad-screen-bezel"><img loading="lazy" src="assets/images/TakeFlightFeedUserMiniGame.jpeg" alt="TakeFlight feed mini-game screen" /></span><p class="media-caption">Feed mini-game focused on timing and resource collection to maintain hunger and progression.</p></div>
-										<div class="col-6 media-grid-item"><span class="ipad-screen-bezel"><img loading="lazy" src="assets/images/TakeFlightLeaveIslandMiniGame.png" alt="TakeFlight leave-island mini-game screen" /></span><p class="media-caption">Leave Island mini-game sequence where players complete the final escape challenge.</p></div>
+										<div class="col-6 media-grid-item"><span class="ipad-bezel"><img loading="lazy" src="assets/images/TakeFlightBuildNestMiniGame.jpeg" alt="TakeFlight build-nest mini-game screen" /></span><p class="media-caption">Build Nest mini-game where players assemble materials under pressure to unlock core progression.</p></div>
+										<div class="col-6 media-grid-item"><span class="ipad-bezel"><img loading="lazy" src="assets/images/TakeFlightPredatorMiniGame.jpeg" alt="TakeFlight predator mini-game screen" /></span><p class="media-caption">Predator mini-game where players react quickly to evade threats and preserve survival state.</p></div>
+										<div class="col-6 media-grid-item"><span class="ipad-bezel"><img loading="lazy" src="assets/images/TakeFlightFeedUserMiniGame.jpeg" alt="TakeFlight feed mini-game screen" /></span><p class="media-caption">Feed mini-game focused on timing and resource collection to maintain hunger and progression.</p></div>
+										<div class="col-6 media-grid-item"><span class="ipad-bezel"><img loading="lazy" src="assets/images/TakeFlightLeaveIslandMiniGame.webp" alt="TakeFlight leave-island mini-game screen" /></span><p class="media-caption">Leave Island mini-game sequence where players complete the final escape challenge.</p></div>
 									</div>
 								</div>
 
