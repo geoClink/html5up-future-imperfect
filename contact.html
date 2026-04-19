@@ -365,22 +365,6 @@
 				}
 			});
     </script>
-			<script>
-			function updateLocalTime() {
-				const now = new Date();
-				let offset = -5;
-				const jan = new Date(now.getFullYear(), 0, 1);
-				const jul = new Date(now.getFullYear(), 6, 1);
-				const stdTimezoneOffset = Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
-				if (now.getTimezoneOffset() < stdTimezoneOffset) offset = -4;
-				const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-				const est = new Date(utc + (3600000 * offset));
-				const timeString = est.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-				document.getElementById('local-time').textContent = timeString;
-			}
-			setInterval(updateLocalTime, 1000);
-			updateLocalTime();
-			</script>
 
 		<!-- Scroll depth and time-on-page tracking -->
 			<script>
