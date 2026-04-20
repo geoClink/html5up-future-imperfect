@@ -441,6 +441,8 @@ input, select, textarea {
 			line-height: 1.75em;
 			padding: 1em 1.5em;
 			overflow-x: auto;
+			overflow-y: auto;
+			max-height: 220px;
 		}
 
 	hr {
