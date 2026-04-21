@@ -1,0 +1,348 @@
+<!DOCTYPE HTML>
+<!-- Open source contributions by George Clinkscales Jr. — pull requests, fixes, and patches. -->
+<html>
+<head>
+    <title>Open Source | George Clinkscales Jr.</title>
+    <meta charset="utf-8" />
+    <link rel="canonical" href="https://geoclink.github.io/portfolio/contributions.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Open source contributions by George Clinkscales Jr. — pull requests, bug fixes, and patches to public repositories." />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+    <style>
+        .contributions-section {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 3em 1em;
+        }
+        .contributions-header {
+            text-align: center;
+            margin-bottom: 2.5em;
+        }
+        .contributions-header h1 {
+            margin-bottom: 0.3em;
+        }
+        .contributions-header p {
+            color: #888;
+            font-size: 1.05em;
+            margin-top: 0.4em;
+        }
+        .contributions-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95em;
+        }
+        .contributions-table thead th {
+            text-align: left;
+            padding: 0.75em 1em;
+            border-bottom: 2px solid #e0e0e0;
+            color: #60443f;
+            font-weight: 700;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .contributions-table tbody tr {
+            border-bottom: 1px solid rgba(160,160,160,0.18);
+            transition: background 0.15s;
+        }
+        .contributions-table tbody tr:hover {
+            background: #f9f9f9;
+        }
+        .contributions-table td {
+            padding: 1em 1em;
+            vertical-align: top;
+            color: #333;
+        }
+        .contributions-table td:first-child {
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .pr-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4em;
+            color: #2ebaae;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .pr-link:hover {
+            color: #1fa89d;
+            text-decoration: underline;
+        }
+        .contribution-type {
+            display: inline-block;
+            font-size: 0.75em;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border-radius: 999px;
+            padding: 0.25em 0.7em;
+            white-space: nowrap;
+        }
+        .type-bug {
+            background: #fff0f0;
+            color: #c0392b;
+            border: 1px solid rgba(192,57,43,0.2);
+        }
+        .type-feature {
+            background: #f0f9ff;
+            color: #2471a3;
+            border: 1px solid rgba(36,113,163,0.2);
+        }
+        .type-docs {
+            background: #f5f5f5;
+            color: #555;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        .type-refactor {
+            background: #f0fff4;
+            color: #1e8449;
+            border: 1px solid rgba(30,132,73,0.2);
+        }
+        .contribution-date {
+            color: #aaa;
+            font-size: 0.85em;
+            white-space: nowrap;
+        }
+        .contribution-status {
+            display: inline-block;
+            font-size: 0.75em;
+            font-weight: 700;
+            border-radius: 999px;
+            padding: 0.25em 0.7em;
+            white-space: nowrap;
+        }
+        .status-merged {
+            background: #f0f0ff;
+            color: #6c3483;
+            border: 1px solid rgba(108,52,131,0.2);
+        }
+        .status-open {
+            background: #f0fff4;
+            color: #1e8449;
+            border: 1px solid rgba(30,132,73,0.2);
+        }
+        .status-closed {
+            background: #f5f5f5;
+            color: #888;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        .empty-state {
+            text-align: center;
+            padding: 4em 2em;
+            color: #aaa;
+        }
+        .empty-state p {
+            font-size: 1em;
+            margin-top: 0.5em;
+        }
+        @media (max-width: 736px) {
+            .contributions-table thead {
+                display: none;
+            }
+            .contributions-table tbody tr {
+                display: block;
+                padding: 1em 0;
+                border-bottom: 1px solid #e0e0e0;
+            }
+            .contributions-table td {
+                display: block;
+                padding: 0.2em 0;
+            }
+            .contributions-table td:first-child {
+                white-space: normal;
+            }
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <div id="wrapper">
+    <header id="header">
+        <h1>Open Source</h1>
+        <button id="menuToggle" aria-label="Open menu" class="menu-btn">
+            <span class="menu-icon">
+                <span></span>
+            </span>
+        </button>
+        <nav class="links">
+            <ul>
+                <li><a href="index.html" class="button">Home</a></li>
+                <li><a href="about.html" class="button">About</a></li>
+                <li><a href="case-studies.html" class="button">Case Studies</a></li>
+                <li><a href="resume.html" class="button">Resume</a></li>
+                <li><a href="contact.html" class="button">Contact</a></li>
+                <li><a href="blog.html" class="button">Blog</a></li>
+                <li><a href="contributions.html" class="button active" aria-current="page">Open Source</a></li>
+            </ul>
+        </nav>
+        <aside id="sidebarMenu" class="sidebar-menu">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contributions.html">Open Source</a></li>
+                </ul>
+            </nav>
+        </aside>
+    </header>
+
+    <div class="contributions-section">
+        <div class="contributions-header">
+            <h1>Open Source Contributions</h1>
+            <p>Pull requests, bug fixes, and patches I've submitted to public repositories.</p>
+        </div>
+
+        <table class="contributions-table">
+            <thead>
+                <tr>
+                    <th>Repository</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>PR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>streamlit/streamlit</td>
+                    <td>Added border radius rounding to <code>st.video</code> and <code>st.map</code> components for visual consistency with Streamlit's design system · TypeScript · React · CSS-in-JS</td>
+                    <td><span class="contribution-type type-feature">Feature</span></td>
+                    <td><span class="contribution-status status-open">Open</span></td>
+                    <td class="contribution-date">Apr 2026</td>
+                    <td><a href="https://github.com/streamlit/streamlit/pull/14864" class="pr-link" target="_blank" rel="noopener noreferrer">#14864 ↗</a></td>
+                </tr>
+                <!-- Add rows here as you make contributions. Example row:
+                <tr>
+                    <td>owner/repo-name</td>
+                    <td>Fixed typo in README installation steps</td>
+                    <td><span class="contribution-type type-docs">Docs</span></td>
+                    <td><span class="contribution-status status-merged">Merged</span></td>
+                    <td class="contribution-date">Apr 2026</td>
+                    <td><a href="https://github.com/owner/repo/pull/123" class="pr-link" target="_blank" rel="noopener noreferrer">#123 ↗</a></td>
+                </tr>
+                -->
+            </tbody>
+        </table>
+
+    </div>
+
+    <section id="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <strong>George Clinkscales Jr.</strong>
+                <span>iOS Developer &middot; Apple Developer Academy &middot; Detroit, MI</span>
+            </div>
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="case-studies.html">Case Studies</a>
+                <a href="resume.html">Resume</a>
+                <a href="contact.html">Contact</a>
+                <a href="blog.html">Blog</a>
+                <a href="contributions.html">Open Source</a>
+            </nav>
+            <ul class="footer-social icons">
+                <li><a href="https://github.com/geoClink" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span class="label">GitHub</span></a></li>
+                <li><a href="https://www.linkedin.com/in/george-clinkscales/" class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; George Clinkscales Jr. &middot; <a href="privacy.html">Privacy Policy</a></p>
+        </div>
+    </section>
+
+    <style>
+    #footer {
+        background: #f9f9f9;
+        border-top: 1px solid #e5e5e5;
+        margin-top: 4em;
+        padding: 0;
+    }
+    .footer-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1.5em;
+        padding: 2em 2.5em;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25em;
+    }
+    .footer-brand strong {
+        font-size: 1em;
+        color: #222;
+    }
+    .footer-brand span {
+        font-size: 0.82em;
+        color: #888;
+    }
+    .footer-nav {
+        display: flex;
+        gap: 1.5em;
+        flex-wrap: wrap;
+    }
+    .footer-nav a {
+        font-size: 0.88em;
+        color: #555;
+        text-decoration: none;
+        border-bottom: none;
+    }
+    .footer-nav a:hover {
+        color: #60443f;
+    }
+    .footer-social {
+        display: flex;
+        gap: 1em;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .footer-social li a {
+        font-size: 1.3em;
+        color: #888;
+    }
+    .footer-social li a:hover {
+        color: #60443f;
+    }
+    .footer-bottom {
+        border-top: 1px solid #e5e5e5;
+        text-align: center;
+        padding: 0.9em 2em;
+    }
+    .footer-bottom p {
+        margin: 0;
+        font-size: 0.82em;
+        color: #aaa;
+    }
+    .footer-bottom a {
+        color: #aaa;
+        text-decoration: underline;
+    }
+    @media (max-width: 700px) {
+        .footer-inner {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 1.5em;
+        }
+        .footer-nav {
+            gap: 1em;
+        }
+    }
+    </style>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
