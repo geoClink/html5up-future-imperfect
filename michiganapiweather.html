@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
-<!-- CoastCast Project Case Study -->
+<!-- CoastCast Project Case Study — Updated April 2026 -->
 <html>
 <head>
     <title>CoastCast — Case Study | George Clinkscales Jr.</title>
     <meta charset="utf-8" />
-		<link rel="canonical" href="https://geoclink.github.io/portfolio/michiganapiweather.html" />
-    <meta name="description" content="Case study: CoastCast — A SwiftUI iOS app backed by a custom Python API delivering real-time water and weather data for Michigan lakes and coastal regions." />
+    <link rel="canonical" href="https://geoclink.github.io/portfolio/michiganapiweather.html" />
+    <meta name="description" content="Case study: CoastCast — A full-platform SwiftUI iOS app with CoreML crowd prediction, Siri Shortcuts, Live Activities, and a Python FastAPI backend delivering real-time beach conditions for 54 Michigan beaches." />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
@@ -16,442 +16,622 @@
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
     <style>
-        /* Prevent floating card from being cut off at top */
-        #main {
-            padding-top: 2.5em;
+        #main { padding-top: 2.5em; }
+ 
+        .platform-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6em;
+            margin: 1em 0 1.5em 0;
+        }
+        .badge {
+            display: inline-block;
+            background: #f0f4f8;
+            border: 1px solid #dde3ea;
+            border-radius: 20px;
+            padding: 0.3em 0.9em;
+            font-size: 0.82em;
+            font-weight: 600;
+            color: #444;
+            letter-spacing: 0.02em;
+        }
+        .badge-highlight {
+            background: #e8f4f0;
+            border-color: #b0d4c8;
+            color: #1a5c3a;
+        }
+ 
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.2em;
+            margin: 1.5em 0;
+        }
+        .feature-card {
+            background: #f8fafb;
+            border: 1px solid #e5eaee;
+            border-radius: 12px;
+            padding: 1.2em 1.4em;
+        }
+        .feature-card h4 {
+            margin: 0 0 0.4em 0;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #60443f;
+        }
+        .feature-card p {
+            margin: 0;
+            font-size: 0.88em;
+            color: #555;
+            line-height: 1.5;
+        }
+ 
+        .contribution-list {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+        .contribution-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7em;
+            padding: 0.6em 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.92em;
+            line-height: 1.5;
+        }
+        .contribution-list li:last-child { border-bottom: none; }
+        .contrib-icon {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            background: #60443f;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7em;
+            font-weight: 700;
+            margin-top: 2px;
+        }
+ 
+        .tech-stack-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5em;
+            margin: 1em 0;
+        }
+        .tech-tag {
+            background: #1a1a2e;
+            color: #e0edef;
+            border-radius: 6px;
+            padding: 0.25em 0.75em;
+            font-size: 0.8em;
+            font-family: monospace;
+            font-weight: 600;
+        }
+ 
+        .architecture-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2em 0;
+            font-size: 0.88em;
+        }
+        .architecture-table th {
+            background: #1a1a2e;
+            color: white;
+            padding: 0.7em 1em;
+            text-align: left;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+        .architecture-table td {
+            padding: 0.65em 1em;
+            border-bottom: 1px solid #eee;
+            color: #444;
+            vertical-align: top;
+        }
+        .architecture-table tr:nth-child(even) td { background: #f8fafb; }
+ 
+        .stat-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5em;
+            margin: 1.5em 0;
+        }
+        .stat-block {
+            flex: 1;
+            min-width: 130px;
+            text-align: center;
+            background: #f8fafb;
+            border: 1px solid #e5eaee;
+            border-radius: 12px;
+            padding: 1.2em 1em;
+        }
+        .stat-number {
+            font-size: 2em;
+            font-weight: 800;
+            color: #60443f;
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.2em;
+        }
+        .stat-label {
+            font-size: 0.78em;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+ 
+        .quote-block {
+            border-left: 4px solid #60443f;
+            padding: 0.8em 1.4em;
+            margin: 1.5em 0;
+            background: #fdf8f7;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.6;
         }
     </style>
 </head>
 <body class="is-preload">
-        <!-- Header -->
-        <header id="header">
-            <h1>CoastCast</h1>
-            <!-- Menu button for mobile -->
-            <button id="menuToggle" aria-label="Open menu" class="menu-btn">
-                <span class="menu-icon">
-                    <span></span>
-                </span>
-            </button>
-            <nav class="links">
+    <!-- Header -->
+    <header id="header">
+        <h1>CoastCast</h1>
+        <button id="menuToggle" aria-label="Open menu" class="menu-btn">
+            <span class="menu-icon"><span></span></span>
+        </button>
+        <nav class="links">
+            <ul>
+                <li><a href="index.html" class="button">Home</a></li>
+                <li><a href="about.html" class="button">About</a></li>
+                <li><a href="case-studies.html" class="button active" aria-current="page">Case Studies</a></li>
+                <li><a href="contributions.html" class="button">Open Source</a></li>
+                <li><a href="resume.html" class="button">Resume</a></li>
+                <li><a href="contact.html" class="button">Contact</a></li>
+                <li><a href="blog.html" class="button">Blog</a></li>
+            </ul>
+        </nav>
+        <aside id="sidebarMenu" class="sidebar-menu">
+            <nav>
                 <ul>
-                    <li><a href="index.html" class="button">Home</a></li>
-                    <li><a href="about.html" class="button">About</a></li>
-                    <li><a href="case-studies.html" class="button active" aria-current="page">Case Studies</a></li>
-                    <li><a href="contributions.html" class="button">Open Source</a></li>
-                    <li><a href="resume.html" class="button">Resume</a></li>
-                    <li><a href="contact.html" class="button">Contact</a></li>
-                    <li><a href="blog.html" class="button">Blog</a></li>
-                   </ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="contributions.html">Open Source</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
             </nav>
-            <!-- Sidebar menu -->
-            <aside id="sidebarMenu" class="sidebar-menu">
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="case-studies.html">Case Studies</a></li>
-                        <li><a href="contributions.html">Open Source</a></li>
-                        <li><a href="resume.html">Resume</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                    </ul>
-                </nav>
-            </aside>
-        </header>
-        </header>
-        <div id="main">
-            <article class="post">
-                <header>
-                    <div class="title">
-                        <h2>CoastCast</h2>
-                        <p>SwiftUI iOS app with a Python backend API for real-time Michigan water and weather data.</p>
-                            <hr>
-                        <div class="value-prop" style="color:#000;font-weight:600;margin-bottom:0.5em;">Unique Value: Combines a modern SwiftUI interface with a custom Python API to deliver up-to-date water and weather information for Michigan lakes and regions.</div>
-                        <h3>Demo Video</h3>
-                        <div class="media-grid-item">
-                            <div class="image iphone-bezel">
-                                <video src="assets/images/CoastCasterScreenRecording.mp4" controls style="width:100%; aspect-ratio:9/19.5; object-fit:cover; border-radius:30px;"></video>
-                            </div>
-                            <div class="media-caption">Demo video showing app flow: selecting a beach and viewing real-time conditions powered by the API.</div>
+        </aside>
+    </header>
+ 
+    <div id="main">
+        <article class="post">
+            <header>
+                <div class="title">
+                    <h2>CoastCast</h2>
+                    <p>A full-platform iOS app delivering real-time beach conditions for 54 Michigan beaches — with on-device ML, Siri Shortcuts, Live Activities, and a Python FastAPI backend.</p>
+                    <hr>
+ 
+                    <div class="platform-badges">
+                        <span class="badge badge-highlight">Live on TestFlight</span>
+                        <span class="badge">SwiftUI</span>
+                        <span class="badge">CoreML</span>
+                        <span class="badge">Python FastAPI</span>
+                        <span class="badge">WeatherKit</span>
+                        <span class="badge">WidgetKit</span>
+                        <span class="badge">App Intents / Siri</span>
+                        <span class="badge">Live Activities</span>
+                        <span class="badge">MapKit</span>
+                        <span class="badge">iOS 17+</span>
+                    </div>
+ 
+                    <!-- Stats -->
+                    <div class="stat-row">
+                        <div class="stat-block">
+                            <span class="stat-number">54</span>
+                            <span class="stat-label">Michigan Beaches</span>
                         </div>
-                        
-
-                        <h3>Problem</h3>
-                        <p>This project was created to learn and demonstrate a skill we had never tried before: building a full-stack app with a custom Python backend and a modern SwiftUI frontend. The goal was to integrate real-time environmental data, design a responsive mobile interface, and implement async data fetching and robust error handling. By tackling both backend API development and frontend architecture, we expanded our technical abilities and delivered a practical solution for Michigan lake and weather information.</p>
-
-                        <h3>Challenge-Based Learning</h3>
-                        <p><strong>Challenge:</strong> Integrate real-time water and weather data from multiple sources into a seamless mobile experience.<br>
-    <strong>Approach:</strong> Built a custom Python API to aggregate and serve data, then designed a SwiftUI app to consume and present it with robust error handling and accessibility.<br>
-    <strong>Outcome:</strong> Delivered a reliable, user-friendly app that provides up-to-date Michigan lake conditions, demonstrating full-stack problem solving and technical growth.</p>
-
-                        <h3>Project Snapshot</h3>
-                        <ul class="alt">
-                            <li><strong>Platform:</strong> iOS (SwiftUI) app with Python (FastAPI) backend</li>
-                            <li><strong>Type:</strong> Real-time water & weather data app for Michigan lakes</li>
-                            <li><strong>Focus:</strong> Real-time environmental data, async API integration, mobile-first, accessibility, robust error handling</li>
-                            <li><strong>Team:</strong> 2 (collaborative project)</li>
-                            <li><strong>Role:</strong> SwiftUI/iOS developer, Python API developer, product designer</li>
-                            <li><strong>Timeline:</strong> March 2026</li>
-                        </ul>
-
-                                                <div style="display:flex;gap:1em;flex-wrap:wrap;margin:1em 0 1.5em 0;">
-                                                    <a href="https://testflight.apple.com/join/bHcPj25S" class="button" target="_blank" rel="noopener noreferrer">View on TestFlight <i class='fa fa-plane' style='margin-left:4px;'></i></a>
-                                                    <a href="https://github.com/jaidenhenley/Swift-MichiganAPIWeather" class="button" target="_blank" rel="noopener noreferrer">View on GitHub <i class='fab fa-github' style='margin-left:4px;'></i></a>
-                                                </div>
-
-                        <h3>Role</h3>
-                        <p>Co-engineer responsible for both frontend and backend architecture, data integration, and user experience.</p>
-
-                        <h3>My Contributions</h3>
-                        <ul>
-                            <li>Designed and implemented the SwiftUI frontend and app navigation</li>
-                            <li>Developed the Python backend API with FastAPI and Pydantic models</li>
-                            <li>Integrated real-time data from NDBC and NWS sources</li>
-                            <li>Built async data fetching and robust error handling</li>
-                            <li>Tested and validated API endpoints using Thunder Client for rapid iteration and debugging</li>
-                            <li>Created case study documentation and portfolio presentation</li>
-                        </ul>
-
-                        <h3>Constraints</h3>
-                        <p>Deliver a robust, real-time app with a modern UI and reliable backend, while ensuring accessibility and mobile-first design. Overcome challenges of integrating multiple data sources and maintaining performance for live updates.</p>
-
-                        <h3>Key Decisions</h3>
-                        <ul>
-                            <li>Chose SwiftUI for rapid, modern iOS development and FastAPI for scalable backend</li>
-                            <li>Used async/await for smooth data fetching and UI updates</li>
-                            <li>Integrated NDBC and NWS for comprehensive environmental data</li>
-                            <li>Designed modular code for easy maintenance and future expansion</li>
-                        </ul>
-
-                        <h3>Accessibility Decisions</h3>
-                        <ul>
-                            <li>Implemented dark mode and high-contrast UI support in SwiftUI</li>
-                            <li>Ensured large tap targets and readable fonts for mobile users</li>
-                            <li>Provided clear error messages and robust fallback states</li>
-                        </ul>
-
-                        <h3>Key Screens</h3>
-                        <div style="display: flex; gap: 2em; justify-content: center; align-items: flex-start; margin-bottom: 1em;">
-                            <div class="media-grid-item">
-                                <div class="image iphone-bezel">
-                                    <img loading="lazy" src="assets/images/MichiganWaterAPIScreenshot.png" alt="CoastCast iPhone Screenshot" />
-                                </div>
-                                <div class="media-caption">App screen showing available beaches for selection. Users tap a beach to view real-time details powered by the API.</div>
-                            </div>
-                            <div class="media-grid-item">
-                                <div class="image iphone-bezel">
-                                    <img loading="lazy" src="assets/images/MiApiBeachScreenShot.webp" alt="CoastCast Beach View Screenshot" />
-                                </div>
-                                <div class="media-caption">App screen showing beach details. Real-time data (temperature, wind, water conditions) is provided by the custom API.</div>
-                            </div>
+                        <div class="stat-block">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">Great Lakes Covered</span>
+                        </div>
+                        <div class="stat-block">
+                            <span class="stat-number">40yr</span>
+                            <span class="stat-label">ML Training Data</span>
+                        </div>
+                        <div class="stat-block">
+                            <span class="stat-number">6+</span>
+                            <span class="stat-label">Data Sources</span>
+                        </div>
+                        <div class="stat-block">
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">Person Team</span>
                         </div>
                     </div>
-                </header>
-                <section>
-                    <ul class="actions">
-
-                    </ul>
-                    <div class="outcome-snapshot">
-                        <span class="snap-stat"><strong>2-person team</strong></span>
-                        <span class="snap-divider">·</span>
-                        <span class="snap-stat">March 2026</span>
-                        <span class="snap-divider">·</span>
-                        <span class="snap-stat">SwiftUI · Python · iOS</span>
-                        <span class="snap-divider">·</span>
-                        <span class="snap-live">Live on TestFlight</span>
-                    </div>
-
-                        <div style="display: flex; gap: 2em; justify-content: center; align-items: flex-start; margin-bottom: 1em;">
-                            <div class="media-grid-item">
-                                <div class="image iphone-bezel">
-                                    <img loading="lazy" src="assets/images/MichiganWaterAPIScreenshot.png" alt="CoastCast iPhone Screenshot" />
-                                </div>
-                                    <div class="media-caption">App screen showing available beaches for selection. Users tap a beach to view real-time details powered by the API.</div>
-                            </div>
-                            <div class="media-grid-item">
-                                <div class="image iphone-bezel">
-                                    <img loading="lazy" src="assets/images/MiApiBeachScreenShot.webp" alt="CoastCast Beach View Screenshot" />
-                                </div>
-                                    <div class="media-caption">App screen showing beach details. Real-time data (temperature, wind, water conditions) is provided by the custom API.</div>
-                            </div>
+ 
+                    <!-- Demo Video -->
+                    <h3>Demo Video</h3>
+                    <div class="media-grid-item">
+                        <div class="image iphone-bezel">
+                            <video src="assets/images/CoastCasterScreenRecording.mp4" controls style="width:100%; aspect-ratio:9/19.5; object-fit:cover; border-radius:30px;"></video>
                         </div>
-                    <h3>Project Overview</h3>
-                    <p>CoastCast is an iOS app built with SwiftUI that connects to a custom Python backend API. The app provides real-time water and weather data for Michigan lakes, leveraging both NDBC and NWS services. The SwiftUI frontend offers a clean, accessible interface for users to view forecasts, lake conditions, and historical data. The Python backend handles API calls, data aggregation, and serves results to the app via REST endpoints.</p>
-                    <h3>Key Features</h3>
-                    <ul>
-                        <li>Live weather and water data for Michigan lakes</li>
-                        <li>SwiftUI interface with accessibility and dark mode support</li>
-                        <li>Python backend API for data aggregation and processing</li>
-                        <li>Integration with NDBC and NWS services</li>
-                        <li>Historical data and forecast views</li>
-                        <li>Mobile-first design for iPhone and iPad</li>
+                        <div class="media-caption">App flow: selecting a beach and viewing real-time conditions including crowd prediction, weather, buoy data, and alerts.</div>
+                    </div>
+ 
+                    <!-- Problem -->
+                    <h3>Problem</h3>
+                    <p>Michigan has 54 significant public beaches across five Great Lakes — and no single tool to answer the question every Michigan resident asks before heading out: <em>Is it worth going to the beach today?</em> Existing weather apps don't show water temperature, wave height, or crowd density. Beach-specific sites are outdated and fragmented. CoastCast was built to solve this with a single, intelligent platform.</p>
+ 
+                    <!-- Challenge-Based Learning -->
+                    <h3>Challenge-Based Learning</h3>
+                    <p><strong>Challenge:</strong> Build a full-platform beach intelligence app that aggregates data from multiple live sources, predicts crowd conditions using machine learning, and surfaces information across the entire iOS ecosystem — in the app, on the home screen, in the Dynamic Island, and through Siri.</p>
+                    <p><strong>Approach:</strong> Designed a Python FastAPI backend to aggregate six data sources, trained a CoreML classifier on 40 years of historical data, and built native integrations for WidgetKit, Live Activities, App Intents, and background refresh.</p>
+                    <p><strong>Outcome:</strong> A production-ready iOS platform that tells users in seconds whether their favorite Michigan beach is worth visiting — from anywhere on their phone.</p>
+ 
+                    <!-- Project Snapshot -->
+                    <h3>Project Snapshot</h3>
+                    <ul class="alt">
+                        <li><strong>Platform:</strong> iOS 17+ (SwiftUI) with Python FastAPI backend deployed on Render</li>
+                        <li><strong>Scope:</strong> 54 Michigan beaches across Lakes Michigan, Huron, Superior, Erie, and Ontario</li>
+                        <li><strong>Type:</strong> Real-time beach conditions platform with ML, widgets, Siri, and Live Activities</li>
+                        <li><strong>Team:</strong> 2 developers (George Clinkscales + Jaiden Henley)</li>
+                        <li><strong>My Role:</strong> SwiftUI lead — map, scoring algorithm, App Intents, WidgetKit, notifications, Live Activities</li>
+                        <li><strong>Timeline:</strong> March – April 2026</li>
                     </ul>
-                    <h3>Technical Highlights</h3>
-                    <ul>
-                        <li>SwiftUI frontend communicates with Python backend via REST API calls</li>
-                    <!-- Frontend SwiftUI Case Study -->
-                    <section class="case-study-section">
-                        <h3>Frontend: SwiftUI App Architecture</h3>
-                        <p>
-                            The CoastCast frontend is built with SwiftUI, leveraging modern iOS design patterns and async API calls. The app features a clean interface, real-time data updates, and robust error handling. Below is a key snippet from the BeachViewModel, which powers the main beach detail screens:
-                        </p>
-                        <div class="code-snippet">
-                            <span class="code-snippet-label" style="font-weight:700;">SWIFTUI VIEWMODEL LOGIC</span>
-                            <span class="code-snippet-desc" style="margin-left:0.7em;color:#60443f;">Async data fetch, conversion, and UI binding.</span>
-                            <pre><code class="language-swift">@MainActor
-class BeachViewModel: ObservableObject {
-    @Published var beachName: String = ""
-    @Published var condition: String = ""
-    private let service = MichiganWaterAPIService()
-    func loadBeach(id: Int) async {
-        do {
-            let response = try await service.fetchBeachDetails(beachID: id)
-            beachName = response.beach
-            condition = response.weather.features.first?.properties.textDescription ?? "--"
-        } catch {
-            condition = "Couldn't load beach data"
-        }
+ 
+                    <div style="display:flex;gap:1em;flex-wrap:wrap;margin:1em 0 1.5em 0;">
+                        <a href="https://testflight.apple.com/join/bHcPj25S" class="button" target="_blank" rel="noopener noreferrer">View on TestFlight <i class='fa fa-plane' style='margin-left:4px;'></i></a>
+                        <a href="https://github.com/jaidenhenley/Swift-MichiganAPIWeather" class="button" target="_blank" rel="noopener noreferrer">View on GitHub <i class='fab fa-github' style='margin-left:4px;'></i></a>
+                    </div>
+                </div>
+            </header>
+ 
+            <section>
+                <!-- My Contributions -->
+                <h3>My Contributions</h3>
+                <ul class="contribution-list">
+                    <li><span class="contrib-icon">1</span><span><strong>Map screen with hand-built clustering algorithm.</strong> Implemented a grid-based spatial bucketing system that groups beaches at zoom-out and switches to individual pins when zoomed in. Grid size scales dynamically with zoom level. Written entirely from scratch without a third-party library.</span></li>
+                    <li><span class="contrib-icon">2</span><span><strong>Beach scoring engine.</strong> Designed a weighted scoring algorithm that evaluates temperature, wind speed, precipitation chance, UV index, proximity to user location, crowd tolerance, and favorites status to rank beach suggestions for today and the upcoming weekend.</span></li>
+                    <li><span class="contrib-icon">3</span><span><strong>CoreML crowd prediction integration.</strong> Worked with my partner to train an XGBoost classifier on 40 years of state and national park beach attendance data, then converted it to CoreML and built the Swift-side feature engineering pipeline including cyclical month encoding, fallback water temperature lookup, and derived features. Runs fully on-device with zero network overhead.</span></li>
+                    <li><span class="contrib-icon">4</span><span><strong>App Intents and Siri Shortcuts.</strong> Built two custom App Intents — one that navigates directly to a beach in the app, and one that fetches live conditions and speaks them back through Siri without opening the app. Exposed the Beach type as an AppEntity with name-based search.</span></li>
+                    <li><span class="contrib-icon">5</span><span><strong>WidgetKit home screen widget.</strong> Implemented small and medium widget sizes using AppIntentTimelineProvider so users can configure which beach to track. The widget fetches live buoy water temperature from the backend and refreshes every 30 minutes.</span></li>
+                    <li><span class="contrib-icon">6</span><span><strong>Live Activities and Dynamic Island.</strong> Built a beach tracker using ActivityKit that shows crowd level, water temp, and UV index in the Dynamic Island compact and expanded states as well as the Lock Screen.</span></li>
+                    <li><span class="contrib-icon">7</span><span><strong>Three-tier notification system.</strong> Designed and implemented daily best beach alerts (scored at delivery time), score threshold alerts (fires when a favorite exceeds a score of 70), and severe weather alerts for NWS Severe and Extreme events. All three refresh hourly via BGTaskScheduler.</span></li>
+                    <li><span class="contrib-icon">8</span><span><strong>BeachViewModel parallel data fetching.</strong> Used async let to fire the FastAPI backend call and WeatherKit simultaneously, cutting load time roughly in half compared to sequential fetching.</span></li>
+                </ul>
+ 
+                <!-- Tech Stack -->
+                <h3>Tech Stack</h3>
+                <div class="tech-stack-row">
+                    <span class="tech-tag">SwiftUI</span>
+                    <span class="tech-tag">CoreML</span>
+                    <span class="tech-tag">WeatherKit</span>
+                    <span class="tech-tag">MapKit</span>
+                    <span class="tech-tag">WidgetKit</span>
+                    <span class="tech-tag">ActivityKit</span>
+                    <span class="tech-tag">AppIntents</span>
+                    <span class="tech-tag">UserNotifications</span>
+                    <span class="tech-tag">BackgroundTasks</span>
+                    <span class="tech-tag">SwiftData</span>
+                    <span class="tech-tag">CoreLocation</span>
+                    <span class="tech-tag">Python FastAPI</span>
+                    <span class="tech-tag">XGBoost</span>
+                    <span class="tech-tag">async/await</span>
+                    <span class="tech-tag">URLCache</span>
+                </div>
+ 
+                <!-- Architecture -->
+                <h3>System Architecture</h3>
+                <table class="architecture-table">
+                    <thead>
+                        <tr>
+                            <th>Layer</th>
+                            <th>Technology</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Weather</td><td>WeatherKit</td><td>Current conditions, 10-day forecast, hourly forecast</td></tr>
+                        <tr><td>Buoy Data</td><td>NOAA NDBC via FastAPI</td><td>Water temperature, wave height, wave period</td></tr>
+                        <tr><td>Water Quality</td><td>Beach monitoring API via FastAPI</td><td>E. coli levels and swim safety status</td></tr>
+                        <tr><td>Weather Alerts</td><td>NWS via FastAPI</td><td>Active alerts with severity, urgency, and expiry</td></tr>
+                        <tr><td>Traffic</td><td>TomTom via FastAPI</td><td>Road speed and closure data near each beach</td></tr>
+                        <tr><td>Holiday Detection</td><td>Holiday API via FastAPI</td><td>Used as a crowd prediction feature</td></tr>
+                        <tr><td>Crowd Prediction</td><td>CoreML (XGBoost)</td><td>On-device classification — low, moderate, busy</td></tr>
+                        <tr><td>Persistence</td><td>SwiftData</td><td>Favorites and user preferences</td></tr>
+                        <tr><td>Home Screen</td><td>WidgetKit</td><td>Small and medium widgets, 30-min refresh</td></tr>
+                        <tr><td>Dynamic Island</td><td>ActivityKit</td><td>Live beach conditions while traveling</td></tr>
+                        <tr><td>Siri</td><td>App Intents</td><td>Open beach or speak conditions hands-free</td></tr>
+                        <tr><td>Background</td><td>BGTaskScheduler</td><td>Hourly notification refresh</td></tr>
+                    </tbody>
+                </table>
+ 
+                <!-- Key Features -->
+                <h3>Key Features</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>On-Device ML</h4>
+                        <p>Crowd prediction model trained on 40 years of state park data. Runs with zero latency and no internet required. Features include cyclical month encoding, holiday detection, and water temperature.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Smart Map</h4>
+                        <p>Custom grid-based clustering algorithm shows beach counts when zoomed out and individual pins when zoomed in. Scrollable card strip updates in real time as the user pans across Michigan.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Siri Integration</h4>
+                        <p>Two App Intents — one opens a beach in the app, one fetches live conditions and speaks them back through Siri without opening the app at all.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Home Screen Widget</h4>
+                        <p>Configurable WidgetKit widget in small and medium sizes. Users pin their favorite beach and see water temp, crowd level, and UV index without unlocking their phone.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Live Activities</h4>
+                        <p>Dynamic Island and Lock Screen tracker that shows real-time beach conditions while the user is driving. Compact, expanded, and minimal Dynamic Island regions all supported.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Smart Notifications</h4>
+                        <p>Three notification types: daily best beach (scored at delivery time), score threshold alerts, and severe NWS weather alerts. All refresh hourly in the background.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Beach Scoring Engine</h4>
+                        <p>Weighted algorithm scores beaches by temperature, wind, precipitation, UV, proximity, crowd tolerance, and favorites status. Produces today and weekend recommendations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Water Quality Alerts</h4>
+                        <p>Real-time E. coli monitoring data displayed as swim safety warnings directly on the beach detail screen. NWS severe weather alerts shown with severity and expiry.</p>
+                    </div>
+                </div>
+ 
+                <!-- Key Screens -->
+                <h3>Key Screens</h3>
+                <div style="display: flex; gap: 2em; justify-content: center; align-items: flex-start; margin-bottom: 1em; flex-wrap: nowrap; overflow-x: auto;">
+                    <div class="media-grid-item">
+                        <div class="image iphone-bezel">
+                            <img loading="lazy" src="assets/images/MichiganWaterAPIScreenshot.png" alt="CoastCast beach list view" />
+                        </div>
+                        <div class="media-caption">Dashboard showing beach suggestions scored by the algorithm — today's pick, weekend pick, and top pick based on user location and preferences.</div>
+                    </div>
+                    <div class="media-grid-item">
+                        <div class="image iphone-bezel">
+                            <img loading="lazy" src="assets/images/MiApiBeachScreenShot.webp" alt="CoastCast beach detail view" />
+                        </div>
+                        <div class="media-caption">Beach detail screen showing live buoy data, WeatherKit conditions, crowd meter powered by the on-device CoreML model, and NWS alerts.</div>
+                    </div>
+                </div>
+ 
+                <!-- Code Highlights -->
+                <h3>Code Highlights</h3>
+ 
+                <section class="case-study-section">
+                    <h4>Parallel Data Fetching — BeachViewModel</h4>
+                    <p>The beach detail screen fires both the FastAPI backend and WeatherKit simultaneously using <code>async let</code>, cutting load time roughly in half.</p>
+                    <div class="code-snippet">
+                        <span class="code-snippet-label" style="font-weight:700;">ASYNC LET PARALLEL FETCH</span>
+                        <pre><code class="language-swift">func loadBeach(id: Int) async {
+    // Fire both requests simultaneously
+    async let backendResult: BeachDetailResponse? = {
+        try? await apiService.fetchBeachDetails(beachID: id)
+    }()
+    async let weatherDone: Void = weatherKitService.fetchWeather(
+        latitude: coords.latitude,
+        longitude: coords.longitude
+    )
+ 
+    // Await both — neither blocks the other
+    let response = await backendResult
+    await weatherDone
+ 
+    if let response { loadCrowdPredictions(response: response) }
+}</code></pre>
+                    </div>
+                </section>
+ 
+                <section class="case-study-section">
+                    <h4>CoreML Feature Engineering — CrowdPredictor</h4>
+                    <p>The crowd prediction pipeline engineers 12 features from raw inputs before running inference. Month is encoded cyclically so the model understands that December and January are seasonally close.</p>
+                    <div class="code-snippet">
+                        <span class="code-snippet-label" style="font-weight:700;">COREML FEATURE ENGINEERING</span>
+                        <pre><code class="language-swift">func predict(for date: Date, tempMax: Double, tempMin: Double,
+             precipitation: Double, windMax: Double,
+             waterTemp: Double?, isHoliday: Bool) -> CrowdLevel {
+ 
+    let month = Calendar.current.component(.month, from: date)
+ 
+    // Cyclical encoding so model understands seasonal proximity
+    let monthSin = sin(2 * .pi * Double(month) / 12.0)
+    let monthCos = cos(2 * .pi * Double(month) / 12.0)
+ 
+    // Fallback water temp from historical Lake Michigan averages
+    let monthlyWaterTemp: [Int: Double] = [4:41,5:48,6:57,7:67,8:70,9:62,10:52,11:43]
+    let resolvedWaterTemp = waterTemp ?? monthlyWaterTemp[month] ?? 55.0
+ 
+    let featureDict: [String: Any] = [
+        "month_sin": monthSin, "month_cos": monthCos,
+        "temp_max": tempMax, "temp_range": tempMax - tempMin,
+        "precipitation": precipitation, "wind_max": windMax,
+        "water_temp_f": resolvedWaterTemp,
+        "is_peak_summer": (month == 7 || month == 8) ? 1.0 : 0.0,
+        "is_holiday": isHoliday ? 1.0 : 0.0
+    ]
+    // ... run inference
+}</code></pre>
+                    </div>
+                </section>
+ 
+                <section class="case-study-section">
+                    <h4>Map Clustering Algorithm — MapViewModel</h4>
+                    <p>A grid-based bucketing system groups beaches into clusters when zoomed out. Grid size scales with zoom level so clusters remain appropriately sized at any altitude.</p>
+                    <div class="code-snippet">
+                        <span class="code-snippet-label" style="font-weight:700;">HAND-BUILT MAP CLUSTERING</span>
+                        <pre><code class="language-swift">func makeClusters() -> [BeachCluster] {
+    guard let region = lastRegion else { return [] }
+    var buckets: [String: [Beach]] = [:]
+ 
+    // Grid size scales with zoom — tighter grid when more zoomed in
+    let gridSize = max(region.span.latitudeDelta / 6.0, 0.2)
+ 
+    for beach in filteredBeaches {
+        let latKey = Int(beach.coordinates.latitude / gridSize)
+        let lonKey = Int(beach.coordinates.longitude / gridSize)
+        buckets["\(latKey)-\(lonKey)", default: []].append(beach)
     }
-}
-</code></pre>
-                        </div>
-                        <p>
-                            This ViewModel demonstrates async API integration, data conversion, and live UI updates. The app architecture ensures smooth user experience, accurate data display, and responsive error handling.
-                        </p>
-                    </section>
-                                            <!-- Integration: Frontend & Backend Collaboration -->
-                                            <section class="case-study-section">
-                                                <h3>Frontend & Backend Integration</h3>
-                                                <p>
-                                                    CoastCast achieves seamless integration between its SwiftUI frontend and Python backend. The app uses async API calls to fetch real-time water and weather data from the MichiganWaterAPI, which aggregates information from NDBC and NWS sources. When a user selects a beach, the frontend triggers an async request to the backend, which responds with structured JSON containing weather, buoy, and alert details. The BeachViewModel parses this data, converts units, and updates the UI instantly.
-                                                </p>
-                                                <ul>
-                                                    <li><strong>Data Flow:</strong> User action in SwiftUI → async API call → Python backend processes and returns JSON → SwiftUI ViewModel updates UI.</li>
-                                                    <li><strong>Resilience:</strong> Robust error handling ensures users see clear messages if data is unavailable or network issues occur.</li>
-                                                    <li><strong>Performance:</strong> Async design on both ends enables fast, responsive updates without blocking the UI.</li>
-                                                </ul>
-                                                <p>
-                                                    This architecture allows CoastCast to deliver accurate, up-to-date information to users, combining the strengths of modern iOS development and scalable Python APIs.
-                                                </p>
-                                            </section>
-                        <li>Python backend uses FastAPI, with services for NDBC and NWS data</li>
-                        <li>Modular code structure for easy maintenance and expansion</li>
-                        <li>Secure API endpoints and error handling</li>
-                    </ul>
-                    <div id="outcome-next-bottom"></div>
-    async def get_ndbc_conditions(beach_id: int):
-        return await fetch_ndbc_conditions(beach_id)
-    </code></pre>
-        beach_id: int
-        temperature: float
-        wave_height: float
-        wind_speed: float
-    </code></pre>
-        url = f"https://www.ndbc.noaa.gov/data/{beach_id}.json"
-        async with httpx.AsyncClient() as client:
-            resp = await client.get(url)
-            data = resp.json()
-        return WaterConditions(
-            beach_id=beach_id,
-            temperature=data["temp"],
-            wave_height=data["wave_height"],
-            wind_speed=data["wind_speed"]
+ 
+    return buckets.values.map { beaches in
+        let avgLat = beaches.map { $0.coordinates.latitude }.reduce(0, +) / Double(beaches.count)
+        let avgLon = beaches.map { $0.coordinates.longitude }.reduce(0, +) / Double(beaches.count)
+        return BeachCluster(
+            coordinate: CLLocationCoordinate2D(latitude: avgLat, longitude: avgLon),
+            beaches: beaches
         )
-    </code></pre>
-    async def get_alerts():
-        return await fetch_nws_alerts()
-    </code></pre>
-                        <section class="case-study-section">
-                            <h3>Code Highlights</h3>
-                            <div class="code-snippet">
-                                <span class="code-snippet-label" style="font-weight:700;">FASTAPI ENDPOINT</span>
-                                <span class="code-snippet-desc" style="margin-left:0.7em;color:#60443f;">Example FastAPI endpoint for NDBC conditions.</span>
-                                <pre><code class="language-python">@app.get("/beaches/{beach_id}/ndbc", response_model=WaterConditions)
-    async def get_ndbc_conditions(beach_id: int):
-        return await fetch_ndbc_conditions(beach_id)
-    </code></pre>
-                            </div>
-                            <div class="code-snippet">
-                                <span class="code-snippet-label" style="font-weight:700;">PYDANTIC MODEL</span>
-                                <span class="code-snippet-desc" style="margin-left:0.7em;color:#60443f;">Data model for water conditions.</span>
-                                <pre><code class="language-python">class WaterConditions(BaseModel):
-        beach_id: int
-        temperature: float
-        wave_height: float
-        wind_speed: float
-    </code></pre>
-                            </div>
-                            <div class="code-snippet">
-                                <span class="code-snippet-label" style="font-weight:700;">ASYNC DATA FETCH (NDBC)</span>
-                                <span class="code-snippet-desc" style="margin-left:0.7em;color:#60443f;">Async function to fetch NDBC data.</span>
-                                <pre><code class="language-python">async def fetch_ndbc_conditions(beach_id: int) -> WaterConditions:
-        url = f"https://www.ndbc.noaa.gov/data/{beach_id}.json"
-        async with httpx.AsyncClient() as client:
-            resp = await client.get(url)
-            data = resp.json()
-        return WaterConditions(
-            beach_id=beach_id,
-            temperature=data["temp"],
-            wave_height=data["wave_height"],
-            wind_speed=data["wind_speed"]
-        )
-    </code></pre>
-                            </div>
-                            <div class="code-snippet">
-                                <span class="code-snippet-label" style="font-weight:700;">WEATHER ALERTS ENDPOINT</span>
-                                <span class="code-snippet-desc" style="margin-left:0.7em;color:#60443f;">Example endpoint for weather alerts.</span>
-                                <pre><code class="language-python">@app.get("/alerts", response_model=List[WeatherAlert])
-    async def get_alerts():
-        return await fetch_nws_alerts()
-    </code></pre>
-                            </div>
-                            <p>
-                                This backend enables seamless integration of real-time environmental data, supporting both mobile and web clients. The modular structure and async design ensure performance and reliability.
-                            </p>
-                        </section>
+    }
+}</code></pre>
+                    </div>
                 </section>
-                <section class="case-study-section" style="margin-top:2em;">
-                    <h3>Outcome</h3>
-                    <p>CoastCasr demonstrates a full-stack approach to mobile app development, combining a modern SwiftUI frontend with a robust Python backend. The project is designed for real-world utility, providing Michigan residents and visitors with reliable water and weather information. Future iterations will expand data sources, add push notifications, and improve accessibility features.</p>
-                    <h3>Next Iteration</h3>
-                    <ul>
-                        <li>Add push notifications for weather and water alerts</li>
-                        <li>Expand data sources to include more lakes and beaches</li>
-                        <li>Enhance accessibility features and UI customization</li>
-                        <li>Improve offline support and caching</li>
-                        <li>Release Android version and web dashboard</li>
-                    </ul>
-                </section>
-            </article>
-        </div>
-    </div>
-
-		<!-- Footer -->
-		<style>
-		#footer {
-			background: #f9f9f9;
-			border-top: 1px solid #e5e5e5;
-			margin-top: 4em;
-			padding: 0;
-		}
-		.footer-inner {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			flex-wrap: wrap;
-			gap: 1.5em;
-			padding: 2em 2.5em;
-			max-width: 1100px;
-			margin: 0 auto;
-		}
-		.footer-brand {
-			display: flex;
-			flex-direction: column;
-			gap: 0.25em;
-		}
-		.footer-brand strong {
-			font-size: 1em;
-			color: #222;
-		}
-		.footer-brand span {
-			font-size: 0.82em;
-			color: #888;
-		}
-		.footer-nav {
-			display: flex;
-			gap: 1.5em;
-			flex-wrap: wrap;
-		}
-		.footer-nav a {
-			font-size: 0.88em;
-			color: #555;
-			text-decoration: none;
-			border-bottom: none;
-		}
-		.footer-nav a:hover {
-			color: #60443f;
-		}
-		.footer-social {
-			display: flex;
-			gap: 1em;
-			list-style: none;
-			margin: 0;
-			padding: 0;
-		}
-		.footer-social li a {
-			font-size: 1.3em;
-			color: #888;
-		}
-		.footer-social li a:hover {
-			color: #60443f;
-		}
-		.footer-bottom {
-			border-top: 1px solid #e5e5e5;
-			text-align: center;
-			padding: 0.9em 2em;
-		}
-		.footer-bottom p {
-			margin: 0;
-			font-size: 0.82em;
-			color: #aaa;
-		}
-		.footer-bottom a {
-			color: #aaa;
-			text-decoration: underline;
-		}
-		@media (max-width: 700px) {
-			.footer-inner {
-				flex-direction: column;
-				align-items: flex-start;
-				padding: 1.5em;
-			}
-			.footer-nav {
-				gap: 1em;
-			}
-		}
-		</style>
-		<section id="footer">
-			<div class="footer-inner">
-				<div class="footer-brand">
-					<strong>George Clinkscales Jr.</strong>
-					<span>iOS Developer &middot; Apple Developer Academy &middot; Detroit, MI</span>
-				</div>
-				<nav class="footer-nav">
-					<a href="index.html">Home</a>
-					<a href="about.html">About</a>
-					<a href="case-studies.html">Case Studies</a>
-					<a href="contributions.html">Open Source</a>
-					<a href="resume.html">Resume</a>
-					<a href="contact.html">Contact</a>
-					<a href="blog.html">Blog</a>
-				</nav>
-				<ul class="footer-social icons">
-					<li><a href="https://github.com/geoClink" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span class="label">GitHub</span></a></li>
-					<li><a href="https://www.linkedin.com/in/george-clinkscales/" class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
-				</ul>
-			</div>
-			<div class="footer-bottom">
-				<p>&copy; George Clinkscales Jr. &middot; <a href="privacy.html">Privacy Policy</a></p>
-			</div>
-		</section>
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/main.js"></script>
-        <script>
-        function updateLocalTime() {
-            const now = new Date();
-            let offset = -5;
-            const jan = new Date(now.getFullYear(), 0, 1);
-            const jul = new Date(now.getFullYear(), 6, 1);
-            const stdTimezoneOffset = Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
-            if (now.getTimezoneOffset() < stdTimezoneOffset) offset = -4;
-            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-            const est = new Date(utc + (3600000 * offset));
-            const timeString = est.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-            document.getElementById('local-time').textContent = timeString;
+ 
+                <section class="case-study-section">
+                    <h4>Siri Shortcut — GetBeachConditionsIntent</h4>
+                    <p>Users can ask Siri for beach conditions without opening the app. The intent fetches live WeatherKit data, runs the scoring algorithm, and returns a spoken response.</p>
+                    <div class="code-snippet">
+                        <span class="code-snippet-label" style="font-weight:700;">APP INTENT — SIRI CONDITIONS</span>
+                        <pre><code class="language-swift">struct GetBeachConditionsIntent: AppIntent {
+    static var title: LocalizedStringResource = "Get Beach Condition"
+    static var openAppWhenRun: Bool = false  // Never opens the app
+ 
+    @Parameter(title: "Beach") var beach: BeachEntity
+ 
+    func perform() async throws -> some IntentResult & ProvidesDialog {
+        guard let matchedBeach = Beach.allBeaches.first(where: { $0.id == beach.id }),
+              let conditions = await WeatherKitService().fetchConditions(
+                latitude: matchedBeach.coordinates.latitude,
+                longitude: matchedBeach.coordinates.longitude
+              ) else {
+            return .result(dialog: "Couldn't fetch conditions.")
         }
-        setInterval(updateLocalTime, 1000);
-        updateLocalTime();
-        </script>
+ 
+        let service = BeachScoringService(favoritesRepo: NoFavoritesRepository())
+        let result = service.score(matchedBeach, snapshot: conditions.current, type: .today, userLocation: nil)
+ 
+        return .result(dialog: "\(matchedBeach.beachName): \(result.reason). Temperature is \(conditions.current.tempF.rounded()).")
+    }
+}</code></pre>
+                    </div>
+                </section>
+ 
+                <section class="case-study-section">
+                    <h4>Python FastAPI Backend</h4>
+                    <p>The backend aggregates six data sources into a single endpoint response. Built with FastAPI and deployed on Render.</p>
+                    <div class="code-snippet">
+                        <span class="code-snippet-label" style="font-weight:700;">FASTAPI — BEACH DETAILS ENDPOINT</span>
+                        <pre><code class="language-python">@app.get("/beaches/{beach_id}/details")
+async def get_beach_details(beach_id: int):
+    # Fetch all sources concurrently
+    buoy, alerts, traffic, water_quality, holiday = await asyncio.gather(
+        fetch_ndbc_buoy(beach_id),
+        fetch_nws_alerts(beach_id),
+        fetch_tomtom_traffic(beach_id),
+        fetch_water_quality(beach_id),
+        check_holiday()
+    )
+    return {
+        "beach": BEACH_NAMES.get(beach_id),
+        "buoy_data": buoy,
+        "alerts": alerts,
+        "traffic": traffic,
+        "water_quality": water_quality,
+        "holiday": holiday
+    }</code></pre>
+                    </div>
+                </section>
+ 
+                <!-- Outcome -->
+                <div class="outcome-snapshot">
+                    <span class="snap-stat"><strong>2-person team</strong></span>
+                    <span class="snap-divider">·</span>
+                    <span class="snap-stat">March – April 2026</span>
+                    <span class="snap-divider">·</span>
+                    <span class="snap-stat">SwiftUI · CoreML · Python · iOS</span>
+                    <span class="snap-divider">·</span>
+                    <span class="snap-live">Live on TestFlight</span>
+                </div>
+ 
+                <h3>Outcome</h3>
+                <p>CoastCast evolved from a simple weather app into a full iOS platform. It surfaces beach intelligence across every surface of the iPhone — in the app, on the home screen, in the Dynamic Island, and through Siri — without requiring the user to open anything. The on-device CoreML model means crowd predictions work offline with zero latency. The notification system ensures users never miss a perfect beach day or a dangerous swim advisory.</p>
+ 
+                <h3>What I Learned</h3>
+                <ul>
+                    <li>How to train, convert, and integrate a machine learning model end-to-end from Python to Swift</li>
+                    <li>The App Intents framework and how to expose app functionality to Siri and Shortcuts</li>
+                    <li>WidgetKit timeline management and AppIntentTimelineProvider configuration</li>
+                    <li>Live Activities and Dynamic Island layout regions with ActivityKit</li>
+                    <li>BGTaskScheduler for background refresh and how to test it in development</li>
+                    <li>The importance of not hardcoding API keys in source files</li>
+                </ul>
+ 
+                <h3>Next Iteration</h3>
+                <ul>
+                    <li>Expand to App Store submission</li>
+                    <li>Add wave height and water clarity data to scoring algorithm</li>
+                    <li>Build watchOS complication for wrist-glance beach conditions</li>
+                    <li>Improve crowd model with real-time attendance data as it becomes available</li>
+                    <li>Add beach photo uploads so users can share current conditions</li>
+                </ul>
+            </section>
+        </article>
     </div>
+ 
+    <!-- Footer -->
+    <style>
+    #footer { background: #f9f9f9; border-top: 1px solid #e5e5e5; margin-top: 4em; padding: 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5em; padding: 2em 2.5em; max-width: 1100px; margin: 0 auto; }
+    .footer-brand { display: flex; flex-direction: column; gap: 0.25em; }
+    .footer-brand strong { font-size: 1em; color: #222; }
+    .footer-brand span { font-size: 0.82em; color: #888; }
+    .footer-nav { display: flex; gap: 1.5em; flex-wrap: wrap; }
+    .footer-nav a { font-size: 0.88em; color: #555; text-decoration: none; border-bottom: none; }
+    .footer-nav a:hover { color: #60443f; }
+    .footer-social { display: flex; gap: 1em; list-style: none; margin: 0; padding: 0; }
+    .footer-social li a { font-size: 1.3em; color: #888; }
+    .footer-social li a:hover { color: #60443f; }
+    .footer-bottom { border-top: 1px solid #e5e5e5; text-align: center; padding: 0.9em 2em; }
+    .footer-bottom p { margin: 0; font-size: 0.82em; color: #aaa; }
+    .footer-bottom a { color: #aaa; text-decoration: underline; }
+    @media (max-width: 700px) { .footer-inner { flex-direction: column; align-items: flex-start; padding: 1.5em; } .footer-nav { gap: 1em; } }
+    </style>
+    <section id="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <strong>George Clinkscales Jr.</strong>
+                <span>iOS Developer &middot; Apple Developer Academy &middot; Detroit, MI</span>
+            </div>
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="case-studies.html">Case Studies</a>
+                <a href="contributions.html">Open Source</a>
+                <a href="resume.html">Resume</a>
+                <a href="contact.html">Contact</a>
+                <a href="blog.html">Blog</a>
+            </nav>
+            <ul class="footer-social icons">
+                <li><a href="https://github.com/geoClink" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span class="label">GitHub</span></a></li>
+                <li><a href="https://www.linkedin.com/in/george-clinkscales/" class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; George Clinkscales Jr. &middot; <a href="privacy.html">Privacy Policy</a></p>
+        </div>
+    </section>
+ 
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
+ 
