@@ -1,20 +1,29 @@
 <!DOCTYPE HTML>
 <!-- CoastCast Project Case Study — Updated April 2026 -->
-<html>
+<html lang="en">
 <head>
     <title>CoastCast — Case Study | George Clinkscales Jr.</title>
     <meta charset="utf-8" />
     <link rel="canonical" href="https://geoclink.github.io/portfolio/michiganapiweather.html" />
+    <meta property="og:title" content="CoastCast — Case Study | George Clinkscales Jr." />
+    <meta property="og:description" content="Case study: CoastCast — A full-platform SwiftUI iOS app with CoreML crowd prediction, Siri Shortcuts, Live Activities, and a Python FastAPI backend delivering real-time beach conditions for 54 Michigan beaches." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://geoclink.github.io/portfolio/michiganapiweather.html" />
+    <meta property="og:image" content="https://geoclink.github.io/portfolio/assets/images/logo.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CoastCast — Case Study | George Clinkscales Jr." />
+    <meta name="twitter:description" content="Case study: CoastCast — A full-platform SwiftUI iOS app with CoreML crowd prediction, Siri Shortcuts, Live Activities, and a Python FastAPI backend delivering real-time beach conditions for 54 Michigan beaches." />
+    <meta name="twitter:image" content="https://geoclink.github.io/portfolio/assets/images/logo.jpg" />
     <meta name="description" content="Case study: CoastCast — A full-platform SwiftUI iOS app with CoreML crowd prediction, Siri Shortcuts, Live Activities, and a Python FastAPI backend delivering real-time beach conditions for 54 Michigan beaches." />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
     <link rel="stylesheet" href="assets/css/prism-xcode-stamped.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-swift.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-swift.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
     <style>
         #main { padding-top: 2.5em; }
  
@@ -177,6 +186,22 @@
             line-height: 1.6;
         }
     </style>
+    <script type="application/ld+json">
+    {
+       "@context": "https://schema.org",
+       "@type": "SoftwareApplication",
+       "name": "CoastCast",
+       "description": "A SwiftUI iOS app with CoreML crowd prediction, Siri Shortcuts, Live Activities, and a Python FastAPI backend for 54 Michigan beaches.",
+       "applicationCategory": "MobileApplication",
+       "operatingSystem": "iOS",
+       "url": "https://geoclink.github.io/portfolio/michiganapiweather.html",
+       "author": {
+          "@type": "Person",
+          "name": "George Clinkscales Jr.",
+          "url": "https://geoclink.github.io/portfolio/"
+       }
+    }
+    </script>
 </head>
 <body class="is-preload">
     <!-- Header -->
@@ -211,7 +236,7 @@
         </aside>
     </header>
  
-    <div id="main">
+    <div id="main" role="main">
         <article class="post">
             <header>
                 <div class="title">
@@ -395,13 +420,13 @@
                 <div style="display: flex; gap: 2em; justify-content: center; align-items: flex-start; margin-bottom: 1em; flex-wrap: nowrap; overflow-x: auto;">
                     <div class="media-grid-item">
                         <div class="image iphone-bezel">
-                            <img loading="lazy" src="assets/images/MichiganWaterAPIScreenshot.webp" alt="CoastCast beach list view" />
+                            <img loading="lazy" src="assets/images/MichiganWaterAPIScreenshot.webp" alt="CoastCast beach list view" width="1206" height="2622" />
                         </div>
                         <div class="media-caption">Dashboard showing beach suggestions scored by the algorithm — today's pick, weekend pick, and top pick based on user location and preferences.</div>
                     </div>
                     <div class="media-grid-item">
                         <div class="image iphone-bezel">
-                            <img loading="lazy" src="assets/images/MiApiBeachScreenShot.webp" alt="CoastCast beach detail view" />
+                            <img loading="lazy" src="assets/images/MiApiBeachScreenShot.webp" alt="CoastCast beach detail view" width="1200" height="2609" />
                         </div>
                         <div class="media-caption">Beach detail screen showing live buoy data, WeatherKit conditions, crowd meter powered by the on-device CoreML model, and NWS alerts.</div>
                     </div>
@@ -630,8 +655,8 @@ async def get_beach_details(beach_id: int):
         </div>
     </section>
  
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script defer src="assets/js/jquery.min.js"></script>
+    <script defer src="assets/js/main.js"></script>
 </body>
 </html>
  

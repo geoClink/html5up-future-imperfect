@@ -1,18 +1,27 @@
 <!DOCTYPE HTML>
 <!-- Detroit Sports Chatbot Case Study -->
-<html>
+<html lang="en">
 <head>
     <title>Detroit Sports Chatbot — Case Study | George Clinkscales Jr.</title>
     <meta charset="utf-8" />
     <link rel="canonical" href="https://geoclink.github.io/portfolio/detroitsportschatbot.html" />
+    <meta property="og:title" content="Detroit Sports Chatbot — Case Study | George Clinkscales Jr." />
+    <meta property="og:description" content="Case study: Detroit Sports Chatbot — A conversational AI chatbot built with Python and Streamlit that answers live questions about Detroit Lions, Tigers, Red Wings, and Pistons using ESPN data and Claude/Groq APIs." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://geoclink.github.io/portfolio/detroitsportschatbot.html" />
+    <meta property="og:image" content="https://geoclink.github.io/portfolio/assets/images/logo.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Detroit Sports Chatbot — Case Study | George Clinkscales Jr." />
+    <meta name="twitter:description" content="Case study: Detroit Sports Chatbot — A conversational AI chatbot built with Python and Streamlit that answers live questions about Detroit Lions, Tigers, Red Wings, and Pistons using ESPN data and Claude/Groq APIs." />
+    <meta name="twitter:image" content="https://geoclink.github.io/portfolio/assets/images/logo.jpg" />
     <meta name="description" content="Case study: Detroit Sports Chatbot — A conversational AI chatbot built with Python and Streamlit that answers live questions about Detroit Lions, Tigers, Red Wings, and Pistons using ESPN data and Claude/Groq APIs." />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
     <link rel="stylesheet" href="assets/css/prism-xcode-stamped.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
     <style>
         #main { padding-top: 2.5em; }
         .eval-bar-wrap { margin: 0.4em 0 1em; }
@@ -20,6 +29,22 @@
         .eval-bar-track { background: rgba(136,124,115,0.15); border-radius: 999px; height: 10px; width: 100%; max-width: 340px; }
         .eval-bar-fill { height: 10px; border-radius: 999px; background: linear-gradient(90deg, #60443f, #2ebaae); }
     </style>
+    <script type="application/ld+json">
+    {
+       "@context": "https://schema.org",
+       "@type": "SoftwareApplication",
+       "name": "Detroit Sports Chatbot",
+       "description": "A conversational AI chatbot built with Python and Streamlit that answers live questions about Detroit Lions, Tigers, Red Wings, and Pistons using ESPN data and Claude/Groq APIs.",
+       "applicationCategory": "WebApplication",
+       "operatingSystem": "Web",
+       "url": "https://geoclink.github.io/portfolio/detroitsportschatbot.html",
+       "author": {
+          "@type": "Person",
+          "name": "George Clinkscales Jr.",
+          "url": "https://geoclink.github.io/portfolio/"
+       }
+    }
+    </script>
 </head>
 <body class="is-preload">
     <!-- Header -->
@@ -56,7 +81,7 @@
         </aside>
     </header>
 
-    <div id="main">
+    <div id="main" role="main">
         <article class="post">
             <header>
                 <div class="title">
@@ -68,7 +93,7 @@
                     <h3>Demo</h3>
                     <div class="media-grid-item" style="max-width:520px;margin:0 auto 1.5em;">
                         <div class="image fit">
-                            <img loading="lazy" src="assets/images/detroitsportschatbot-screenshot.webp" alt="Detroit Sports Chatbot screenshot showing a conversation about the Detroit Tigers" style="border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,0.12);" />
+                            <img loading="lazy" src="assets/images/detroitsportschatbot-screenshot.webp" alt="Detroit Sports Chatbot screenshot showing a conversation about the Detroit Tigers" style="border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,0.12);" width="1200" height="1254" />
                         </div>
                         <div class="media-caption">Live conversation asking about the Detroit Tigers — the AI pulled real ESPN data and streamed the response word by word.</div>
                     </div>
@@ -395,8 +420,8 @@ print(f"Average score: {sum(scores) / len(scores):.1f} / 5")
 			</div>
 		</section>
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script defer src="assets/js/jquery.min.js"></script>
+    <script defer src="assets/js/main.js"></script>
     <script>
     function updateLocalTime() {
         const now = new Date();

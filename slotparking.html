@@ -1,18 +1,43 @@
 <!DOCTYPE HTML>
 <!-- SlotParking Case Study: Detailed breakdown of the SlotParking iOS project -->
-<html>
+<html lang="en">
 <head>
     <title>SlotParking | Case Study</title>
     <meta charset="utf-8" />
 		<link rel="canonical" href="https://geoclink.github.io/portfolio/slotparking.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta property="og:title" content="SlotParking — Case Study | George Clinkscales Jr." />
+    <meta property="og:description" content="Case study for SlotParking, a SwiftUI-based parking management app." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://geoclink.github.io/portfolio/slotparking.html" />
+    <meta property="og:image" content="https://geoclink.github.io/portfolio/assets/images/logo.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SlotParking — Case Study | George Clinkscales Jr." />
+    <meta name="twitter:description" content="Case study for SlotParking, a SwiftUI-based parking management app." />
+    <meta name="twitter:image" content="https://geoclink.github.io/portfolio/assets/images/logo.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Case study for SlotParking, a SwiftUI-based parking management app." />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
     <link rel="stylesheet" href="assets/css/prism-xcode-stamped.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-swift.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-swift.min.js"></script>
+    <script type="application/ld+json">
+    {
+       "@context": "https://schema.org",
+       "@type": "SoftwareApplication",
+       "name": "SlotParking",
+       "description": "A SwiftUI-based parking management app.",
+       "applicationCategory": "MobileApplication",
+       "operatingSystem": "iOS",
+       "url": "https://geoclink.github.io/portfolio/slotparking.html",
+       "author": {
+          "@type": "Person",
+          "name": "George Clinkscales Jr.",
+          "url": "https://geoclink.github.io/portfolio/"
+       }
+    }
+    </script>
 </head>
 <body class="is-preload">
     <div id="wrapper">
@@ -36,7 +61,7 @@
             </nav>
 
         </header>
-        <div id="main">
+        <div id="main" role="main">
             <article class="post">
                 <header>
                     <div class="title">
@@ -145,7 +170,7 @@
                         </div>
                         <div style="text-align:center;max-width:230px;">
                             <div class="image iphone-bezel" style="margin-bottom:0.7em;">
-                                <img loading="lazy" src="assets/images/SlotParkingMapView.webp" alt="SlotParking map view screen" style="width:100%;max-width:230px;aspect-ratio:9/19.5;object-fit:cover;border-radius:30px;" />
+                                <img loading="lazy" src="assets/images/SlotParkingMapView.webp" alt="SlotParking map view screen" style="width:100%;max-width:230px;aspect-ratio:9/19.5;object-fit:cover;border-radius:30px;" width="1200" height="2602" />
                             </div>
                             <div style="font-size:1em;color:#60443f;font-weight:500;margin-bottom:0.7em;">Map View Screen</div>
                             <div style="font-size:0.98em;color:#222;margin-top:0.4em;margin-bottom:1.5em;">Shows available parking slots and lets users reserve a spot.</div>
@@ -252,8 +277,8 @@
             </p>
     </section>
         <!-- Scripts for mobile menu functionality -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/main.js"></script>
+        <script defer src="assets/js/jquery.min.js"></script>
+        <script defer src="assets/js/main.js"></script>
         <script>
         function updateLocalTime() {
             const now = new Date();

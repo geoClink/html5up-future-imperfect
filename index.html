@@ -5,14 +5,14 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
     <!-- Template credits and license info. -->
-<html>
+<html lang="en">
 <!-- The <head> section contains metadata, SEO tags, and links to stylesheets. -->
 	<head>
 		<title>George Clinkscales Jr.| Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="google-site-verification" content="2R7lU3Iyq1WplGJyfkXv2hUaFV3066JKjViY0azU42c" />
 		<link rel="canonical" href="https://geoclink.github.io/portfolio/" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content="George Clinkscales Jr. — Software Engineer and co-founder of CH Studios LLC. Two apps on the App Store, open source contributor, and iOS/web engineer based in Detroit." />
 		<meta property="og:title" content="George Clinkscales Jr. | Portfolio" />
 		<meta property="og:description" content="Software Engineer and co-founder of CH Studios LLC. Two apps on the App Store, open source contributor, iOS &amp; web engineer based in Detroit." />
@@ -708,7 +708,7 @@
 					</section>
 
 				<!-- Main -->
-					<div id="main">
+					<div id="main" role="main">
 
 					<!-- Intro Section -->
 						<section class="intro-section">
@@ -750,7 +750,7 @@
 							<h2>Featured iOS/SwiftUI Case Studies</h2>
 							<div class="projects">
 								<article class="project main-project">
-									<a href="michiganapiweather.html" class="image"><img loading="lazy" src="assets/images/coastcastScreenshot.webp" alt="CoastCast app screenshot" style="object-position: center;" /></a>
+									<a href="michiganapiweather.html" class="image"><img loading="lazy" src="assets/images/coastcastScreenshot.webp" alt="CoastCast app screenshot" style="object-position: center;" width="1206" height="2622" /></a>
 									<h3>CoastCast</h3>
 									<p>iOS app with a Python FastAPI backend delivering real-time conditions for 54 Michigan beaches. Built with on-device CoreML/XGBoost crowd prediction, Dynamic Island Live Activities, Siri Shortcuts, WidgetKit, and a Swift Testing suite with 120+ parameterized test cases.</p>
 									<ul class="actions">
@@ -759,7 +759,7 @@
 									</ul>
 								</article>
 								<article class="project">
-									<a href="stamped.html" class="image"><img loading="lazy" src="assets/images/project1.webp" alt="Stamped! app project image" /></a>
+									<a href="stamped.html" class="image"><img loading="lazy" src="assets/images/project1.webp" alt="Stamped! app project image" width="1200" height="838" /></a>
 									<h3>Stamped! — A City Passport</h3>
 									<p>A SwiftUI travel discovery app delivered in a 14-week build cycle, turning Detroit architecture into a collectible city-passport experience with progress tracking and AI-assisted itinerary support.</p>
 									<ul class="actions">
@@ -768,7 +768,7 @@
 									</ul>
 								</article>
 								<article class="project">
-									<a href="takeflight.html" class="image"><img loading="lazy" src="assets/images/TakeFlightLeaveIslandMiniGame.webp" alt="TakeFlight app project image" /></a>
+									<a href="takeflight.html" class="image"><img loading="lazy" src="assets/images/TakeFlightLeaveIslandMiniGame.webp" alt="TakeFlight app project image" width="1200" height="838" /></a>
 									<h3>TakeFlight — Bird Raising Game</h3>
 									<p>An iOS game where players raise a bird through mini-games, built with SwiftUI and featuring Game Center leaderboards, custom animations, and shipped live on the App Store.</p>
 									<ul class="actions">
@@ -846,9 +846,9 @@
 								<button class="testimonial-nav next" onclick="moveClientQuote(1)" aria-label="Next quote">&#10095;</button>
 							</div>
 							<div class="testimonial-indicators">
-								<div class="indicator-dot active" onclick="goToClientQuote(0)" aria-label="Quote 1"></div>
-								<div class="indicator-dot" onclick="goToClientQuote(1)" aria-label="Quote 2"></div>
-								<div class="indicator-dot" onclick="goToClientQuote(2)" aria-label="Quote 3"></div>
+								<div class="indicator-dot active" role="button" tabindex="0" onclick="goToClientQuote(0)" aria-label="Quote 1"></div>
+								<div class="indicator-dot" role="button" tabindex="0" onclick="goToClientQuote(1)" aria-label="Quote 2"></div>
+								<div class="indicator-dot" role="button" tabindex="0" onclick="goToClientQuote(2)" aria-label="Quote 3"></div>
 							</div>
 
 							<h2 style="margin-top:2em;">What I Offer Teams</h2>
@@ -1025,11 +1025,11 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script defer src="assets/js/jquery.min.js"></script>
+			<script defer src="assets/js/browser.min.js"></script>
+			<script defer src="assets/js/breakpoints.min.js"></script>
+			<script defer src="assets/js/util.js"></script>
+			<script defer src="assets/js/main.js"></script>
 
 			<script>
 			// Show subscription modal after 5 seconds
