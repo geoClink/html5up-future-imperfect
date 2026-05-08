@@ -185,6 +185,36 @@
             font-size: 0.95em;
             line-height: 1.6;
         }
+
+        .screenshot-scroll-track {
+            display: flex;
+            gap: 1.8em;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding: 1em 0.5em 1.5em;
+            margin: 0 -0.5em 1.5em;
+            scrollbar-width: thin;
+            scrollbar-color: #ccc transparent;
+        }
+        .screenshot-scroll-track::-webkit-scrollbar {
+            height: 6px;
+        }
+        .screenshot-scroll-track::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .screenshot-scroll-track::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 3px;
+        }
+        .screenshot-scroll-item {
+            flex: 0 0 auto;
+            width: 320px;
+            scroll-snap-align: start;
+        }
+        .screenshot-bezel {
+            max-width: 100% !important;
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -279,15 +309,6 @@
                             <span class="stat-number">2</span>
                             <span class="stat-label">Person Team</span>
                         </div>
-                    </div>
- 
-                    <!-- Demo Video -->
-                    <h3>Demo Video</h3>
-                    <div class="media-grid-item">
-                        <div class="image iphone-bezel">
-                            <video src="assets/images/CoastCasterScreenRecording.mp4" controls style="width:100%; aspect-ratio:9/19.5; object-fit:cover; border-radius:30px;"></video>
-                        </div>
-                        <div class="media-caption">App flow: selecting a beach and viewing real-time conditions including crowd prediction, weather, buoy data, and alerts.</div>
                     </div>
  
                     <!-- Problem -->
@@ -417,18 +438,54 @@
  
                 <!-- Key Screens -->
                 <h3>Key Screens</h3>
-                <div style="display: flex; gap: 2em; justify-content: center; align-items: flex-start; margin-bottom: 1em; flex-wrap: nowrap; overflow-x: auto;">
-                    <div class="media-grid-item">
-                        <div class="image iphone-bezel">
-                            <img loading="lazy" src="assets/images/MichiganWaterAPIScreenshot.webp" alt="CoastCast beach list view" width="1206" height="2622" />
+                <div class="screenshot-scroll-track">
+                    <div class="screenshot-scroll-item">
+                        <div class="image iphone-bezel screenshot-bezel">
+                            <img loading="lazy" src="assets/images/CoastcastScreenShots6.png" alt="CoastCast home screen" />
                         </div>
-                        <div class="media-caption">Dashboard showing beach suggestions scored by the algorithm — today's pick, weekend pick, and top pick based on user location and preferences.</div>
+                        <div class="media-caption">Home screen — discovery feed with activity filters, beaches near you, and personalized suggestions.</div>
                     </div>
-                    <div class="media-grid-item">
-                        <div class="image iphone-bezel">
-                            <img loading="lazy" src="assets/images/MiApiBeachScreenShot.webp" alt="CoastCast beach detail view" width="1200" height="2609" />
+                    <div class="screenshot-scroll-item">
+                        <div class="image iphone-bezel screenshot-bezel">
+                            <img loading="lazy" src="assets/images/CoastcastScreenShots1.png" alt="CoastCast map view" />
                         </div>
-                        <div class="media-caption">Beach detail screen showing live buoy data, WeatherKit conditions, crowd meter powered by the on-device CoreML model, and NWS alerts.</div>
+                        <div class="media-caption">Map view — interactive Michigan beach map with custom clustering algorithm and scrollable card strip.</div>
+                    </div>
+                    <div class="screenshot-scroll-item">
+                        <div class="image iphone-bezel screenshot-bezel">
+                            <img loading="lazy" src="assets/images/CoastcastScreenShots5.png" alt="CoastCast beach search and browse list" />
+                        </div>
+                        <div class="media-caption">Browse list — searchable beach directory with lake type, park type, and favorites.</div>
+                    </div>
+                    <div class="screenshot-scroll-item">
+                        <div class="image iphone-bezel screenshot-bezel">
+                            <img loading="lazy" src="assets/images/CoastcastScreenShots8.jpg" alt="CoastCast beach detail — Belle Isle Beach" />
+                        </div>
+                        <div class="media-caption">Beach detail — hero image, real-time E. coli safety alert, air and water temp, UV index, and hourly forecast.</div>
+                    </div>
+                    <div class="screenshot-scroll-item">
+                        <div class="image iphone-bezel screenshot-bezel">
+                            <img loading="lazy" src="assets/images/CoastcastScreenShots4.png" alt="CoastCast beach detail — McLain State Park" />
+                        </div>
+                        <div class="media-caption">Beach detail — air temp, water temp, UV index, and Crowd Meter powered by the on-device CoreML model.</div>
+                    </div>
+                    <div class="screenshot-scroll-item">
+                        <div class="image iphone-bezel screenshot-bezel">
+                            <img loading="lazy" src="assets/images/CoastcastScreenShots2.png" alt="CoastCast beach detail — Fort Wilkins crowd meter" />
+                        </div>
+                        <div class="media-caption">Crowd Meter — real-time crowd level with hourly bar chart, powered by XGBoost CoreML model trained on 40 years of data.</div>
+                    </div>
+                    <div class="screenshot-scroll-item">
+                        <div class="image iphone-bezel screenshot-bezel">
+                            <img loading="lazy" src="assets/images/CoastcastScreenShots3.png" alt="CoastCast 7-day weather forecast" />
+                        </div>
+                        <div class="media-caption">7-day forecast — full weekly outlook per beach with WeatherKit conditions and temperatures.</div>
+                    </div>
+                    <div class="screenshot-scroll-item">
+                        <div class="image iphone-bezel screenshot-bezel">
+                            <img loading="lazy" src="assets/images/CoastcastScreenShots7.png" alt="CoastCast favorites screen" />
+                        </div>
+                        <div class="media-caption">Favorites — saved beaches with descriptions and tags, backed by SwiftData persistence.</div>
                     </div>
                 </div>
  
