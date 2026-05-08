@@ -24,17 +24,38 @@
 		<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
 		<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-swift.min.js"></script>
 		<style>
-			.media-grid-item .image.fit img {
-				display: block;
-				width: 100%;
-				height: 240px;
-				object-fit: cover;
-			}
 			/* takeflight-specific: video fills bezel with cover crop */
 			.ipad-video-bezel video {
 				aspect-ratio: 4 / 3;
 				object-fit: cover;
 				background: #111;
+			}
+			.screenshot-scroll-track {
+				display: flex;
+				gap: 1.8em;
+				overflow-x: auto;
+				scroll-snap-type: x mandatory;
+				-webkit-overflow-scrolling: touch;
+				padding: 1em 0.5em 1.5em;
+				scrollbar-width: thin;
+			}
+			.screenshot-scroll-item {
+				flex: 0 0 auto;
+				width: 480px;
+				scroll-snap-align: start;
+			}
+			.screenshot-scroll-track .ipad-bezel {
+				max-width: 100%;
+			}
+			.screenshot-scroll-track .ipad-bezel img {
+				aspect-ratio: 4 / 3;
+				object-fit: cover;
+				height: auto;
+			}
+			.media-caption {
+				font-size: 0.85em;
+				color: #888;
+				margin-top: 0.5em;
 			}
 		</style>
 		<script type="application/ld+json">
@@ -276,12 +297,22 @@
 
 								<h3>Key Screens</h3>
 								<p><strong>Key screens:</strong> Nest-building, predator, feed, and island-escape mini-game moments from the shipped build.</p>
-								<div class="box alt">
-									<div class="row gtr-uniform">
-										<div class="col-6 media-grid-item"><span class="ipad-bezel"><img loading="lazy" src="assets/images/TakeFlightBuildNestMiniGame.jpeg" alt="TakeFlight build-nest mini-game screen" width="480" height="360" /></span><p class="media-caption">Build Nest mini-game where players assemble materials under pressure to unlock core progression.</p></div>
-										<div class="col-6 media-grid-item"><span class="ipad-bezel"><img loading="lazy" src="assets/images/TakeFlightPredatorMiniGame.jpeg" alt="TakeFlight predator mini-game screen" width="480" height="360" /></span><p class="media-caption">Predator mini-game where players react quickly to evade threats and preserve survival state.</p></div>
-										<div class="col-6 media-grid-item"><span class="ipad-bezel"><img loading="lazy" src="assets/images/TakeFlightFeedUserMiniGame.jpeg" alt="TakeFlight feed mini-game screen" width="480" height="360" /></span><p class="media-caption">Feed mini-game focused on timing and resource collection to maintain hunger and progression.</p></div>
-										<div class="col-6 media-grid-item"><span class="ipad-bezel"><img loading="lazy" src="assets/images/TakeFlightLeaveIslandMiniGame.webp" alt="TakeFlight leave-island mini-game screen" width="1200" height="838" /></span><p class="media-caption">Leave Island mini-game sequence where players complete the final escape challenge.</p></div>
+								<div class="screenshot-scroll-track">
+									<div class="screenshot-scroll-item">
+										<span class="ipad-bezel"><img loading="lazy" src="assets/images/TakeFlightBuildNestMiniGame.jpeg" alt="TakeFlight build-nest mini-game screen" width="480" height="360" /></span>
+										<p class="media-caption">Build Nest mini-game where players assemble materials under pressure to unlock core progression.</p>
+									</div>
+									<div class="screenshot-scroll-item">
+										<span class="ipad-bezel"><img loading="lazy" src="assets/images/TakeFlightPredatorMiniGame.jpeg" alt="TakeFlight predator mini-game screen" width="480" height="360" /></span>
+										<p class="media-caption">Predator mini-game where players react quickly to evade threats and preserve survival state.</p>
+									</div>
+									<div class="screenshot-scroll-item">
+										<span class="ipad-bezel"><img loading="lazy" src="assets/images/TakeFlightFeedUserMiniGame.jpeg" alt="TakeFlight feed mini-game screen" width="480" height="360" /></span>
+										<p class="media-caption">Feed mini-game focused on timing and resource collection to maintain hunger and progression.</p>
+									</div>
+									<div class="screenshot-scroll-item">
+										<span class="ipad-bezel"><img loading="lazy" src="assets/images/TakeFlightLeaveIslandMiniGame.webp" alt="TakeFlight leave-island mini-game screen" width="1200" height="838" /></span>
+										<p class="media-caption">Leave Island mini-game sequence where players complete the final escape challenge.</p>
 									</div>
 								</div>
 
