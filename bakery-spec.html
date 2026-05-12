@@ -209,12 +209,12 @@
                     </div>
 
                     <h3>Problem</h3>
-                    <p>Most portfolio bakery sites are static mockups — pretty but fake. The goal here was to build something that actually works end-to-end: a customer can browse the menu, add items to a cart, check out with a real card, and receive a confirmation email. A business owner can log into a dashboard, manage orders, update the menu, issue refunds, and export reports — without touching code.</p>
+                    <p>Small bakeries take orders by phone or Instagram DM, lose track of them, and pay 15–30% commission to DoorDash or Uber Eats to get discovered online. There's no system, no paper trail, and no way to know which items are low on stock before the morning rush. The goal was to build them a direct ordering system they own — one that replaces $200–500/month in tools like Square Online or Toast, costs them zero commission per order, and gives the owner a real dashboard instead of a phone full of DMs.</p>
 
                     <h3>Challenge-Based Learning</h3>
-                    <p><strong>Challenge:</strong> Build a complete ordering platform from the ground up — real payments, a database, authenticated admin routes, email/SMS automation, and scheduled jobs — as someone still early in web development coming from iOS/Swift.</p>
-                    <p><strong>Approach:</strong> Used Node.js + Express for the backend, Supabase (Postgres) for the database, Stripe Elements for payments, Resend for transactional email, and Twilio for SMS. Deployed the whole stack to Render.</p>
-                    <p><strong>Outcome:</strong> A production-capable ordering platform with a real payment flow, a fully featured admin CMS, and automated operations running on scheduled cron jobs — the most technically complete web project I've built.</p>
+                    <p><strong>Challenge:</strong> Build a production-capable ordering platform from scratch — real payments, a relational database, authenticated admin routes, automated email/SMS, and scheduled background jobs — as someone still early in web development coming from iOS/Swift.</p>
+                    <p><strong>Approach:</strong> Used Node.js + Express for the backend, Supabase (Postgres) for the database with Auth and Storage bundled, Stripe Elements for payments with a payment-first flow so the order is only saved after the charge succeeds, Resend for transactional email, and Twilio for SMS. Deployed to Render.</p>
+                    <p><strong>Outcome:</strong> A forkable ordering platform that any food business could use — with a real checkout flow, a fully featured admin CMS, and automated operations. Replaces expensive SaaS tools and eliminates delivery platform commissions entirely.</p>
 
                     <h3>Project Snapshot</h3>
                     <ul class="alt">
@@ -252,6 +252,35 @@
                     <span class="tech-tag">Render</span>
                 </div>
 
+                <!-- Technical Decisions -->
+                <h3>Technical Decisions</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>Why Supabase</h4>
+                        <p>Supabase bundles Postgres, Auth, and file Storage in one service. That meant no separate auth server, no third-party image host, and one set of credentials to manage. For a solo project, that consolidation is a meaningful reduction in complexity.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Payment-First Flow</h4>
+                        <p>The Stripe charge is confirmed via webhook <em>before</em> the order is written to the database. This prevents unpaid orders from ever entering the system — if the charge fails or the server crashes between payment and save, no phantom order appears in the admin queue.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>node-cron Inside the Server</h4>
+                        <p>Scheduled jobs run inside the Express process via <code>node-cron</code> rather than a separate job scheduler. The tradeoff is simplicity vs. reliability — this works fine for a portfolio project, but in production a server restart would silently kill all scheduled jobs. A real deployment would use BullMQ or an external cron service.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Rate Limiting on Checkout</h4>
+                        <p>Rate limiting is applied specifically to the checkout endpoint, not just globally. A bad actor can spam most routes without consequence, but repeatedly hitting checkout could trigger Stripe fraud flags and put the merchant account at risk. That endpoint warranted its own stricter limit.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>API-Level Auth vs. UI-Level Auth</h4>
+                        <p>The admin dashboard checks login state in the UI — but every API route it calls also verifies the JWT on the server. Hiding a button in the browser isn't security. Any HTTP client can call <code>/api/admin/refund</code> directly, so the server has to verify the token independently of what the frontend shows.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Forkable Architecture</h4>
+                        <p>The codebase is structured so the whole platform can be reskinned for any food business — different menu items, colors, and business name — in a few hours. The business logic (ordering, payments, admin) is the same regardless of what's being sold.</p>
+                    </div>
+                </div>
+
                 <!-- Key Features -->
                 <h3>Key Features</h3>
                 <div class="feature-grid">
@@ -281,13 +310,24 @@
                     </div>
                 </div>
 
+                <!-- Product Thinking -->
+                <h3>Product Thinking</h3>
+                <p style="margin-bottom:1em;color:#555;font-size:0.95em;">Features that came from thinking about how the business owner actually uses this — not just what was technically interesting to build.</p>
+                <ul>
+                    <li><strong>Scheduled pickup time slots with slot disabling</strong> — past times are disabled, same-day slots within 2 hours are removed, and orders placed after 6pm roll to next-morning slots. A customer placing an order at 8pm shouldn't be able to pick up at 9pm.</li>
+                    <li><strong>Minimum order enforcement before Stripe is called</strong> — the checkout button stays disabled until the cart meets the minimum. No partial charge attempts, no error messages from Stripe — the constraint is enforced in the UI before the payment flow starts.</li>
+                    <li><strong>Thermal receipt formatting (80mm)</strong> — the admin's print receipt is formatted for a standard 80mm thermal receipt printer, not a browser print dialog. That's the printer sitting next to every point-of-sale terminal. Getting this right meant the dashboard is actually usable in a real kitchen.</li>
+                    <li><strong>Local timezone date filtering</strong> — an early version filtered orders by UTC date. A 10pm order in Detroit showed up under the wrong day because UTC midnight had already passed. Fixed by converting all date comparisons to the server's local timezone so the admin's "today" matches their actual day.</li>
+                    <li><strong>Refund button with graceful error handling</strong> — if the Stripe refund API call fails, the owner sees a human-readable message telling them to go to the Stripe dashboard directly. Not a raw error. Not a spinner that hangs. A clear next step they can actually follow.</li>
+                </ul>
+
                 <!-- Challenges -->
                 <h3>Challenges</h3>
 
                 <section class="case-study-section">
-                    <h4>Stripe Payment Flow — Tips, Fees, and Webhooks</h4>
-                    <p>The payment flow had more moving parts than a simple "charge card" integration. Tips are optional and percentage-based, delivery fees vary by zone, and orders below a minimum amount need to be blocked before Stripe is ever called. All of this had to be calculated server-side — trusting the client for cart totals is a security problem.</p>
-                    <p>The Express backend computes the final charge amount and creates the Stripe PaymentIntent. After payment, a Stripe webhook fires and hits a <code>/webhook</code> endpoint that verifies the Stripe signature and writes the confirmed order to Supabase. The webhook — not the frontend — is the authoritative signal that money changed hands.</p>
+                    <h4>Stripe Payment Flow — Payment-First, Then Save</h4>
+                    <p>The payment flow had more moving parts than a simple "charge card" integration. Tips are optional and percentage-based, delivery fees vary by zone, and orders below a minimum amount need to be blocked before Stripe is ever called. All of this is calculated server-side — trusting the client for cart totals is a security problem.</p>
+                    <p>The key architectural decision was payment-first: the Stripe charge must succeed before the order is written to the database. The frontend creates a PaymentIntent on the server, completes the Stripe flow, and only then does the webhook confirm and save the order. If the server crashed between payment and save, that's exactly what Stripe webhooks are for — they retry delivery until the order is recorded. This prevents phantom orders in the admin queue and ensures no order exists in the system that hasn't been paid for.</p>
                     <div class="code-snippet">
                         <span class="code-snippet-label" style="font-weight:700;">STRIPE WEBHOOK — server.js</span>
                         <pre><code class="language-javascript">app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
@@ -366,10 +406,18 @@ cron.schedule('0 */4 * * *', sendUnfulfilledReminder);</code></pre>
                 </section>
 
                 <section class="case-study-section">
-                    <h4>Admin Refund Button — Hitting the Stripe API</h4>
-                    <p>The dashboard needed a refund button so the business owner could process returns without logging into Stripe. The challenge was making it idempotent — pressing the button twice shouldn't issue two refunds.</p>
-                    <p>The refund endpoint checks whether the order already has a <code>refund_id</code> in Supabase before calling Stripe. If it does, it returns the existing refund instead of creating a new one. After a successful Stripe refund, the order status is updated to <code>refunded</code> so the dashboard reflects reality.</p>
+                    <h4>Admin Refund Button — Idempotency and Graceful Failure</h4>
+                    <p>The dashboard needed a refund button so the business owner could process returns without logging into Stripe. Two problems to solve: pressing the button twice shouldn't issue two refunds, and when Stripe does fail, the owner needs a clear next step — not a raw error message.</p>
+                    <p>The refund endpoint checks whether the order already has a <code>refund_id</code> in Supabase before calling Stripe. If it does, it returns the existing refund instead of creating a new one. If the Stripe call fails for any reason, the UI shows a human-readable message directing the owner to the Stripe dashboard — a place they can actually go to resolve it — rather than surfacing a technical error they can't act on.</p>
                 </section>
+
+                <!-- Business Impact -->
+                <h3>Business Impact</h3>
+                <ul>
+                    <li><strong>0% commission per order</strong> — vs. 15–30% on DoorDash or Uber Eats. On a $50 order, that's $7–15 back in the owner's pocket, every time.</li>
+                    <li><strong>Replaces $200–500/month in SaaS tools</strong> — Square Online, Toast, and similar platforms charge for what this project provides out of the box: online ordering, an admin dashboard, inventory management, and automated reporting.</li>
+                    <li><strong>Forkable in hours</strong> — the architecture is built to be reskinned for any food business. Swap the menu items, colors, and business name and the full ordering + admin platform is ready to redeploy.</li>
+                </ul>
 
                 <!-- Outcome -->
                 <div class="outcome-snapshot">
@@ -381,7 +429,7 @@ cron.schedule('0 */4 * * *', sendUnfulfilledReminder);</code></pre>
                 </div>
 
                 <h3>Outcome</h3>
-                <p>The Bakery Co. is the most technically complete project I've shipped as a web developer. It covers the full stack — frontend UX, backend API design, relational database, real payments, transactional messaging, and automated operations. Every feature required understanding how the pieces connect, not just how to write code in isolation. Coming from iOS development, it gave me hands-on experience with the parts of web engineering that don't exist in the mobile world: server-side auth, webhook event handling, and scheduled background jobs.</p>
+                <p>The Bakery Co. is the most technically complete project I've shipped as a web developer. It covers the full stack — frontend UX, backend API design, relational database, real payments, transactional messaging, and automated operations — and it's built around a real problem that real businesses have. Every feature required understanding how the pieces connect, not just how to write code in isolation. Coming from iOS, it gave me hands-on experience with the parts of web engineering that don't exist in the mobile world: server-side auth, webhook event handling, and scheduled background jobs.</p>
 
                 <h3>What I Learned</h3>
                 <ul>
@@ -396,11 +444,11 @@ cron.schedule('0 */4 * * *', sendUnfulfilledReminder);</code></pre>
 
                 <h3>Next Iteration</h3>
                 <ul>
-                    <li>Add multi-location support so the platform could serve more than one bakery branch</li>
-                    <li>Build a customer account portal — order history, saved addresses, reorder with one click</li>
-                    <li>Replace the Node.js cron jobs with proper job queues (BullMQ) for reliability and retry logic</li>
-                    <li>Migrate the frontend to a component-based framework (React or Svelte) to eliminate the copy-paste maintenance problem</li>
-                    <li>Add real-time order status updates via Supabase's Realtime subscriptions</li>
+                    <li>Add Stripe webhook retry handling for the server-crash-between-payment-and-save edge case — the current flow relies on the server staying up during checkout</li>
+                    <li>Customer accounts with order history — right now every order is guest checkout</li>
+                    <li>Coupon and discount code support via Stripe's promotion code API</li>
+                    <li>Token refresh logic on the admin session — the current JWT expires and boots the owner out mid-shift</li>
+                    <li>Replace <code>node-cron</code> with BullMQ or an external cron service so scheduled jobs survive server restarts</li>
                 </ul>
             </section>
         </article>
