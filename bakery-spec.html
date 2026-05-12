@@ -6,15 +6,15 @@
     <meta charset="utf-8" />
     <link rel="canonical" href="https://geoclink.github.io/portfolio/bakery-spec.html" />
     <meta property="og:title" content="The Bakery Co. — Case Study | George Clinkscales Jr." />
-    <meta property="og:description" content="Case study: The Bakery Co. — A spec bakery website built with HTML, CSS, and vanilla JavaScript featuring live fuzzy search, working Formspree forms, 40+ product pages, and scroll animations." />
+    <meta property="og:description" content="Case study: The Bakery Co. — A full-stack bakery ordering platform with Stripe payments, Supabase, a JWT-authenticated admin dashboard, transactional email/SMS, and scheduled cron jobs, deployed on Render." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://geoclink.github.io/portfolio/bakery-spec.html" />
     <meta property="og:image" content="https://geoclink.github.io/portfolio/assets/images/logo.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="The Bakery Co. — Case Study | George Clinkscales Jr." />
-    <meta name="twitter:description" content="Case study: The Bakery Co. — A spec bakery website built with HTML, CSS, and vanilla JavaScript featuring live fuzzy search, working Formspree forms, 40+ product pages, and scroll animations." />
+    <meta name="twitter:description" content="Case study: The Bakery Co. — A full-stack bakery ordering platform with Stripe payments, Supabase, a JWT-authenticated admin dashboard, transactional email/SMS, and scheduled cron jobs, deployed on Render." />
     <meta name="twitter:image" content="https://geoclink.github.io/portfolio/assets/images/logo.jpg" />
-    <meta name="description" content="Case study: The Bakery Co. — A spec bakery website built with HTML, CSS, and vanilla JavaScript featuring live fuzzy search, working Formspree forms, 40+ product pages, and scroll animations." />
+    <meta name="description" content="Case study: The Bakery Co. — A full-stack bakery ordering platform with Stripe payments, Supabase, a JWT-authenticated admin dashboard, transactional email/SMS, and scheduled cron jobs, deployed on Render." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
@@ -123,9 +123,9 @@
     <script type="application/ld+json">
     {
        "@context": "https://schema.org",
-       "@type": "WebSite",
+       "@type": "WebApplication",
        "name": "The Bakery Co.",
-       "description": "A spec bakery website built with HTML, CSS, and vanilla JavaScript featuring live fuzzy search, Formspree forms, and 40+ product pages.",
+       "description": "A full-stack bakery ordering platform with Stripe payments, Supabase, a JWT-authenticated admin dashboard, transactional email/SMS, and scheduled cron jobs, deployed on Render.",
        "url": "https://geoclink.github.io/the-bakery-co/",
        "author": {
           "@type": "Person",
@@ -173,32 +173,31 @@
             <header>
                 <div class="title">
                     <h2>The Bakery Co.</h2>
-                    <p>A spec bakery website built from scratch with HTML, CSS, and vanilla JavaScript — complete with live fuzzy search, working forms, 40+ product pages, scroll animations, and a cart UI.</p>
+                    <p>A full-stack bakery ordering and business management platform — customer storefront with real Stripe payments, a JWT-authenticated admin dashboard, transactional email and SMS, and scheduled cron jobs, all deployed on Render.</p>
                     <hr>
 
                     <div class="platform-badges">
-                        <span class="badge badge-highlight">Live on GitHub Pages</span>
-                        <span class="badge">HTML</span>
-                        <span class="badge">CSS</span>
-                        <span class="badge">JavaScript</span>
-                        <span class="badge">Fuse.js</span>
-                        <span class="badge">Formspree</span>
-                        <span class="badge">GitHub Pages</span>
+                        <span class="badge badge-highlight">Live on Render</span>
+                        <span class="badge">Node.js</span>
+                        <span class="badge">Supabase</span>
+                        <span class="badge">Stripe</span>
+                        <span class="badge">HTML · CSS · JavaScript</span>
+                        <span class="badge">Resend</span>
+                        <span class="badge">Twilio</span>
                     </div>
 
                     <div class="stat-row">
                         <div class="stat-block">
-                            <span class="stat-number">40+</span>
-                            <span class="stat-label">Product Pages</span>
+                            <span class="stat-number">Real</span>
+                            <span class="stat-label">Stripe Payments</span>
                         </div>
-
+                        <div class="stat-block">
+                            <span class="stat-number">JWT</span>
+                            <span class="stat-label">Auth on All Admin Routes</span>
+                        </div>
                         <div class="stat-block">
                             <span class="stat-number">3</span>
-                            <span class="stat-label">Working Forms</span>
-                        </div>
-                        <div class="stat-block">
-                            <span class="stat-number">1</span>
-                            <span class="stat-label">JS Library</span>
+                            <span class="stat-label">Scheduled Cron Jobs</span>
                         </div>
                     </div>
 
@@ -206,24 +205,24 @@
                     <h3>Demo</h3>
                     <div style="margin:0 0 1.5em;">
                         <video src="assets/images/bakery-demo.mp4" controls style="width:100%;max-width:1500px;display:block;margin:0 auto;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,0.12);"></video>
-                        <div class="media-caption" style="margin-top:0.6em; text-align: center;">Site walkthrough — live fuzzy search, product pages, cart UI, forms, events, and employment page.</div>
+                        <div class="media-caption" style="margin-top:0.6em; text-align: center;">Site walkthrough — storefront, fuzzy search, cart, checkout, and admin dashboard.</div>
                     </div>
 
                     <h3>Problem</h3>
-                    <p>When learning web development, it's easy to build toy examples that never feel real. The goal of The Bakery Co. was to build something that actually functions like a business site — real navigation, real search, real form submissions, real product pages — using only the fundamentals. No React. No backend. No shortcuts. Just HTML, CSS, and enough JavaScript to make it feel alive.</p>
+                    <p>Most portfolio bakery sites are static mockups — pretty but fake. The goal here was to build something that actually works end-to-end: a customer can browse the menu, add items to a cart, check out with a real card, and receive a confirmation email. A business owner can log into a dashboard, manage orders, update the menu, issue refunds, and export reports — without touching code.</p>
 
                     <h3>Challenge-Based Learning</h3>
-                    <p><strong>Challenge:</strong> Build a fully functioning business website that a real bakery could demo — with search, forms, dozens of products, and a consistent design — using only HTML, CSS, and vanilla JavaScript.</p>
-                    <p><strong>Approach:</strong> Integrated Fuse.js for live client-side fuzzy search, used Formspree to handle form submissions without a backend, hand-built 40+ product pages to simulate a real catalog, and deployed to GitHub Pages.</p>
-                    <p><strong>Outcome:</strong> A live, deployed spec site that demonstrates solid web fundamentals, third-party library integration, and the discipline required to maintain consistency across a large number of static pages.</p>
+                    <p><strong>Challenge:</strong> Build a complete ordering platform from the ground up — real payments, a database, authenticated admin routes, email/SMS automation, and scheduled jobs — as someone still early in web development coming from iOS/Swift.</p>
+                    <p><strong>Approach:</strong> Used Node.js + Express for the backend, Supabase (Postgres) for the database, Stripe Elements for payments, Resend for transactional email, and Twilio for SMS. Deployed the whole stack to Render.</p>
+                    <p><strong>Outcome:</strong> A production-capable ordering platform with a real payment flow, a fully featured admin CMS, and automated operations running on scheduled cron jobs — the most technically complete web project I've built.</p>
 
                     <h3>Project Snapshot</h3>
                     <ul class="alt">
-                        <li><strong>Platform:</strong> Static site hosted on GitHub Pages</li>
-                        <li><strong>Stack:</strong> HTML · CSS · Vanilla JavaScript · Fuse.js · Formspree</li>
-                        <li><strong>Type:</strong> Spec project — designed and built as a learning exercise</li>
+                        <li><strong>Platform:</strong> Full-stack web app hosted on Render</li>
+                        <li><strong>Stack:</strong> HTML · CSS · JavaScript · Node.js · Express · Supabase · Stripe · Resend · Twilio · Chart.js · GTM/GA4</li>
+                        <li><strong>Type:</strong> Portfolio project built to production-level completeness</li>
                         <li><strong>Team:</strong> Solo</li>
-                        <li><strong>Role:</strong> Designer and developer — every page, every style, every script</li>
+                        <li><strong>Role:</strong> Full-stack developer — frontend, backend, database, payments, email/SMS, deployment</li>
                     </ul>
 
                     <div style="display:flex;gap:1em;flex-wrap:wrap;margin:1em 0 1.5em 0;">
@@ -240,38 +239,45 @@
                     <span class="tech-tag">HTML</span>
                     <span class="tech-tag">CSS</span>
                     <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Express</span>
+                    <span class="tech-tag">Supabase (Postgres)</span>
+                    <span class="tech-tag">Stripe Elements</span>
+                    <span class="tech-tag">Resend</span>
+                    <span class="tech-tag">Twilio</span>
+                    <span class="tech-tag">Chart.js</span>
                     <span class="tech-tag">Fuse.js</span>
-                    <span class="tech-tag">Formspree</span>
-                    <span class="tech-tag">GitHub Pages</span>
-                    <span class="tech-tag">IntersectionObserver</span>
+                    <span class="tech-tag">Google Tag Manager</span>
+                    <span class="tech-tag">GA4</span>
+                    <span class="tech-tag">Render</span>
                 </div>
 
                 <!-- Key Features -->
                 <h3>Key Features</h3>
                 <div class="feature-grid">
                     <div class="feature-card">
-                        <h4>Live Fuzzy Search</h4>
-                        <p>Powered by Fuse.js. Users type into the search bar and results update instantly — no server, no page reload. Searches across product names and descriptions with fuzzy matching so minor typos still return results.</p>
+                        <h4>Stripe Checkout</h4>
+                        <p>Real payment processing via Stripe Elements — tip selection, delivery fee calculation, and minimum order enforcement all handled before the card is charged. Webhooks update order status in Supabase after payment confirmation.</p>
                     </div>
                     <div class="feature-card">
-                        <h4>Working Forms</h4>
-                        <p>Contact, order, and employment forms all submit and deliver real emails via Formspree. No backend needed — Formspree handles delivery and spam filtering so the forms behave as if the site had a server.</p>
+                        <h4>Admin Dashboard</h4>
+                        <p>Full order management, revenue tracking with Chart.js graphs, a menu CMS with image uploads, inventory management, one-click refunds via the Stripe API, CSV export, and thermal receipt printing — all behind JWT authentication.</p>
                     </div>
                     <div class="feature-card">
-                        <h4>40+ Product Pages</h4>
-                        <p>Every product has its own dedicated HTML page with consistent layout, images, descriptions, and pricing. Hardcoded for demo purposes but structured to show what a real product catalog would look like at scale.</p>
+                        <h4>Transactional Email & SMS</h4>
+                        <p>Branded HTML email templates sent via Resend for order confirmations, fulfillment notifications, and low stock alerts. Twilio SMS for real-time order status updates so customers don't have to check their inbox.</p>
                     </div>
                     <div class="feature-card">
-                        <h4>Scroll Animations</h4>
-                        <p>Elements fade and slide into view as the user scrolls using the Intersection Observer API — no animation library required. Kept lightweight and purposeful so they add polish without slowing the page down.</p>
+                        <h4>Scheduled Cron Jobs</h4>
+                        <p>Three automated jobs running on a schedule: a daily summary email, a weekly revenue report, and an unfulfilled order reminder — keeping the business informed without any manual effort.</p>
                     </div>
                     <div class="feature-card">
-                        <h4>Cart UI</h4>
-                        <p>A cart sidebar that tracks selected items and quantities, built in vanilla JavaScript. State lives in-memory and in the DOM — designed to show the full user flow of browsing, selecting, and reviewing an order.</p>
+                        <h4>Storefront & Cart</h4>
+                        <p>Live fuzzy search with keyboard navigation powered by Fuse.js. Shopping cart persisted to localStorage so items survive page refreshes. Customer order notes field so special requests reach the kitchen.</p>
                     </div>
                     <div class="feature-card">
-                        <h4>Events & Employment Pages</h4>
-                        <p>Dedicated pages for bakery events and open positions, each with its own layout and a live Formspree form so visitors can RSVP or apply directly without leaving the site.</p>
+                        <h4>Security & Rate Limiting</h4>
+                        <p>JWT authentication (Supabase Auth) on every admin API route. API rate limiting via express-rate-limit to prevent abuse. No secrets exposed to the browser — all third-party API keys server-side only.</p>
                     </div>
                 </div>
 
@@ -279,136 +285,122 @@
                 <h3>Challenges</h3>
 
                 <section class="case-study-section">
-                    <h4>Building Live Search Without a Backend</h4>
-                    <p>The first version of the search bar filtered a static JavaScript array but only matched exact substrings — so typing "choclate" returned nothing when it should have found the chocolate croissant. I needed fuzzy matching that ran entirely on the client.</p>
-                    <p>I integrated Fuse.js via CDN with no build step. Product data lives in a flat JavaScript array. On every keystroke, Fuse scores and ranks matches based on edit distance and field weight. The <code>threshold</code> controls how forgiving the match is — 0 is exact, 1 matches almost anything. Setting it to 0.4 hit the right balance between precision and tolerance.</p>
+                    <h4>Stripe Payment Flow — Tips, Fees, and Webhooks</h4>
+                    <p>The payment flow had more moving parts than a simple "charge card" integration. Tips are optional and percentage-based, delivery fees vary by zone, and orders below a minimum amount need to be blocked before Stripe is ever called. All of this had to be calculated server-side — trusting the client for cart totals is a security problem.</p>
+                    <p>The Express backend computes the final charge amount and creates the Stripe PaymentIntent. After payment, a Stripe webhook fires and hits a <code>/webhook</code> endpoint that verifies the Stripe signature and writes the confirmed order to Supabase. The webhook — not the frontend — is the authoritative signal that money changed hands.</p>
                     <div class="code-snippet">
-                        <span class="code-snippet-label" style="font-weight:700;">FUSE.JS SEARCH — script.js</span>
-                        <pre><code class="language-javascript">const fuse = new Fuse(menuItems, {
-    keys: ["name", "description"],
-    threshold: 0.4,
-});
+                        <span class="code-snippet-label" style="font-weight:700;">STRIPE WEBHOOK — server.js</span>
+                        <pre><code class="language-javascript">app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
+    const sig = req.headers['stripe-signature'];
+    let event;
 
-searchInput.addEventListener("input", () => {
-    const query = searchInput.value.toLowerCase().trim();
-    searchResults.innerHTML = "";
-    activeIndex = -1;
-
-    if (query === "") { searchResults.hidden = true; return; }
-
-    const matches = fuse.search(query).map(result => result.item);
-
-    if (matches.length === 0) {
-        const li = document.createElement("li");
-        li.innerHTML = `&lt;span class="no-results"&gt;No results for "${searchInput.value}"&lt;/span&gt;`;
-        searchResults.appendChild(li);
-        searchResults.hidden = false;
-        return;
+    try {
+        event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
+    } catch (err) {
+        return res.status(400).send(`Webhook Error: ${err.message}`);
     }
 
-    matches.forEach(item => {
-        const li = document.createElement("li");
-        li.innerHTML = `&lt;a href="${item.href}"&gt;
-            &lt;span class="result-name"&gt;${item.name}&lt;/span&gt;
-            &lt;span class="result-category"&gt;${item.category}&lt;/span&gt;
-        &lt;/a&gt;`;
-        searchResults.appendChild(li);
-    });
+    if (event.type === 'payment_intent.succeeded') {
+        const paymentIntent = event.data.object;
+        const orderId = paymentIntent.metadata.order_id;
 
-    searchResults.hidden = false;
-});
+        await supabase
+            .from('orders')
+            .update({ status: 'paid', stripe_payment_id: paymentIntent.id })
+            .eq('id', orderId);
 
-// Close dropdown when clicking outside
-document.addEventListener("click", (e) => {
-    if (!e.target.closest(".search-wrapper")) {
-        searchResults.hidden = true;
-    }
-});
-
-// Keyboard navigation (↑ ↓ Enter Escape)
-searchInput.addEventListener("keydown", (e) => {
-    const items = searchResults.querySelectorAll("li a");
-    if (!items.length || searchResults.hidden) return;
-
-    if (e.key === "ArrowDown") {
-        e.preventDefault();
-        activeIndex = (activeIndex + 1) % items.length;
-    } else if (e.key === "ArrowUp") {
-        e.preventDefault();
-        activeIndex = (activeIndex - 1 + items.length) % items.length;
-    } else if (e.key === "Enter" && activeIndex >= 0) {
-        e.preventDefault();
-        items[activeIndex].click();
-    } else if (e.key === "Escape") {
-        searchResults.hidden = true;
-        activeIndex = -1;
+        await sendOrderConfirmationEmail(orderId);
     }
 
-    items.forEach((item, i) =>
-        item.parentElement.classList.toggle("active", i === activeIndex));
+    res.json({ received: true });
 });</code></pre>
                     </div>
                 </section>
 
                 <section class="case-study-section">
-                    <h4>Scroll Animations — IntersectionObserver</h4>
-                    <p>Sections fade in as the user scrolls using the native <code>IntersectionObserver</code> API. No library needed — any element with the <code>fade-in</code> class starts invisible and gets a <code>visible</code> class added the moment it enters the viewport.</p>
+                    <h4>JWT Authentication on Admin Routes</h4>
+                    <p>The admin dashboard has real power — it can issue refunds, delete menu items, and export customer data. Every API route behind it needed to be protected so that only authenticated users could reach it.</p>
+                    <p>Supabase Auth handles login and issues a JWT. On every admin API request, a middleware function verifies the token server-side before any data is read or written. An expired or missing token returns a 401 immediately.</p>
                     <div class="code-snippet">
-                        <span class="code-snippet-label" style="font-weight:700;">SCROLL ANIMATION — script.js</span>
-                        <pre><code class="language-javascript">const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-        }
-    });
-});
+                        <span class="code-snippet-label" style="font-weight:700;">AUTH MIDDLEWARE — middleware/auth.js</span>
+                        <pre><code class="language-javascript">const requireAuth = async (req, res, next) => {
+    const authHeader = req.headers.authorization;
+    if (!authHeader?.startsWith('Bearer ')) {
+        return res.status(401).json({ error: 'No token provided' });
+    }
 
-document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));</code></pre>
+    const token = authHeader.split(' ')[1];
+    const { data: { user }, error } = await supabase.auth.getUser(token);
+
+    if (error || !user) {
+        return res.status(401).json({ error: 'Invalid or expired token' });
+    }
+
+    req.user = user;
+    next();
+};
+
+// Applied to every admin route
+app.use('/api/admin', requireAuth);</code></pre>
                     </div>
-                    <p>The CSS does the rest — <code>.fade-in</code> starts at <code>opacity: 0; transform: translateY(20px)</code> and transitions to fully visible when <code>.visible</code> is added.</p>
                 </section>
 
                 <section class="case-study-section">
-                    <h4>GitHub Pages Relative Path Issue</h4>
-                    <p>Everything worked perfectly when opening files locally. After deploying to GitHub Pages, images and stylesheets were broken on sub-pages. The browser was resolving relative paths like <code>../assets/css/main.css</code> differently depending on the URL structure the deployment generated.</p>
-                    <p>The fix was switching from relative paths to root-relative paths starting with <code>/the-bakery-co/</code> consistently across every file. This made asset resolution predictable regardless of how deep a page sat in the directory tree. It was tedious to update — but it taught me exactly how the browser resolves paths and why it matters for any static site that isn't served from the root.</p>
+                    <h4>Scheduled Cron Jobs</h4>
+                    <p>The admin needed to receive a daily summary, a weekly revenue report, and alerts for orders that had been placed but not fulfilled — without having to remember to check anything manually. These needed to run on a schedule even when no one was using the app.</p>
+                    <p>Three cron jobs run server-side using <code>node-cron</code>. Each one queries Supabase for the relevant data, formats it, and sends it via Resend. The unfulfilled order reminder only fires if there are actually open orders — no noise when the queue is clear.</p>
+                    <div class="code-snippet">
+                        <span class="code-snippet-label" style="font-weight:700;">CRON JOBS — jobs/scheduler.js</span>
+                        <pre><code class="language-javascript">import cron from 'node-cron';
+import { sendDailySummary, sendWeeklyReport, sendUnfulfilledReminder } from './emailJobs.js';
+
+// Daily summary — 8am every day
+cron.schedule('0 8 * * *', sendDailySummary);
+
+// Weekly report — Monday 9am
+cron.schedule('0 9 * * 1', sendWeeklyReport);
+
+// Unfulfilled order reminder — every 4 hours
+cron.schedule('0 */4 * * *', sendUnfulfilledReminder);</code></pre>
+                    </div>
                 </section>
 
                 <section class="case-study-section">
-                    <h4>Updating 40+ HTML Files</h4>
-                    <p>Early on I added a new nav link and realized it meant opening and editing every single HTML file by hand. No templating engine, no shared components — just raw copy-paste across 40+ pages. After doing it twice I stopped and changed how I worked.</p>
-                    <p>I started writing nav and footer markup in a way that was byte-for-byte identical across every file so a find-and-replace in VS Code could handle the whole site in one pass. It also made the case to me, viscerally, for why React and every other component-based framework exists. Shared components are not an abstraction for abstraction's sake — they solve a real, painful problem that you only fully understand after hitting it.</p>
+                    <h4>Admin Refund Button — Hitting the Stripe API</h4>
+                    <p>The dashboard needed a refund button so the business owner could process returns without logging into Stripe. The challenge was making it idempotent — pressing the button twice shouldn't issue two refunds.</p>
+                    <p>The refund endpoint checks whether the order already has a <code>refund_id</code> in Supabase before calling Stripe. If it does, it returns the existing refund instead of creating a new one. After a successful Stripe refund, the order status is updated to <code>refunded</code> so the dashboard reflects reality.</p>
                 </section>
 
                 <!-- Outcome -->
                 <div class="outcome-snapshot">
                     <span class="snap-stat"><strong>Solo project</strong></span>
                     <span class="snap-divider">·</span>
-                    <span class="snap-stat">HTML · CSS · JavaScript</span>
+                    <span class="snap-stat">Node.js · Supabase · Stripe</span>
                     <span class="snap-divider">·</span>
-                    <span class="snap-live">Live on GitHub Pages</span>
+                    <span class="snap-live">Live on Render</span>
                 </div>
 
                 <h3>Outcome</h3>
-                <p>The Bakery Co. is a working spec site that covers more ground than most beginner web projects. Building it without a framework meant confronting the browser directly — how paths resolve, how the DOM works, how to wire up a third-party library without npm. The challenges I ran into weren't problems to avoid; they were the whole point. Each one left me with a clearer mental model of how the web actually works.</p>
+                <p>The Bakery Co. is the most technically complete project I've shipped as a web developer. It covers the full stack — frontend UX, backend API design, relational database, real payments, transactional messaging, and automated operations. Every feature required understanding how the pieces connect, not just how to write code in isolation. Coming from iOS development, it gave me hands-on experience with the parts of web engineering that don't exist in the mobile world: server-side auth, webhook event handling, and scheduled background jobs.</p>
 
                 <h3>What I Learned</h3>
                 <ul>
-                    <li>How the browser resolves relative vs. root-relative paths, and why deployed sites break when you get it wrong</li>
-                    <li>Integrating a third-party JavaScript library via CDN without npm, a build step, or a bundler</li>
-                    <li>Handling form submissions without a backend using Formspree</li>
-                    <li>The Intersection Observer API for performant scroll animations</li>
-                    <li>Why shared components exist — learned by maintaining 40+ files without them first</li>
-                    <li>Keeping a large static site consistent enough that global changes stay manageable</li>
+                    <li>How Stripe's payment flow works end-to-end — PaymentIntents, webhooks, and why the webhook is the only reliable signal that payment succeeded</li>
+                    <li>JWT authentication on a Node.js/Express backend — issuing tokens, verifying them in middleware, and what 401 actually means</li>
+                    <li>Supabase as a Postgres backend — relational data modeling, row-level security, and Supabase Auth</li>
+                    <li>Transactional email with Resend — HTML email templates, deliverability basics, and when to use email vs. SMS</li>
+                    <li>Scheduled cron jobs — running background work on a server without user interaction</li>
+                    <li>Express API design — routing, middleware chains, rate limiting, and keeping secrets server-side</li>
+                    <li>Deploying a Node.js app to Render with environment variable configuration</li>
                 </ul>
 
                 <h3>Next Iteration</h3>
                 <ul>
-                    <li>Persist cart state with <code>localStorage</code> so items survive page refreshes and navigation</li>
-                    <li>Add a hamburger menu for mobile — the current nav doesn't collapse on small screens</li>
-                    <li>Replace hardcoded product pages with a lightweight CMS so a business owner could update inventory without touching HTML</li>
-                    <li>Add more dynamic UI — image carousels, product filters, animated page transitions</li>
-                    <li>Migrate to a static site generator like Eleventy or Astro to eliminate the 40-files problem at the source</li>
+                    <li>Add multi-location support so the platform could serve more than one bakery branch</li>
+                    <li>Build a customer account portal — order history, saved addresses, reorder with one click</li>
+                    <li>Replace the Node.js cron jobs with proper job queues (BullMQ) for reliability and retry logic</li>
+                    <li>Migrate the frontend to a component-based framework (React or Svelte) to eliminate the copy-paste maintenance problem</li>
+                    <li>Add real-time order status updates via Supabase's Realtime subscriptions</li>
                 </ul>
             </section>
         </article>
