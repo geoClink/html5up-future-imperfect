@@ -173,7 +173,7 @@
             <header>
                 <div class="title">
                     <h2>The Bakery Co.</h2>
-                    <p>A full-stack bakery ordering and business management platform — customer storefront with real Stripe payments, a JWT-authenticated admin dashboard, transactional email and SMS, and scheduled cron jobs, all deployed on Render.</p>
+                    <p>A full-stack bakery ordering and business management platform — two Stripe payment flows, Claude MCP ordering, WebMCP browser-native AI tools, a loyalty rewards program, gift cards, subscription billing, collaborative filtering upsell, and a complete admin dashboard. Deployed on Render.</p>
                     <hr>
 
                     <div class="platform-badges">
@@ -181,23 +181,27 @@
                         <span class="badge">Node.js</span>
                         <span class="badge">Supabase</span>
                         <span class="badge">Stripe</span>
+                        <span class="badge">MCP · WebMCP</span>
                         <span class="badge">HTML · CSS · JavaScript</span>
                         <span class="badge">Resend</span>
                         <span class="badge">Twilio</span>
+                        <span class="badge">Gift Cards</span>
+                        <span class="badge">Subscriptions</span>
+                        <span class="badge">Loyalty Rewards</span>
                     </div>
 
                     <div class="stat-row">
                         <div class="stat-block">
-                            <span class="stat-number">Real</span>
-                            <span class="stat-label">Stripe Payments</span>
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">Stripe Payment Flows</span>
                         </div>
                         <div class="stat-block">
-                            <span class="stat-number">JWT</span>
-                            <span class="stat-label">Auth on All Admin Routes</span>
-                        </div>
-                        <div class="stat-block">
-                            <span class="stat-number">3</span>
+                            <span class="stat-number">4</span>
                             <span class="stat-label">Scheduled Cron Jobs</span>
+                        </div>
+                        <div class="stat-block">
+                            <span class="stat-number">20</span>
+                            <span class="stat-label">Pages</span>
                         </div>
                     </div>
 
@@ -241,8 +245,7 @@
                     </ul>
 
                     <div style="display:flex;gap:1em;flex-wrap:wrap;margin:1em 0 1.5em 0;">
-                        <a href="https://geoclink.github.io/the-bakery-co/" class="button" target="_blank" rel="noopener noreferrer">View Live Site <i class="fas fa-external-link-alt" style="margin-left:4px;"></i></a>
-                        <a href="https://github.com/geoClink/the-bakery-co" class="button" target="_blank" rel="noopener noreferrer">View on GitHub <i class="fab fa-github" style="margin-left:4px;"></i></a>
+                        <a href="https://the-bakery-co.onrender.com" class="button" target="_blank" rel="noopener noreferrer">View Live Site <i class="fas fa-external-link-alt" style="margin-left:4px;"></i></a>
                     </div>
                 </div>
             </header>
@@ -300,28 +303,52 @@
                 <h3>Key Features</h3>
                 <div class="feature-grid">
                     <div class="feature-card">
-                        <h4>Stripe Checkout</h4>
-                        <p>Real payment processing via Stripe Elements — tip selection, delivery fee calculation, and minimum order enforcement all handled before the card is charged. Webhooks update order status in Supabase after payment confirmation.</p>
+                        <h4>Two Stripe Payment Flows</h4>
+                        <p>Standard checkout uses Stripe Elements embedded on the page — <code>confirmCardPayment()</code> client-side, order saved only after <code>paymentIntent.status === "succeeded"</code>. The Claude/MCP flow uses <code>stripe.checkout.sessions.create()</code> server-side, returning a hosted Stripe URL. A single webhook endpoint handles both flows via <code>metadata.source</code>.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Claude MCP Ordering</h4>
+                        <p>Custom MCP server built with <code>@modelcontextprotocol/sdk</code>. Three tools: <code>get_menu</code> (live menu by category with availability and shippability flags), <code>get_hours</code>, and <code>place_order</code> (validates stock, builds Stripe line items, returns a hosted checkout URL). The tool description enforces a conversational ordering flow — name → email → fulfillment → address/time → tip → confirm.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>WebMCP Browser Integration</h4>
+                        <p>Shipped the week Google announced it at I/O 2026. Registers menu search, store hours, and checkout form as browser-native AI tools via the W3C WebMCP standard (Chrome 146+). Gemini can interact with the storefront directly in the browser with no API credentials required — imperative tools via <code>navigator.modelContext</code> and declarative checkout attributes.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Collaborative Filtering Upsell</h4>
+                        <p>Checkout upsell uses a fallback chain: first tries real co-purchase frequency from the <code>item_pairs</code> table (populated on every order by iterating all item ID combinations). Falls back to manually curated <code>paired_items</code>. Falls back to time-aware cross-sell (Breakfast 6–11am, Savory 11am–2pm, etc.). Best sellers sorted first within each category, respects shippability context.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Crumb Rewards (Loyalty Points)</h4>
+                        <p>Customers earn <code>Math.floor(total)</code> points per order. Points are written via a Supabase RPC <code>increment_points(uid, amount)</code> to prevent race conditions from concurrent orders. Redeem: every 100 points = $1 off. Balance loaded at checkout with automatic token refresh on 401.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Gift Cards</h4>
+                        <p>Stripe webhook generates a unique 16-char hex code on purchase, inserts it to the database, and emails the recipient via Resend. At checkout, gift cards can cover partial or full order amounts. If the gift card covers everything, Stripe is skipped entirely — the order is saved with <code>gc_${code}</code> as the payment intent ID and no charge is made.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Subscription Billing</h4>
+                        <p>Stripe Checkout in <code>mode: "subscription"</code> with a one-off Price object per plan. Duplicate prevention checks the subscriptions table for an active matching email + plan before proceeding. <code>invoice.payment_succeeded</code> webhook events auto-generate recurring orders and email confirmations.</p>
                     </div>
                     <div class="feature-card">
                         <h4>Admin Dashboard</h4>
-                        <p>Full order management, revenue tracking with Chart.js graphs, a menu CMS with image uploads, inventory management, one-click refunds via the Stripe API, CSV export, and thermal receipt printing — all behind JWT authentication.</p>
+                        <p>Order management, revenue analytics with Chart.js, menu CMS with image uploads, inventory management, one-click refunds, coupon management, CSV export, and thermal receipt printing (80mm format) — all behind JWT + email-verified admin auth.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Coupon System</h4>
+                        <p>Server validates: active flag, expiry date, max uses, <code>one_per_customer</code> (checks past orders by email), and <code>first_time_only</code> (checks for any prior orders). Uses count increments on order save. Birthday cron runs nightly — finds matching birthdays, generates a unique <code>BDAY-XXXXXXXX</code> code (15% off, expires midnight), emails it, and records <code>birthday_coupon_year</code> to prevent duplicates.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Inventory Auto-Management</h4>
+                        <p>After every order, stock decrements per item. At 0, <code>available</code> flips to false automatically. Low-stock email fires below 5 units. Sold-out email fires at 0. The owner never has to manually toggle availability — the system does it.</p>
                     </div>
                     <div class="feature-card">
                         <h4>Transactional Email & SMS</h4>
-                        <p>Branded HTML email templates sent via Resend for order confirmations, fulfillment notifications, and low stock alerts. Twilio SMS for real-time order status updates so customers don't have to check their inbox.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>Scheduled Cron Jobs</h4>
-                        <p>Three automated jobs running on a schedule: a daily summary email, a weekly revenue report, and an unfulfilled order reminder — keeping the business informed without any manual effort.</p>
+                        <p>All emails use a shared branded template function — consistent dark-header HTML layout wrapping every transactional message (order confirmations, ready notifications, birthday coupons, low-stock alerts, gift card delivery, weekly reports). Twilio SMS for real-time order status so customers don't have to check their inbox.</p>
                     </div>
                     <div class="feature-card">
                         <h4>Storefront & Cart</h4>
-                        <p>Live fuzzy search with keyboard navigation powered by Fuse.js. Shopping cart persisted to localStorage so items survive page refreshes. Customer order notes field so special requests reach the kitchen.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>Security & Rate Limiting</h4>
-                        <p>JWT authentication (Supabase Auth) on every admin API route. API rate limiting via express-rate-limit to prevent abuse. No secrets exposed to the browser — all third-party API keys server-side only.</p>
+                        <p>Live fuzzy search powered by Fuse.js with keyboard navigation. Cart persisted to localStorage. Dynamic OG tags on product pages — Express reads the HTML file, queries Supabase for the item's name/description/image, and injects <code>&lt;meta property="og:*"&gt;</code> tags before serving, so product links share correctly on social.</p>
                     </div>
                 </div>
 
@@ -334,6 +361,10 @@
                     <li><strong>Thermal receipt formatting (80mm)</strong> — the admin's print receipt is formatted for a standard 80mm thermal receipt printer, not a browser print dialog. That's the printer sitting next to every point-of-sale terminal. Getting this right meant the dashboard is actually usable in a real kitchen.</li>
                     <li><strong>Local timezone date filtering</strong> — an early version filtered orders by UTC date. A 10pm order in Detroit showed up under the wrong day because UTC midnight had already passed. Fixed by converting all date comparisons to the server's local timezone so the admin's "today" matches their actual day.</li>
                     <li><strong>Refund button with graceful error handling</strong> — if the Stripe refund API call fails, the owner sees a human-readable message telling them to go to the Stripe dashboard directly. Not a raw error. Not a spinner that hangs. A clear next step they can actually follow.</li>
+                    <li><strong>Gift card full-coverage Stripe skip</strong> — if a gift card covers the entire order total, Stripe is never called. The check is <code>amountAfterGiftCard &lt; 0.01</code>. Trying to create a $0 Stripe PaymentIntent throws an error; this catches it before it ever gets there.</li>
+                    <li><strong>Birthday coupon deduplication</strong> — the cron records <code>birthday_coupon_year</code> on the customer profile after sending. The next morning's run checks that field before generating a new code, so customers get exactly one birthday coupon per year regardless of how many times the job runs.</li>
+                    <li><strong>Session token proactive refresh</strong> — at checkout initialization, if the Supabase session expires within 60 seconds, <code>refreshSession()</code> is called before the user ever hits an auth error. On a 401 from <code>/api/points</code>, the frontend retries with a refreshed token, then signs out if the refresh also fails — no stuck states.</li>
+                    <li><strong>Bidirectional paired items</strong> — when an admin edits a menu item's <code>paired_items</code> array, the server diffs old vs. new pairs and writes the reverse relationship on all affected items. Removing a pair also cleans up the reverse link. The recommendation graph stays consistent without the admin having to manually maintain both directions.</li>
                 </ul>
 
                 <!-- Challenges -->
@@ -403,20 +434,22 @@ app.use('/api/admin', requireAuth);</code></pre>
                 <section class="case-study-section">
                     <h4>Scheduled Cron Jobs</h4>
                     <p>The admin needed to receive a daily summary, a weekly revenue report, and alerts for orders that had been placed but not fulfilled — without having to remember to check anything manually. These needed to run on a schedule even when no one was using the app.</p>
-                    <p>Three cron jobs run server-side using <code>node-cron</code>. Each one queries Supabase for the relevant data, formats it, and sends it via Resend. The unfulfilled order reminder only fires if there are actually open orders — no noise when the queue is clear.</p>
+                    <p>Four cron jobs run server-side using <code>node-cron</code>. Each queries Supabase for the relevant data, formats it, and sends via Resend. The unfulfilled order reminder only fires if there are actually open orders — no noise when the queue is clear. The birthday job records <code>birthday_coupon_year</code> after sending to ensure one coupon per customer per year regardless of how many times the job runs.</p>
                     <div class="code-snippet">
-                        <span class="code-snippet-label" style="font-weight:700;">CRON JOBS — jobs/scheduler.js</span>
-                        <pre><code class="language-javascript">import cron from 'node-cron';
-import { sendDailySummary, sendWeeklyReport, sendUnfulfilledReminder } from './emailJobs.js';
+                        <span class="code-snippet-label" style="font-weight:700;">CRON JOBS — server.js</span>
+                        <pre><code class="language-javascript">// Daily summary — 8pm every day
+cron.schedule('0 20 * * *', sendDailySummary);
 
-// Daily summary — 8am every day
-cron.schedule('0 8 * * *', sendDailySummary);
+// Weekly report — Sunday 8pm
+cron.schedule('0 20 * * 0', sendWeeklyReport);
 
-// Weekly report — Monday 9am
-cron.schedule('0 9 * * 1', sendWeeklyReport);
+// Unfulfilled order reminder — every 2 hours
+cron.schedule('0 */2 * * *', sendUnfulfilledReminder);
 
-// Unfulfilled order reminder — every 4 hours
-cron.schedule('0 */4 * * *', sendUnfulfilledReminder);</code></pre>
+// Birthday coupons — 8am every day
+// Finds matching birthdays, generates unique BDAY-XXXXXXXX code (15% off),
+// emails it, records birthday_coupon_year to prevent duplicates
+cron.schedule('0 8 * * *', sendBirthdayCoupons);</code></pre>
                     </div>
                 </section>
 
@@ -460,11 +493,10 @@ cron.schedule('0 */4 * * *', sendUnfulfilledReminder);</code></pre>
 
                 <h3>Next Iteration</h3>
                 <ul>
-                    <li>Add Stripe webhook retry handling for the server-crash-between-payment-and-save edge case — the current flow relies on the server staying up during checkout</li>
-                    <li>Customer accounts with order history — right now every order is guest checkout</li>
-                    <li>Coupon and discount code support via Stripe's promotion code API</li>
-                    <li>Token refresh logic on the admin session — the current JWT expires and boots the owner out mid-shift</li>
-                    <li>Replace <code>node-cron</code> with BullMQ or an external cron service so scheduled jobs survive server restarts</li>
+                    <li>Replace <code>node-cron</code> with BullMQ or an external cron service — scheduled jobs currently live inside the Express process and are silently lost on server restart</li>
+                    <li>Stripe webhook idempotency keys — the current webhook handler doesn't guard against duplicate deliveries on Stripe retries; adding an idempotency check before writing to Supabase would make it bulletproof</li>
+                    <li>Move the co-purchase pair tracking job off the request path — currently runs synchronously on every order save; at scale this should be a background job so it doesn't add latency to checkout confirmation</li>
+                    <li>Automated integration tests for the checkout flow — the payment-first architecture is correct but untested at the webhook layer; a test suite with Stripe CLI webhook forwarding would catch regressions</li>
                 </ul>
             </section>
         </article>
