@@ -124,15 +124,16 @@
 
 <section class="resume-section">
 <h3>Summary</h3>
-<p>Software engineer with production iOS apps on the App Store, a co-founded studio, and experience shipping across iOS and web. I build accessible, performant products from on-device ML to Python APIs.</p>
+<p>Full stack engineer and co-founder of CH Studios LLC with three shipped App Store iOS apps and a production MCP server integration. I build scalable, AI-ready platforms from database architecture to payment processing, with hands-on experience across web, backend, and iOS.</p>
 </section>
 
 <section class="resume-section">
 <h3>Professional Experience</h3>
 <ul>
 	<li><strong>Co-Founder &amp; Developer · <a href="https://geoclink.github.io/ch-studios/index.html" target="_blank" rel="noopener noreferrer">CH Studios LLC</a></strong> &nbsp;·&nbsp; Detroit, MI · April 2026 – Present<br>
-	Co-founded CH Studios LLC and secured a client contract to build CommonSight, an iOS app for Detroit community organizations using SwiftUI and Apple Intelligence APIs with spatial mapping and on-device AI tooling.<br>
-	Presenting feature updates and technical progress to investors and senior stakeholders during high-stakes demo sessions.</li>
+	Building a multi-tenant SaaS web platform for Detroit small businesses across bakery, salon, and restaurant verticals, consolidating online ordering, staff scheduling, loyalty programs, and AI recommendations into one system.<br>
+	Architected an AI-accessible ordering system integrating Anthropic MCP and Google WebMCP, making client businesses queryable by Claude and Gemini directly from conversational AI interfaces.<br>
+	Leading product development across three verticals with full stack architecture responsibilities, from database schema to admin dashboard UX and client onboarding flows.</li>
 
 	<li><strong>iOS / Android / Web Engineer · <a href="https://tripsetta.com/" target="_blank" rel="noopener noreferrer">Tripsetta</a></strong> &nbsp;·&nbsp; Detroit, MI · (part-time contract) April 2026 – Present<br>
 	Hired to maintain and ship feature updates across iOS, Android, and web platforms for an early-stage travel startup, working directly with the founder across the full product surface.</li>
@@ -149,9 +150,15 @@
 <h3>Projects</h3>
 <p style="font-size:0.95em;color:#666;margin-bottom:1em;"><em>Full technical documentation and demos available on <a href="case-studies.html">portfolio</a>.</em></p>
 <ul>
-	<li><strong style="font-size:1.15em;">The Bakery Co.</strong> &nbsp;·&nbsp; HTML · CSS · JavaScript · Node.js · Supabase · Stripe &nbsp;·&nbsp; May 2026<br>
-	<a href="https://geoclink.github.io/the-bakery-co/" target="_blank" rel="noopener noreferrer">View Live Site <i class='fas fa-external-link-alt' style='margin-left:4px;'></i></a> | <a href="https://github.com/geoClink/the-bakery-co" target="_blank" rel="noopener noreferrer">View on GitHub <i class='fab fa-github' style='margin-left:4px;'></i></a><br>
-	Built a full-stack bakery ordering platform with Node.js/Express, Supabase (Postgres), and Stripe payment processing. Featuring an admin dashboard with order management, inventory, refunds, and CSV export, plus Twilio SMS, Resend email, and scheduled cron jobs, deployed to Render.</li>
+	<li><strong style="font-size:1.15em;">The Bakery Co.</strong> &nbsp;·&nbsp; Node.js · Express · Supabase · Stripe · MCP · WebMCP · Subscriptions · Gift Cards &nbsp;·&nbsp; May 2026<br>
+	<a href="https://geoclink.github.io/the-bakery-co/" target="_blank" rel="noopener noreferrer">View Live Site <i class='fas fa-external-link-alt' style='margin-left:4px;'></i></a><br>
+	Built a full-stack bakery ordering platform with Node.js/Express, Supabase, and Stripe featuring an admin dashboard covering order management, inventory, revenue analytics, menu CMS, loyalty program, staff scheduling, coupon management, digital gift cards, and subscription billing, deployed to Render.<br>
+	Implemented MCP server using Anthropic SDK so customers can browse menus, place orders, and receive Stripe checkout links through Claude AI conversation, with webhook-driven order delivery to the admin dashboard.<br>
+	Shipped WebMCP the week Google announced it at I/O 2026, registering imperative tools via navigator.modelContext and declarative checkout attributes, enabling Gemini to query menu and cart data in Chrome with no API connection required.</li>
+
+	<li><strong style="font-size:1.15em;">The Salon Co.</strong> &nbsp;·&nbsp; Node.js · Express · Supabase · Stripe · Twilio &nbsp;·&nbsp; May 2026 – Present<br>
+	<a href="https://geoclink.github.io/the-salon-co/" target="_blank" rel="noopener noreferrer">View Live Site <i class='fas fa-external-link-alt' style='margin-left:4px;'></i></a><br>
+	Building salon vertical of CH Studios platform with appointment booking, stylist scheduling, automated SMS reminders, client formula storage, no-show deposit enforcement via Stripe, and rebooking automation.</li>
 
 	<li><strong style="font-size:1.15em;">CoastCast</strong> &nbsp;·&nbsp; FastAPI · CoreML · Swift Concurrency · SwiftUI · WidgetKit &nbsp;·&nbsp; Mar 2026 – Present<br>
 	<a href="https://testflight.apple.com/join/bHcPj25S" target="_blank" rel="noopener noreferrer">View on TestFlight <i class='fa fa-plane' style='margin-left:4px;'></i></a> | <a href="https://github.com/geoClink/MichiganAPIWeather" target="_blank" rel="noopener noreferrer">View on GitHub <i class='fab fa-github' style='margin-left:4px;'></i></a><br>
@@ -190,9 +197,9 @@
 <h3>Technical Skills</h3>
 <ul>
 	<li><strong>iOS Dev:</strong> Swift, SwiftUI, UIKit, Foundation, Apple Intelligence, SwiftData, MVVM, SpriteKit, CoreML</li>
-	<li><strong>Web &amp; Backend:</strong> HTML/CSS/JS, Python (FastAPI/Flask), Render (Deployment), Firebase, Supabase, REST APIs</li>
-	<li><strong>AI &amp; ML:</strong> CoreML, XGBoost, ONNX, on-device inference, Agentic Tool-Calling, Few-Shot Prompting, Ollama, Modelfile configuration</li>
-	<li><strong>Tools:</strong> Xcode, VSCode, Git, TestFlight, Sketch, Accessibility (VoiceOver/Dynamic Type), Claude Code, Docker, Open WebUI</li>
+	<li><strong>Web &amp; Backend:</strong> Node.js, Express, HTML/CSS/JS, Python (FastAPI/Flask), Supabase, PostgreSQL, Stripe, Twilio, REST APIs, Webhooks, Cron Jobs, Render (Deployment)</li>
+	<li><strong>AI &amp; ML:</strong> Anthropic MCP SDK, Claude API, WebMCP, Agentic Tool-Calling, Few-Shot Prompting, CoreML, XGBoost, ONNX, on-device inference, Ollama, Modelfile configuration</li>
+	<li><strong>Tools:</strong> VSCode, Git, Claude Code, Docker, Xcode, TestFlight, Accessibility (VoiceOver/Dynamic Type)</li>
 </ul>
 </section>
 
@@ -207,6 +214,7 @@
 <section class="resume-section certificates">
 	<h3>Certificates</h3>
 	<ul>
+		<li>Generative AI Explained - NVIDIA (May 2026)</li>
 		<li>Python - Mimo</li>
 		<li>Introduction to Agent Skills - Anthropic</li>
 		<li>Claude Code 101 - Anthropic</li>
@@ -229,7 +237,7 @@
 	<div class="footer-inner">
 		<div class="footer-brand">
 			<strong>George Clinkscales Jr.</strong>
-			<span>iOS Developer &middot; Apple Developer Academy &middot; Detroit, MI</span>
+			<span>Full Stack Engineer &middot; CH Studios LLC &middot; Detroit, MI</span>
 		</div>
 		<nav class="footer-nav">
 			<a href="index.html">Home</a>
